@@ -441,7 +441,9 @@ class JSONNull: Codable, Hashable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+            throw DecodingError.typeMismatch(JSONNull.self,
+                                             DecodingError.Context(codingPath: decoder.codingPath,
+                                                                   debugDescription: "Wrong type for JSONNull"))
         }
     }
 
@@ -530,7 +532,8 @@ class JSONAny: Codable {
         throw decodingError(forCodingPath: container.codingPath)
     }
 
-    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
+    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>,
+                       forKey key: JSONCodingKey) throws -> Any {
         if let value = try? container.decode(Bool.self, forKey: key) {
             return value
         }

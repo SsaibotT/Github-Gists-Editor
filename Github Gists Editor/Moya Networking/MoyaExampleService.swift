@@ -8,18 +8,6 @@
 import Foundation
 import Moya
 
-//private func JSONResponseDataFormatter(_ data: Data) -> Data {
-//    do {
-//        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-//        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-//        return prettyData
-//    } catch {
-//        return data 
-//    }
-//}
-
-//let moyaExample = MoyaProvider<MoyaExampleService>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
-
 enum MoyaExampleService {
     case getEvents
 }

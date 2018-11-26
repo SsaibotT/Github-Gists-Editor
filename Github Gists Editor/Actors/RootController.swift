@@ -8,36 +8,30 @@
 
 import UIKit
 import Moya
+import RxSwift
+import RxCocoa
 
 class RootController: UITableViewController {
-    let moyaProvider = MoyaProvider<MoyaExampleService>()
-    var event = [Event]()
+    
+    var actorsViewModel = ActorsViewModel()
+    var disposeBag      = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate   = nil
         tableView.dataSource = nil
-        // Do any additional setup after loading the view, typically from a nib.
         
-        downloadRepositories()
+        actorsViewModel.downloadRepositories()
+        setupBindings()
     }
     
     func setupBindings() {
-        
-    }
-    
-    func downloadRepositories() {
-        moyaProvider.request(.getEvents) { result in
-            switch result {
-            case .success(let response):
-                guard let events = try? JSONDecoder().decode(Events.self, from: response.data) else { return }
-                for element in events {
-                    print(element.actor.avatarURL)
-                }
-            case .failure(let error):
-                print(error.errorDescription ?? "Unknown error")
-            }
-        }
+        actorsViewModel.actors
+            .asObservable()
+            .bind(to: tableView.rx
+                .items(cellIdentifier: "Cell", cellType: ActorTableViewCell.self)) {(_, actor, cell) in
+                    cell.cellConfiguration(image: actor.avatar, name: actor.name)
+        }.disposed(by: disposeBag)
     }
 }

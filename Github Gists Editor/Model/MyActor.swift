@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 
-struct Actor {
+struct MyActor {
     
-    var avatar: UIImage!
+    var avatar: URL!
+    var name: String!
     
-    
+    init(avatar: URL, name: String) {
+        self.avatar = avatar
+        self.name   = name
+    }
 }

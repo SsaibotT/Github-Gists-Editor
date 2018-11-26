@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ActorTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
 
-    func cellConfig(image: UIImage, name: String) {
-        avatarImage.image = image
-        nameLabel.text    = name
+    func cellConfiguration(image: URL, name: String) {
+        nameLabel.text = name
+        avatarImage.kf.setImage(with: image)
     }
-
 }
