@@ -27,17 +27,17 @@ struct Event: Codable {
     enum CodingKeys: String, CodingKey {
         
         case url
-        case forksURL = "forks_url"
-        case commitsURL = "commits_url"
+        case forksURL    = "forks_url"
+        case commitsURL  = "commits_url"
         case id
-        case nodeID = "node_id"
-        case gitPullURL = "git_pull_url"
-        case gitPushURL = "git_push_url"
-        case htmlURL = "html_url"
+        case nodeID      = "node_id"
+        case gitPullURL  = "git_pull_url"
+        case gitPushURL  = "git_push_url"
+        case htmlURL     = "html_url"
         case files
         case eventPublic = "public"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        case createdAt   = "created_at"
+        case updatedAt   = "updated_at"
         case description, comments, user
         case commentsURL = "comments_url"
         case owner, truncated
@@ -73,22 +73,22 @@ struct Owner: Codable {
     
     enum CodingKeys: String, CodingKey {
         case login, id
-        case nodeID = "node_id"
-        case avatarURL = "avatar_url"
-        case gravatarID = "gravatar_id"
+        case nodeID            = "node_id"
+        case avatarURL         = "avatar_url"
+        case gravatarID        = "gravatar_id"
         case url
-        case htmlURL = "html_url"
-        case followersURL = "followers_url"
-        case followingURL = "following_url"
-        case gistsURL = "gists_url"
-        case starredURL = "starred_url"
-        case subscriptionsURL = "subscriptions_url"
-        case organizationsURL = "organizations_url"
-        case reposURL = "repos_url"
-        case eventsURL = "events_url"
+        case htmlURL           = "html_url"
+        case followersURL      = "followers_url"
+        case followingURL      = "following_url"
+        case gistsURL          = "gists_url"
+        case starredURL        = "starred_url"
+        case subscriptionsURL  = "subscriptions_url"
+        case organizationsURL  = "organizations_url"
+        case reposURL          = "repos_url"
+        case eventsURL         = "events_url"
         case receivedEventsURL = "received_events_url"
         case type
-        case siteAdmin = "site_admin"
+        case siteAdmin         = "site_admin"
     }
 }
 

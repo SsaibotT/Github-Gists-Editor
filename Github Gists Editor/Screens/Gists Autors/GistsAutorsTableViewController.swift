@@ -39,5 +39,16 @@ class GistsAutorsTableViewController: UITableViewController {
                         cell.cellConfiguration(events: event)
             }
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] in
+                self.goToChooseFileVC(index: $0.row)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func goToChooseFileVC(index: Int) {
+        let data = gistsViewModel.actors.value[index]
+        ShowControllers.showGistFilesOfAutors(from: self, data: data)
     }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,6 +40,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eX-wz-Ej4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="96" y="123"/>
+        </scene>
+        <!--Choose File View Controller-->
+        <scene sceneID="8EW-JD-c5h">
+            <objects>
+                <viewController storyboardIdentifier="ChooseFileViewController" id="9Hf-VW-0Vb" customClass="ChooseFileViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oyg-VH-WSf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xE8-RJ-G6T">
+                                <rect key="frame" x="0.0" y="342" width="375" height="325"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xE8-RJ-G6T" firstAttribute="leading" secondItem="oyg-VH-WSf" secondAttribute="leading" id="0K4-75-jPA"/>
+                            <constraint firstItem="xE8-RJ-G6T" firstAttribute="top" secondItem="Qpx-yD-hmq" secondAttribute="top" constant="322" id="Bi9-hH-H9h"/>
+                            <constraint firstAttribute="trailing" secondItem="xE8-RJ-G6T" secondAttribute="trailing" id="gPk-HY-EDa"/>
+                            <constraint firstItem="xE8-RJ-G6T" firstAttribute="bottom" secondItem="Qpx-yD-hmq" secondAttribute="bottom" id="zSP-xU-Qw9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qpx-yD-hmq"/>
+                    </view>
+                    <connections>
+                        <outlet property="filesTableView" destination="xE8-RJ-G6T" id="iWM-Th-ZIQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SrW-gf-UO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773.5999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
