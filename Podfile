@@ -8,6 +8,7 @@ pod 'Moya', '~> 12.0'
 pod 'RxSwift',    '~> 4.0'
 pod 'RxCocoa',    '~> 4.0'
 pod 'Kingfisher', '~> 4.0'
+pod 'Moya/RxSwift', '~> 12.0'
 pod 'Reveal-SDK', :configurations => ['Debug']
   # Pods for Github Gists Editor
 

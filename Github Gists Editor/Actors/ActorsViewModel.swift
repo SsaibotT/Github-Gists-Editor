@@ -9,24 +9,18 @@
 import Foundation
 import Moya
 import RxSwift
+import RxCocoa
 
 class ActorsViewModel {
     
-    var actors: Variable<[MyActor]> = Variable([MyActor]())
-    let moyaProvider = MoyaProvider<MoyaExampleService>()
+    var actors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
+    let disposeBag = DisposeBag()
     
-    func downloadRepositories() {
-        moyaProvider.request(.getEvents) { result in
-            switch result {
-            case .success(let response):
-                guard let events = try? JSONDecoder().decode(Events.self, from: response.data) else { return }
-                for event in events {
-                    guard let imageURL = URL(string: event.actor.avatarURL) else { return }
-                    self.actors.value.append(MyActor(avatar: imageURL, name: event.repo.name))
-                }
-            case .failure(let error):
-                print(error.errorDescription ?? "Unknown error")
-            }
-        }
+    init(provider: MoyaProvider<MoyaGithubEndpoints>) {
+        provider.rx.request(.getEvents)
+            .map([Event].self)
+            .asObservable()
+            .bind(to: actors)
+            .disposed(by: disposeBag)
     }
 }

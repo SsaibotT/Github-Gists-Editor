@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias Events = [Event]
-
 struct Event: Codable {
     let id, type: String
     let actor: Actor

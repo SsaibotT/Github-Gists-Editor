@@ -8,11 +8,11 @@
 import Foundation
 import Moya
 
-enum MoyaExampleService {
+enum MoyaGithubEndpoints {
     case getEvents
 }
 
-extension MoyaExampleService: TargetType {
+extension MoyaGithubEndpoints: TargetType {
     
     public var baseURL: URL {
         return URL(string: "https://api.github.com")!
