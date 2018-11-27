@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
-		C50C4FAD21AD84C2004CBDE0 /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50C4FAB21AD84C2004CBDE0 /* ActorTableViewCell.swift */; };
-		C50C4FAE21AD84C2004CBDE0 /* ActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C50C4FAC21AD84C2004CBDE0 /* ActorTableViewCell.xib */; };
-		C58C6EF621A97A5200FBDA3A /* MoyaGithubEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58C6EF521A97A5200FBDA3A /* MoyaGithubEndpoints.swift */; };
-		C58C6EFA21A9832F00FBDA3A /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58C6EF921A9832F00FBDA3A /* Events.swift */; };
-		C58C6EFE21A9BE9700FBDA3A /* ActorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58C6EFD21A9BE9700FBDA3A /* ActorViewController.swift */; };
-		C58C6F0421A9C2C500FBDA3A /* ActorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58C6F0321A9C2C500FBDA3A /* ActorsViewModel.swift */; };
+		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
+		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
+		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
+		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
+		C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */; };
+		C59DB3DB21ADB2CB0000F25B /* GistsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */; };
 		C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */; };
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
 		C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26421A6E42600F58ED3 /* Assets.xcassets */; };
@@ -24,12 +24,12 @@
 		041C66C7F5AFF2E1EFAA8443 /* Pods-Github Gists Editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.debug.xcconfig"; sourceTree = "<group>"; };
 		1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Gists_Editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
-		C50C4FAB21AD84C2004CBDE0 /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
-		C50C4FAC21AD84C2004CBDE0 /* ActorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorTableViewCell.xib; sourceTree = "<group>"; };
-		C58C6EF521A97A5200FBDA3A /* MoyaGithubEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGithubEndpoints.swift; sourceTree = "<group>"; };
-		C58C6EF921A9832F00FBDA3A /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		C58C6EFD21A9BE9700FBDA3A /* ActorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorViewController.swift; sourceTree = "<group>"; };
-		C58C6F0321A9C2C500FBDA3A /* ActorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsViewModel.swift; sourceTree = "<group>"; };
+		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
+		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
+		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
+		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
+		C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAutorsEndPoints.swift; sourceTree = "<group>"; };
+		C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsDecodable.swift; sourceTree = "<group>"; };
 		C5D8B25A21A6E42400F58ED3 /* Github Gists Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Gists Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5D8B26221A6E42400F58ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,14 +67,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C58C6EFF21A9BF2300FBDA3A /* Actors */ = {
+		C50C4FAF21AD88E1004CBDE0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C58C6F0A21A9DADD00FBDA3A /* Cells */,
-				C58C6F0321A9C2C500FBDA3A /* ActorsViewModel.swift */,
-				C58C6EFD21A9BE9700FBDA3A /* ActorViewController.swift */,
+				C59DB3D021ADAFE20000F25B /* Gists Autors */,
 			);
-			path = Actors;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		C58C6F0121A9BF9C00FBDA3A /* Storyboards */ = {
@@ -88,18 +86,28 @@
 		C58C6F0521A9C35400FBDA3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C58C6EF921A9832F00FBDA3A /* Events.swift */,
+				C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C58C6F0A21A9DADD00FBDA3A /* Cells */ = {
+		C59DB3D021ADAFE20000F25B /* Gists Autors */ = {
 			isa = PBXGroup;
 			children = (
-				C50C4FAB21AD84C2004CBDE0 /* ActorTableViewCell.swift */,
-				C50C4FAC21AD84C2004CBDE0 /* ActorTableViewCell.xib */,
+				C59DB3D321ADB0060000F25B /* Cell */,
+				C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */,
+				C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */,
 			);
-			path = Cells;
+			path = "Gists Autors";
+			sourceTree = "<group>";
+		};
+		C59DB3D321ADB0060000F25B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */,
+				C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		C5D8B25121A6E42400F58ED3 = {
@@ -124,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C58C6F0521A9C35400FBDA3A /* Model */,
-				C58C6EFF21A9BF2300FBDA3A /* Actors */,
+				C50C4FAF21AD88E1004CBDE0 /* Screens */,
 				C5D8B26F21A6E8D100F58ED3 /* Moya Networking */,
 				C58C6F0121A9BF9C00FBDA3A /* Storyboards */,
 				C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */,
@@ -138,7 +146,7 @@
 		C5D8B26F21A6E8D100F58ED3 /* Moya Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C58C6EF521A97A5200FBDA3A /* MoyaGithubEndpoints.swift */,
+				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
 			);
 			path = "Moya Networking";
 			sourceTree = "<group>";
@@ -207,7 +215,7 @@
 				C5D8B26821A6E42600F58ED3 /* LaunchScreen.storyboard in Resources */,
 				C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */,
 				C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */,
-				C50C4FAE21AD84C2004CBDE0 /* ActorTableViewCell.xib in Resources */,
+				C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,12 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C58C6F0421A9C2C500FBDA3A /* ActorsViewModel.swift in Sources */,
-				C50C4FAD21AD84C2004CBDE0 /* ActorTableViewCell.swift in Sources */,
+				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
+				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
+				C59DB3DB21ADB2CB0000F25B /* GistsDecodable.swift in Sources */,
+				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
+				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
-				C58C6EF621A97A5200FBDA3A /* MoyaGithubEndpoints.swift in Sources */,
-				C58C6EFA21A9832F00FBDA3A /* Events.swift in Sources */,
-				C58C6EFE21A9BE9700FBDA3A /* ActorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

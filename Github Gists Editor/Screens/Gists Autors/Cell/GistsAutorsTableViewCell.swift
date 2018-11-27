@@ -1,5 +1,5 @@
 //
-//  ActorTableViewCell.swift
+//  GistsAutorsTableViewCell.swift
 //  Github Gists Editor
 //
 //  Created by Serhii on 11/27/18.
@@ -9,19 +9,20 @@
 import UIKit
 import Kingfisher
 
-class ActorTableViewCell: UITableViewCell {
+class GistsAutorsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
     
     func cellConfiguration(events: Event) {
-        let image = URL(string: events.actor.avatarURL)
+        let image = URL(string: events.owner.avatarURL)
         
-        nameLabel.text = events.repo.name
+        nameLabel.text = events.owner.login
         avatarImage.kf.setImage(with: image)
     }
 }

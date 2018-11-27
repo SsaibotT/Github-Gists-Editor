@@ -12,15 +12,11 @@
         <!--Root View Controller-->
         <scene sceneID="yKh-f7-okx">
             <objects>
-                <tableViewController id="Ag2-as-dXs" customClass="ActorViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ag2-as-dXs" customClass="GistsAutorsTableViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HdQ-gu-4Cq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Ag2-as-dXs" id="Rya-sH-nkD"/>
-                            <outlet property="delegate" destination="Ag2-as-dXs" id="DLo-u1-76w"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="PwY-e6-pEl"/>
                 </tableViewController>

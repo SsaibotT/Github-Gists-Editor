@@ -1,22 +1,22 @@
 //
-//  RootViewModel.swift
+//  GistsAutorsViewModel.swift
 //  Github Gists Editor
 //
-//  Created by Serhii on 11/24/18.
+//  Created by Serhii on 11/27/18.
 //  Copyright © 2018 Serhii. All rights reserved.
 //
 
 import Foundation
-import Moya
 import RxSwift
 import RxCocoa
+import Moya
 
-class ActorsViewModel {
+class GistsAutorsViewModel {
     
     var actors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
     let disposeBag = DisposeBag()
     
-    init(provider: MoyaProvider<MoyaGithubEndpoints>) {
+    init(provider: MoyaProvider<MoyaGistsAutorsEndPoints>) {
         provider.rx.request(.getEvents)
             .map([Event].self)
             .asObservable()
