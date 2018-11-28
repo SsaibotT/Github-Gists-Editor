@@ -20,4 +20,14 @@ class ShowControllers {
             viewController.navigationController?.show(filesVC, sender: viewController)
         }
     }
+    
+    static func showChosenFile(from viewController: UIViewController, textPath: String) {
+        
+        let identifier = ChosenFileViewController.identifier
+        if let fileVC = viewController.storyboard?
+            .instantiateViewController(withIdentifier: identifier) as? ChosenFileViewController {
+            fileVC.configurationVC(textPath: textPath)
+            viewController.navigationController?.show(fileVC, sender: viewController)
+        }
+    }
 }

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.0)
   - Kingfisher (4.10.1)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -10,7 +10,7 @@ PODS:
     - Moya/Core
     - RxSwift (~> 4.0)
   - Result (4.0.0)
-  - Reveal-SDK (19)
+  - Reveal-SDK (20)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
@@ -37,11 +37,11 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
-  Reveal-SDK: 9f0d2c6c12eb7507921e5454ac165b7aa21140a4
+  Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
