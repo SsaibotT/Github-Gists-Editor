@@ -9,6 +9,21 @@
 import UIKit
 
 class ChooseFileCell: UITableViewCell {
+    
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set {
+            var frame = newValue
+            frame.origin.y += 8
+            frame.origin.x += 10
+            frame.size.height -= 8
+            frame.size.width  -= 2 * 10
+            
+            super.frame = frame
+        }
+    }
 
     @IBOutlet weak var fileNameLabel: UILabel!
     

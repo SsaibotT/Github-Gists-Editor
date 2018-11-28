@@ -13,6 +13,7 @@ class GistsAutorsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var filesCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +25,6 @@ class GistsAutorsTableViewCell: UITableViewCell {
         
         nameLabel.text = events.owner.login
         avatarImage.kf.setImage(with: image)
+        filesCountLabel.text = "\(events.files.values.count)"
     }
 }

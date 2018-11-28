@@ -6,6 +6,7 @@
 //  Copyright © 2018 Serhii. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
@@ -31,6 +32,8 @@ class ChooseFileViewController: UIViewController {
         
         nameLabel.text = nameAutor
         avatarImage.kf.setImage(with: avatarAutor)
+        
+        settingAvatarImage()
         setupBindings()
     }
     
@@ -41,6 +44,13 @@ class ChooseFileViewController: UIViewController {
                 .items(cellIdentifier: "ChooseFileCell",
                        cellType: ChooseFileCell.self)) {(_, event, cell) in
                         cell.cellConfiguration(name: event)
+                        cell.contentView.layer.cornerRadius = 10
+                        
+                        cell.contentView.layer.masksToBounds = false
+                        cell.contentView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+                        cell.contentView.layer.shadowColor = UIColor.black.cgColor
+                        cell.contentView.layer.shadowOpacity = 1
+                        cell.contentView.layer.shadowRadius = 4
             }
             .disposed(by: disposeBag)
         
@@ -49,6 +59,14 @@ class ChooseFileViewController: UIViewController {
                 self.goToChosenFileVC(index: $0.row)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func settingAvatarImage() {
+        avatarImage.layer.borderWidth = 1
+        avatarImage.layer.masksToBounds = false
+        avatarImage.layer.borderColor = UIColor.black.cgColor
+        avatarImage.layer.cornerRadius = avatarImage.frame.height/2
+        avatarImage.clipsToBounds = true
     }
     
     func configurationVC(event: Event) {
