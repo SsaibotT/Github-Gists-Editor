@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ChosenFileViewController: UIViewController {
+class AccountFiles: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
     

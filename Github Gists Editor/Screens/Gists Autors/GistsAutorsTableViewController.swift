@@ -24,7 +24,7 @@ class GistsAutorsTableViewController: UITableViewController {
         tableView.dataSource = nil
         
         let nibName = UINib(nibName: "GistsAutorsTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "GistsAutorsTableViewCell")
+        tableView.register(nibName, forCellReuseIdentifier: GistsAutorsTableViewCell.identifier)
         
         gistsViewModel = GistsAutorsViewModel(provider: moyaProvider)
         setupBindings()
@@ -34,7 +34,7 @@ class GistsAutorsTableViewController: UITableViewController {
         gistsViewModel.actors
             .asObservable()
             .bind(to: tableView.rx
-                .items(cellIdentifier: "GistsAutorsTableViewCell",
+                .items(cellIdentifier: GistsAutorsTableViewCell.identifier,
                        cellType: GistsAutorsTableViewCell.self)) {(_, event, cell) in
                         cell.cellConfiguration(events: event)
             }

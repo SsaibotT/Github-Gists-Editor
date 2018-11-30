@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class ChooseFileViewController: UIViewController {
+class AccountInfo: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -27,8 +27,8 @@ class ChooseFileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nibName = UINib(nibName: "ChooseFileCell", bundle: nil)
-        filesTableView.register(nibName, forCellReuseIdentifier: "ChooseFileCell")
+        let nibName = UINib(nibName: "AccountInfoCell", bundle: nil)
+        filesTableView.register(nibName, forCellReuseIdentifier: AccountInfoCell.identifier)
         
         nameLabel.text = nameAutor
         avatarImage.kf.setImage(with: avatarAutor)
@@ -41,23 +41,15 @@ class ChooseFileViewController: UIViewController {
         fileNames
             .asObservable()
             .bind(to: filesTableView.rx
-                .items(cellIdentifier: "ChooseFileCell",
-                       cellType: ChooseFileCell.self)) {(_, event, cell) in
+                .items(cellIdentifier: AccountInfoCell.identifier,
+                       cellType: AccountInfoCell.self)) {(_, event, cell) in
                         cell.cellConfiguration(name: event)
-                        cell.contentView.layer.cornerRadius = 10
                         
-                        cell.contentView.layer.masksToBounds = false
-                        cell.contentView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
-                        cell.contentView.layer.shadowColor = UIColor.black.cgColor
-                        cell.contentView.layer.shadowOpacity = 1
-                        cell.contentView.layer.shadowRadius = 4
+                        cell.passingAccountFileVcCall = { [unowned self] in
+                            guard let index = self.filesTableView.indexPath(for: cell)?.row else { return }
+                            self.goToChosenFileVC(index: index)
+                        }
             }
-            .disposed(by: disposeBag)
-        
-        filesTableView.rx.itemSelected
-            .subscribe(onNext: { [unowned self] in
-                self.goToChosenFileVC(index: $0.row)
-            })
             .disposed(by: disposeBag)
     }
     

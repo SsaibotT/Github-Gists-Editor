@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="96" y="123"/>
         </scene>
-        <!--Choose File View Controller-->
+        <!--Account Info-->
         <scene sceneID="8EW-JD-c5h">
             <objects>
-                <viewController storyboardIdentifier="ChooseFileViewController" id="9Hf-VW-0Vb" customClass="ChooseFileViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountInfo" id="9Hf-VW-0Vb" customClass="AccountInfo" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oyg-VH-WSf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="1773.5999999999999" y="122.78860569715144"/>
         </scene>
-        <!--Chosen File View Controller-->
+        <!--Account Files-->
         <scene sceneID="yGY-TL-g6T">
             <objects>
-                <viewController storyboardIdentifier="ChosenFileViewController" id="ek8-LQ-t7M" customClass="ChosenFileViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountFiles" id="ek8-LQ-t7M" customClass="AccountFiles" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqb-F0-GTC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

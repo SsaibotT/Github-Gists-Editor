@@ -13,17 +13,22 @@
 		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
 		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
 		C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */; };
-		C59DB3DB21ADB2CB0000F25B /* GistsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */; };
 		C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */; };
-		C59DB3E221ADBFB60000F25B /* ChooseFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* ChooseFileViewController.swift */; };
-		C59DB3E521ADBFF40000F25B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* Extensions.swift */; };
-		C59DB3E921ADEB780000F25B /* ChooseFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* ChooseFileCell.swift */; };
-		C59DB3EA21ADEB780000F25B /* ChooseFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* ChooseFileCell.xib */; };
+		C59DB3E221ADBFB60000F25B /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* AccountInfo.swift */; };
+		C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */; };
+		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
+		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
 		C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */; };
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
 		C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26421A6E42600F58ED3 /* Assets.xcassets */; };
 		C5D8B26821A6E42600F58ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26621A6E42600F58ED3 /* LaunchScreen.storyboard */; };
-		C5EA30EC21AEDEA3001A8589 /* ChosenFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* ChosenFileViewController.swift */; };
+		C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */; };
+		C5E587CD21B0779C003DE4CF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CC21B0779C003DE4CF /* Event.swift */; };
+		C5E587CF21B0781C003DE4CF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CE21B0781C003DE4CF /* File.swift */; };
+		C5E587D121B07844003DE4CF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D021B07844003DE4CF /* Owner.swift */; };
+		C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D221B0786B003DE4CF /* TypeEnum.swift */; };
+		C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D421B07898003DE4CF /* JSONNull.swift */; };
+		C5EA30EC21AEDEA3001A8589 /* AccountFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,19 +40,24 @@
 		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
 		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
 		C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAutorsEndPoints.swift; sourceTree = "<group>"; };
-		C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsDecodable.swift; sourceTree = "<group>"; };
 		C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowControllers.swift; sourceTree = "<group>"; };
-		C59DB3E121ADBFB60000F25B /* ChooseFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFileViewController.swift; sourceTree = "<group>"; };
-		C59DB3E421ADBFF40000F25B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		C59DB3E721ADEB780000F25B /* ChooseFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFileCell.swift; sourceTree = "<group>"; };
-		C59DB3E821ADEB780000F25B /* ChooseFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseFileCell.xib; sourceTree = "<group>"; };
+		C59DB3E121ADBFB60000F25B /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
+		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		C5D8B25A21A6E42400F58ED3 /* Github Gists Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Gists Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5D8B26221A6E42400F58ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5D8B26421A6E42600F58ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5D8B26721A6E42600F58ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5D8B26921A6E42600F58ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5EA30EB21AEDEA3001A8589 /* ChosenFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenFileViewController.swift; sourceTree = "<group>"; };
+		C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		C5E587CC21B0779C003DE4CF /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		C5E587CE21B0781C003DE4CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C5E587D021B07844003DE4CF /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		C5E587D221B0786B003DE4CF /* TypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeEnum.swift; sourceTree = "<group>"; };
+		C5E587D421B07898003DE4CF /* JSONNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNull.swift; sourceTree = "<group>"; };
+		C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFiles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +92,7 @@
 		C50C4FAF21AD88E1004CBDE0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C5EA30EA21AEDE7E001A8589 /* ChosenFile */,
+				C5EA30EA21AEDE7E001A8589 /* AccountFiles */,
 				C59DB3DE21ADBF590000F25B /* Files */,
 				C59DB3D021ADAFE20000F25B /* Gists Autors */,
 			);
@@ -100,8 +110,12 @@
 		C58C6F0521A9C35400FBDA3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3DA21ADB2CB0000F25B /* GistsDecodable.swift */,
 				C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */,
+				C5E587CC21B0779C003DE4CF /* Event.swift */,
+				C5E587CE21B0781C003DE4CF /* File.swift */,
+				C5E587D021B07844003DE4CF /* Owner.swift */,
+				C5E587D221B0786B003DE4CF /* TypeEnum.swift */,
+				C5E587D421B07898003DE4CF /* JSONNull.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C59DB3E621ADEB420000F25B /* Cell */,
-				C59DB3E121ADBFB60000F25B /* ChooseFileViewController.swift */,
+				C59DB3E121ADBFB60000F25B /* AccountInfo.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -137,7 +151,8 @@
 		C59DB3E321ADBFE00000F25B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3E421ADBFF40000F25B /* Extensions.swift */,
+				C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */,
+				C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,8 +160,8 @@
 		C59DB3E621ADEB420000F25B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3E721ADEB780000F25B /* ChooseFileCell.swift */,
-				C59DB3E821ADEB780000F25B /* ChooseFileCell.xib */,
+				C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */,
+				C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -193,12 +208,12 @@
 			path = "Moya Networking";
 			sourceTree = "<group>";
 		};
-		C5EA30EA21AEDE7E001A8589 /* ChosenFile */ = {
+		C5EA30EA21AEDE7E001A8589 /* AccountFiles */ = {
 			isa = PBXGroup;
 			children = (
-				C5EA30EB21AEDEA3001A8589 /* ChosenFileViewController.swift */,
+				C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */,
 			);
-			path = ChosenFile;
+			path = AccountFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +280,7 @@
 				C5D8B26821A6E42600F58ED3 /* LaunchScreen.storyboard in Resources */,
 				C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */,
 				C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */,
-				C59DB3EA21ADEB780000F25B /* ChooseFileCell.xib in Resources */,
+				C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */,
 				C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,17 +370,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EA30EC21AEDEA3001A8589 /* ChosenFileViewController.swift in Sources */,
+				C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */,
+				C5EA30EC21AEDEA3001A8589 /* AccountFiles.swift in Sources */,
 				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
-				C59DB3E521ADBFF40000F25B /* Extensions.swift in Sources */,
+				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
+				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
 				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
-				C59DB3DB21ADB2CB0000F25B /* GistsDecodable.swift in Sources */,
-				C59DB3E921ADEB780000F25B /* ChooseFileCell.swift in Sources */,
+				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
+				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
-				C59DB3E221ADBFB60000F25B /* ChooseFileViewController.swift in Sources */,
+				C59DB3E221ADBFB60000F25B /* AccountInfo.swift in Sources */,
+				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
+				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
+				C5E587CD21B0779C003DE4CF /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
