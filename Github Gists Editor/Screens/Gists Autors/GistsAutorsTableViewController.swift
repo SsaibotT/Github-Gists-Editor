@@ -12,8 +12,9 @@ import RxCocoa
 import Moya
 
 class GistsAutorsTableViewController: UITableViewController {
-    
+
     let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>()
+
     var gistsViewModel: GistsAutorsViewModel!
     var disposeBag = DisposeBag()
 
@@ -30,7 +31,42 @@ class GistsAutorsTableViewController: UITableViewController {
         setupBindings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar()
+    }
+    
+    func navigationBar() {
+
+        let publicButton = UIBarButtonItem(title: "Public",
+                                           style: .done,
+                                           target: self,
+                                           action: #selector(GistsAutorsTableViewController.publicButton))
+        
+        let privateButton = UIBarButtonItem(title: "Private",
+                                            style: .done,
+                                            target: self,
+                                            action: #selector(GistsAutorsTableViewController.privateButton))
+        
+        let spacingButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        
+        let arrayOfButtons = [publicButton, spacingButton, privateButton]
+        toolbarItems = arrayOfButtons
+    }
+    
+    @objc func publicButton() {
+        
+        gistsViewModel.getRequest(provider: moyaProvider, publicBool: true)
+    }
+    
+    @objc func privateButton() {
+        
+        gistsViewModel.getRequest(provider: moyaProvider, publicBool: false)
+    }
+    
     func setupBindings() {
+        
         gistsViewModel.actors
             .asObservable()
             .bind(to: tableView.rx

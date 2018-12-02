@@ -18,7 +18,7 @@ class AccountInfo: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var filesTableView: UITableView!
     
-    var fileNames: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    var accountInfoViewModel = AccountInfoViewModel()
     var disposeBag = DisposeBag()
     var nameAutor: String!
     var avatarAutor: URL!
@@ -38,7 +38,7 @@ class AccountInfo: UIViewController {
     }
     
     func setupBindings() {
-        fileNames
+        accountInfoViewModel.fileNames
             .asObservable()
             .bind(to: filesTableView.rx
                 .items(cellIdentifier: AccountInfoCell.identifier,
@@ -63,7 +63,7 @@ class AccountInfo: UIViewController {
     
     func configurationVC(event: Event) {
         self.event = event
-        fileNames.accept(event.files.values.map {$0.filename})
+        accountInfoViewModel.fileNames.accept(event.files.values.map {$0.filename})
         nameAutor = event.owner.login
         avatarAutor = URL(string: event.owner.avatarURL)
     }

@@ -17,10 +17,22 @@ class GistsAutorsViewModel {
     let disposeBag = DisposeBag()
     
     init(provider: MoyaProvider<MoyaGistsAutorsEndPoints>) {
-        provider.rx.request(.getEvents)
-            .map([Event].self)
-            .asObservable()
-            .bind(to: actors)
-            .disposed(by: disposeBag)
+        getRequest(provider: provider, publicBool: true)
+    }
+    
+    func getRequest(provider: MoyaProvider<MoyaGistsAutorsEndPoints>, publicBool: Bool) {
+        if publicBool == true {
+            provider.rx.request(.getPublicEvents)
+                .map([Event].self)
+                .asObservable()
+                .bind(to: actors)
+                .disposed(by: disposeBag)
+        } else {
+            provider.rx.request(.getPrivateEvents)
+                .map([Event].self)
+                .asObservable()
+                .bind(to: actors)
+                .disposed(by: disposeBag)
+        }
     }
 }

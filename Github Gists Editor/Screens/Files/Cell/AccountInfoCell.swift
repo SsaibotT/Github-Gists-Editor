@@ -26,13 +26,12 @@ class AccountInfoCell: UITableViewCell {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let point = touch.location(in: self.contentView)
-            let view = self.contentView.hitTest(point, with: event)
-            
-            if view != self.contentView {
-                passingAccountFileVcCall()
-            }
+        guard let touch = touches.first else { return }
+        let point = touch.location(in: self.contentView)
+        let view = self.contentView.hitTest(point, with: event)
+        
+        if view != self.contentView {
+            passingAccountFileVcCall()
         }
     }
     

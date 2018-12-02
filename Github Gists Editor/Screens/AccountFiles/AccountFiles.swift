@@ -8,28 +8,31 @@
 
 import UIKit
 import Alamofire
+import RxCocoa
+import RxSwift
 
 class AccountFiles: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
     
+    var accountFilesViewModel: AccountFilesViewModel!
+    var disposeBag = DisposeBag()
     var text: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getRequest()
+        accountFilesViewModel = AccountFilesViewModel(text: text)
+        setupSubscribers()
     }
     
-    func getRequest() {
-        Alamofire.request(text).responseJSON { response in
-            
-            guard let richText = try? NSAttributedString.init(data: response.data!, options: [NSAttributedString
-                .DocumentReadingOptionKey
-                .documentType: NSAttributedString.DocumentType.plain],
-                                                              documentAttributes: nil) else { return print(Error.self)}
-            self.fileText.attributedText = richText
-        }
+    func setupSubscribers() {
+        accountFilesViewModel.attributedText
+            .asObservable()
+            .subscribe(onNext: { (value) in
+                self.fileText.attributedText = value
+            })
+            .disposed(by: disposeBag)
     }
     
     func configurationVC(textPath: String) {

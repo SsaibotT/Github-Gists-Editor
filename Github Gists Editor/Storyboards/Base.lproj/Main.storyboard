@@ -28,11 +28,16 @@
         <!--Navigation Controller-->
         <scene sceneID="2YE-5V-vyI">
             <objects>
-                <navigationController id="kvs-es-Qgb" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="kvs-es-Qgb" sceneMemberID="viewController">
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dX9-e6-K2F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EFa-HT-uI2">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Ag2-as-dXs" kind="relationship" relationship="rootViewController" id="yiL-bp-Ew5"/>
                     </connections>

@@ -16,6 +16,7 @@ class ShowControllers {
         let identifier = AccountInfo.identifier
         if let filesVC = viewController.storyboard?
             .instantiateViewController(withIdentifier: identifier) as? AccountInfo {
+            filesVC.hidesBottomBarWhenPushed = true
             filesVC.configurationVC(event: data)
             viewController.navigationController?.show(filesVC, sender: viewController)
         }
@@ -26,6 +27,7 @@ class ShowControllers {
         let identifier = AccountFiles.identifier
         if let fileVC = viewController.storyboard?
             .instantiateViewController(withIdentifier: identifier) as? AccountFiles {
+            fileVC.hidesBottomBarWhenPushed = true
             fileVC.configurationVC(textPath: textPath)
             viewController.navigationController?.show(fileVC, sender: viewController)
         }

@@ -10,7 +10,11 @@ import Foundation
 import Moya
 
 enum MoyaGistsAutorsEndPoints {
-    case getEvents
+    
+    static var username = "SsaibotT"
+    
+    case getPublicEvents
+    case getPrivateEvents
 }
 
 extension MoyaGistsAutorsEndPoints: TargetType {
@@ -21,33 +25,44 @@ extension MoyaGistsAutorsEndPoints: TargetType {
     
     public var path: String {
         switch self {
-        case .getEvents:
+        case .getPublicEvents:
             return "/gists/public"
+        case .getPrivateEvents:
+            return "/users/\(MoyaGistsAutorsEndPoints.username)/gists"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getEvents:
+        case .getPublicEvents:
+            return .get
+        case .getPrivateEvents:
             return .get
         }
     }
     
     public var task: Task {
         switch self {
-        case .getEvents:
+        case .getPublicEvents:
+            return .requestPlain
+        case .getPrivateEvents:
             return .requestPlain
         }
     }
     
     public var sampleData: Data {
         switch self {
-        case .getEvents:
+        case .getPublicEvents:
+            return Data()
+        case .getPrivateEvents:
             return Data()
         }
     }
     
     public var headers: [String: String]? {
-        return nil
+        return [
+            "Authorization": "Basic MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==",
+            "Content-Type": "application/json"
+        ]
     }
 }
