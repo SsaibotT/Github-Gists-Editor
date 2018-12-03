@@ -12,8 +12,12 @@ import RxCocoa
 import Moya
 
 class GistsAutorsTableViewController: UITableViewController {
-
-    let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>()
+    
+    static let token = { return "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ=="}
+    static let authPlugin = AccessTokenPlugin(tokenClosure: token)
+    let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>(plugins: [authPlugin])
+//    let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>(plugins:
+//        [AuthPlugin(token: "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==")])
 
     var gistsViewModel: GistsAutorsViewModel!
     var disposeBag = DisposeBag()

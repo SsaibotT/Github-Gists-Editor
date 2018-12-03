@@ -17,7 +17,16 @@ enum MoyaGistsAutorsEndPoints {
     case getPrivateEvents
 }
 
-extension MoyaGistsAutorsEndPoints: TargetType {
+extension MoyaGistsAutorsEndPoints: TargetType, AccessTokenAuthorizable {
+    
+    var authorizationType: AuthorizationType {
+        switch self {
+        case .getPrivateEvents:
+            return .basic
+        case .getPublicEvents:
+            return .none
+        }
+    }
     
     public var baseURL: URL {
         return URL(string: "https://api.github.com")!
@@ -60,9 +69,6 @@ extension MoyaGistsAutorsEndPoints: TargetType {
     }
     
     public var headers: [String: String]? {
-        return [
-            "Authorization": "Basic MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==",
-            "Content-Type": "application/json"
-        ]
+        return nil
     }
 }

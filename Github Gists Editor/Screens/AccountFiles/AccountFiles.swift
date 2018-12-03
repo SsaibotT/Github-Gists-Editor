@@ -29,13 +29,13 @@ class AccountFiles: UIViewController {
     func setupSubscribers() {
         accountFilesViewModel.attributedText
             .asObservable()
-            .subscribe(onNext: { (value) in
+            .subscribe(onNext: { [unowned self] (value) in
                 self.fileText.attributedText = value
             })
             .disposed(by: disposeBag)
     }
     
     func configurationVC(textPath: String) {
-        self.text = URL(string: textPath)
+        text = URL(string: textPath)
     }
 }

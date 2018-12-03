@@ -18,6 +18,7 @@
 		C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */; };
 		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
 		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
+		C5AFC9BD21B42F5400E9524F /* AuthPlagin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AFC9BC21B42F5400E9524F /* AuthPlagin.swift */; };
 		C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */; };
 		C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */; };
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
+		C5AFC9BC21B42F5400E9524F /* AuthPlagin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlagin.swift; sourceTree = "<group>"; };
 		C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		C5D8B25A21A6E42400F58ED3 /* Github Gists Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Gists Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
+				C5AFC9BC21B42F5400E9524F /* AuthPlagin.swift */,
 			);
 			path = "Moya Networking";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
 				C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */,
 				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
+				C5AFC9BD21B42F5400E9524F /* AuthPlagin.swift in Sources */,
 				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
