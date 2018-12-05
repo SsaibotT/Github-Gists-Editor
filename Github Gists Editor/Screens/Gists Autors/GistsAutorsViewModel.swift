@@ -14,25 +14,26 @@ import Moya
 class GistsAutorsViewModel {
     
     var actors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
-    init(provider: MoyaProvider<MoyaGistsAutorsEndPoints>) {
-        getRequest(provider: provider, publicBool: true)
+    init(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
+        getRequest(provider: provider, publicBool: isPublic)
     }
     
-    func getRequest(provider: MoyaProvider<MoyaGistsAutorsEndPoints>, publicBool: Bool) {
-        if publicBool == true {
-            provider.rx.request(.getPublicEvents)
-                .map([Event].self)
-                .asObservable()
-                .bind(to: actors)
-                .disposed(by: disposeBag)
+    func getRequest(provider: MoyaProvider<MultiTarget>, publicBool: Bool) {
+        
+        var moyaRequest: MultiTarget
+        
+        if publicBool {
+            moyaRequest = MultiTarget(MoyaGistsAutorsEndPoints.getPublicEvents)
         } else {
-            provider.rx.request(.getPrivateEvents)
-                .map([Event].self)
-                .asObservable()
-                .bind(to: actors)
-                .disposed(by: disposeBag)
+            moyaRequest = MultiTarget(MoyaPrivateFilesEndPoint.getPrivateEvents)
         }
+    
+        provider.rx.request(moyaRequest)
+            .map([Event].self)
+            .asObservable()
+            .bind(to: actors)
+            .disposed(by: disposeBag)
     }
 }

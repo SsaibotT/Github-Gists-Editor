@@ -15,11 +15,6 @@ class GistsAutorsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func cellConfiguration(events: Event) {
         let image = URL(string: events.owner.avatarURL)
         

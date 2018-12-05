@@ -15,9 +15,9 @@ class AccountFiles: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
     
-    var accountFilesViewModel: AccountFilesViewModel!
-    var disposeBag = DisposeBag()
-    var text: URL!
+    private var accountFilesViewModel: AccountFilesViewModel!
+    private var disposeBag = DisposeBag()
+    private var text: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,10 @@ class AccountFiles: UIViewController {
         setupSubscribers()
     }
     
-    func setupSubscribers() {
+    private func setupSubscribers() {
         accountFilesViewModel.attributedText
             .asObservable()
-            .subscribe(onNext: { [unowned self] (value) in
-                self.fileText.attributedText = value
-            })
+            .bind(to: fileText.rx.attributedText)
             .disposed(by: disposeBag)
     }
     

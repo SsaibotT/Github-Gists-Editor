@@ -13,15 +13,16 @@ import Moya
 
 class GistsAutorsTableViewController: UITableViewController {
     
-    static let token = { return "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ=="}
-    static let authPlugin = AccessTokenPlugin(tokenClosure: token)
-    let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>(plugins: [authPlugin])
-//    let moyaProvider = MoyaProvider<MoyaGistsAutorsEndPoints>(plugins:
-//        [AuthPlugin(token: "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==")])
+    static let source = TokenSource()
+    let moyaProvider = MoyaProvider<MultiTarget>(
+        plugins: [
+            AuthPlugin(tokenClosure: { return "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==" })
+        ]
+    )
 
-    var gistsViewModel: GistsAutorsViewModel!
-    var disposeBag = DisposeBag()
-
+    private var gistsViewModel: GistsAutorsViewModel!
+    private var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,46 +31,21 @@ class GistsAutorsTableViewController: UITableViewController {
         
         let nibName = UINib(nibName: "GistsAutorsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: GistsAutorsTableViewCell.identifier)
-        
-        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider)
+
+        choosingTableViewController()
         setupBindings()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationBar()
+    func choosingTableViewController() {
+//        if tabBarController?.selectedIndex == 9223372036854775807 {
+        if tabBarController?.selectedIndex == 0 {
+            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: false)
+        } else {
+            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: true)
+        }
     }
     
-    func navigationBar() {
-
-        let publicButton = UIBarButtonItem(title: "Public",
-                                           style: .done,
-                                           target: self,
-                                           action: #selector(GistsAutorsTableViewController.publicButton))
-        
-        let privateButton = UIBarButtonItem(title: "Private",
-                                            style: .done,
-                                            target: self,
-                                            action: #selector(GistsAutorsTableViewController.privateButton))
-        
-        let spacingButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                            target: nil,
-                                            action: nil)
-        
-        let arrayOfButtons = [publicButton, spacingButton, privateButton]
-        toolbarItems = arrayOfButtons
-    }
-    
-    @objc func publicButton() {
-        
-        gistsViewModel.getRequest(provider: moyaProvider, publicBool: true)
-    }
-    
-    @objc func privateButton() {
-        
-        gistsViewModel.getRequest(provider: moyaProvider, publicBool: false)
-    }
-    
-    func setupBindings() {
+    private func setupBindings() {
         
         gistsViewModel.actors
             .asObservable()
@@ -87,7 +63,7 @@ class GistsAutorsTableViewController: UITableViewController {
             .disposed(by: disposeBag)
     }
     
-    func goToChooseFileVC(index: Int) {
+    private func goToChooseFileVC(index: Int) {
         let data = gistsViewModel.actors.value[index]
         ShowControllers.showGistFilesOfAutors(from: self, data: data)
     }

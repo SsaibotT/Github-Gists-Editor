@@ -18,11 +18,11 @@ class AccountInfo: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var filesTableView: UITableView!
     
-    var accountInfoViewModel = AccountInfoViewModel()
-    var disposeBag = DisposeBag()
-    var nameAutor: String!
-    var avatarAutor: URL!
-    var event: Event!
+    private var accountInfoViewModel = AccountInfoViewModel()
+    private var disposeBag = DisposeBag()
+    private var nameAutor: String!
+    private var avatarAutor: URL!
+    private var event: Event!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class AccountInfo: UIViewController {
         setupBindings()
     }
     
-    func setupBindings() {
+    private func setupBindings() {
         accountInfoViewModel.fileNames
             .asObservable()
             .bind(to: filesTableView.rx
@@ -53,7 +53,7 @@ class AccountInfo: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func settingAvatarImage() {
+    private func settingAvatarImage() {
         avatarImage.layer.borderWidth = 1
         avatarImage.layer.masksToBounds = false
         avatarImage.layer.borderColor = UIColor.black.cgColor
@@ -68,7 +68,7 @@ class AccountInfo: UIViewController {
         avatarAutor = URL(string: event.owner.avatarURL)
     }
     
-    func goToChosenFileVC(index: Int) {
+    private func goToChosenFileVC(index: Int) {
         let textPath = event.files.values.map {$0.rawURL}
         ShowControllers.showChosenFile(from: self, textPath: textPath[index])
     }

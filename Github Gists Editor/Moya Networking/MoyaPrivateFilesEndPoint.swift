@@ -1,54 +1,65 @@
 //
-//  MoyaGistsAutorsEndPoints.swift
+//  MoyaPrivateFilesEndPoint.swift
 //  Github Gists Editor
 //
-//  Created by Serhii on 11/27/18.
+//  Created by Serhii on 12/5/18.
 //  Copyright © 2018 Serhii. All rights reserved.
 //
 
 import Foundation
 import Moya
 
-enum MoyaGistsAutorsEndPoints {
+enum MoyaPrivateFilesEndPoint {
     
-    case getPublicEvents
+    static var username = "SsaibotT"
+    
+    case getPrivateEvents
 }
 
-extension MoyaGistsAutorsEndPoints: TargetType {
-
+extension MoyaPrivateFilesEndPoint: AuthorizedTargetType {
+    
     public var baseURL: URL {
         return URL(string: "https://api.github.com")!
     }
     
     public var path: String {
         switch self {
-        case .getPublicEvents:
-            return "/gists/public"
+        case .getPrivateEvents:
+            return "/users/\(MoyaPrivateFilesEndPoint.username)/gists"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .getPublicEvents:
+        case .getPrivateEvents:
             return .get
         }
     }
     
     public var task: Task {
         switch self {
-        case .getPublicEvents:
+        case .getPrivateEvents:
             return .requestPlain
         }
     }
     
     public var sampleData: Data {
         switch self {
-        case .getPublicEvents:
+        case .getPrivateEvents:
             return Data()
         }
     }
     
     public var headers: [String: String]? {
         return nil
+    }
+    
+    public var needsAuth: Bool {
+        print("im out")
+        switch self {
+        case .getPrivateEvents:
+            print("im in")
+            return true
+        }
     }
 }

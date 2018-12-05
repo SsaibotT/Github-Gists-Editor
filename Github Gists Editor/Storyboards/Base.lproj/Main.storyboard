@@ -19,32 +19,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="JsD-P1-drF"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="PwY-e6-pEl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJE-y8-V1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="2914" y="-233"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="2YE-5V-vyI">
             <objects>
-                <navigationController toolbarHidden="NO" id="kvs-es-Qgb" sceneMemberID="viewController">
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                <navigationController id="kvs-es-Qgb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mjI-eg-iRx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dX9-e6-K2F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EFa-HT-uI2">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="Ag2-as-dXs" kind="relationship" relationship="rootViewController" id="yiL-bp-Ew5"/>
+                        <segue destination="0B6-Zf-ZSd" kind="relationship" relationship="rootViewController" id="O19-Lk-9ff"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eX-wz-Ej4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="123"/>
+            <point key="canvasLocation" x="1185" y="123"/>
+        </scene>
+        <!--Gists Autors Table View Controller-->
+        <scene sceneID="ZOY-ui-uPK">
+            <objects>
+                <tableViewController id="f3a-xV-igD" customClass="GistsAutorsTableViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mMa-dP-9wr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="f3a-xV-igD" id="jnD-6N-nlm"/>
+                            <outlet property="delegate" destination="f3a-xV-igD" id="39v-vJ-byS"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" tag="1" systemItem="mostViewed" id="ZP8-Ho-mAE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ci0-fV-lFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2913" y="501"/>
         </scene>
         <!--Account Info-->
         <scene sceneID="8EW-JD-c5h">
@@ -109,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrW-gf-UO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.5999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="3652" y="122.78860569715144"/>
         </scene>
         <!--Account Files-->
         <scene sceneID="yGY-TL-g6T">
@@ -129,10 +148,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tAw-qB-cWh" firstAttribute="top" secondItem="Wt5-1c-ScM" secondAttribute="top" id="IRC-Q6-7yR"/>
-                            <constraint firstItem="tAw-qB-cWh" firstAttribute="bottom" secondItem="Wt5-1c-ScM" secondAttribute="bottom" id="VSx-ii-aEX"/>
-                            <constraint firstItem="tAw-qB-cWh" firstAttribute="leading" secondItem="Uqb-F0-GTC" secondAttribute="leading" id="oT3-TQ-3wJ"/>
-                            <constraint firstAttribute="trailing" secondItem="tAw-qB-cWh" secondAttribute="trailing" id="xbc-Py-sgy"/>
+                            <constraint firstItem="tAw-qB-cWh" firstAttribute="leading" secondItem="Uqb-F0-GTC" secondAttribute="leading" id="VMv-1X-xdf"/>
+                            <constraint firstAttribute="trailing" secondItem="tAw-qB-cWh" secondAttribute="trailing" id="ll7-qX-O8Z"/>
+                            <constraint firstItem="tAw-qB-cWh" firstAttribute="top" secondItem="Wt5-1c-ScM" secondAttribute="top" id="mlG-R1-c8Y"/>
+                            <constraint firstItem="tAw-qB-cWh" firstAttribute="bottom" secondItem="Wt5-1c-ScM" secondAttribute="bottom" id="umF-fV-f5l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wt5-1c-ScM"/>
                     </view>
@@ -142,7 +161,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10s-Ch-bzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2474.4000000000001" y="122.78860569715144"/>
+            <point key="canvasLocation" x="4352.8000000000002" y="122.78860569715144"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zQE-PX-0G4">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="0B6-Zf-ZSd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="lqy-tu-ZI4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lb0-Xt-vnY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="f3a-xV-igD" kind="relationship" relationship="viewControllers" id="MzI-DU-rMm"/>
+                        <segue destination="Ag2-as-dXs" kind="relationship" relationship="viewControllers" id="W39-qU-kZa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8s-4r-19V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="123"/>
         </scene>
     </scenes>
 </document>

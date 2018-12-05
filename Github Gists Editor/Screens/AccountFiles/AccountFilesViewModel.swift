@@ -21,14 +21,14 @@ class AccountFilesViewModel {
     
     private func getRequest(text: URL) {
         
-        Alamofire.request(text).responseJSON { [unowned self] response in
+        Alamofire.request(text).responseJSON { [weak self] response in
             
             guard let richText = try? NSAttributedString.init(data: response.data!, options: [NSAttributedString
                 .DocumentReadingOptionKey
                 .documentType: NSAttributedString.DocumentType.plain],
                                                               documentAttributes: nil) else { return print(Error.self)}
             
-            self.attributedText.accept(richText)
+            self?.attributedText.accept(richText) 
         }
     }
 }

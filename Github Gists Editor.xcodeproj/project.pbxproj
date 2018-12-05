@@ -14,7 +14,7 @@
 		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
 		C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */; };
 		C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */; };
-		C59DB3E221ADBFB60000F25B /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* AccountInfo.swift */; };
+		C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */; };
 		C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */; };
 		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
 		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
@@ -30,7 +30,8 @@
 		C5E587D121B07844003DE4CF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D021B07844003DE4CF /* Owner.swift */; };
 		C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D221B0786B003DE4CF /* TypeEnum.swift */; };
 		C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D421B07898003DE4CF /* JSONNull.swift */; };
-		C5EA30EC21AEDEA3001A8589 /* AccountFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */; };
+		C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */; };
+		C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */; };
 		C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +45,7 @@
 		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
 		C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAutorsEndPoints.swift; sourceTree = "<group>"; };
 		C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowControllers.swift; sourceTree = "<group>"; };
-		C59DB3E121ADBFB60000F25B /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
@@ -62,7 +63,8 @@
 		C5E587D021B07844003DE4CF /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		C5E587D221B0786B003DE4CF /* TypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeEnum.swift; sourceTree = "<group>"; };
 		C5E587D421B07898003DE4CF /* JSONNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNull.swift; sourceTree = "<group>"; };
-		C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFiles.swift; sourceTree = "<group>"; };
+		C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPrivateFilesEndPoint.swift; sourceTree = "<group>"; };
+		C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewController.swift; sourceTree = "<group>"; };
 		C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +152,7 @@
 			children = (
 				C59DB3E621ADEB420000F25B /* Cell */,
 				C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */,
-				C59DB3E121ADBFB60000F25B /* AccountInfo.swift */,
+				C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
+				C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */,
 				C5AFC9BC21B42F5400E9524F /* AuthPlagin.swift */,
 			);
 			path = "Moya Networking";
@@ -220,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */,
-				C5EA30EB21AEDEA3001A8589 /* AccountFiles.swift */,
+				C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */,
 			);
 			path = AccountFiles;
 			sourceTree = "<group>";
@@ -380,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */,
-				C5EA30EC21AEDEA3001A8589 /* AccountFiles.swift in Sources */,
+				C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */,
 				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
@@ -391,8 +394,9 @@
 				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
-				C59DB3E221ADBFB60000F25B /* AccountInfo.swift in Sources */,
+				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
+				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
