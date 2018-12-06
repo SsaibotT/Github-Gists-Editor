@@ -36,6 +36,22 @@ class GistsAutorsTableViewController: UITableViewController {
         setupBindings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController!.title = "Root View Controller"
+        navigationBar()
+    }
+    
+    func navigationBar() {
+        let navItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+                                      target: self,
+                                      action: #selector(GistsAutorsTableViewController.addNewGist))
+        tabBarController!.navigationItem.rightBarButtonItem = navItem
+    }
+    
+    @objc func addNewGist() {
+        gotoNewGistVC()
+    }
+    
     func choosingTableViewController() {
 //        if tabBarController?.selectedIndex == 9223372036854775807 {
         if tabBarController?.selectedIndex == 0 {
@@ -66,5 +82,9 @@ class GistsAutorsTableViewController: UITableViewController {
     private func goToChooseFileVC(index: Int) {
         let data = gistsViewModel.actors.value[index]
         ShowControllers.showGistFilesOfAutors(from: self, data: data)
+    }
+    
+    private func gotoNewGistVC() {
+        ShowControllers.showCreateNewGist(from: self)
     }
 }

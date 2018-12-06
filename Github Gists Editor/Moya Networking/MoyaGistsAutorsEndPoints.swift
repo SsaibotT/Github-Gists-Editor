@@ -14,8 +14,8 @@ enum MoyaGistsAutorsEndPoints {
     case getPublicEvents
 }
 
-extension MoyaGistsAutorsEndPoints: TargetType {
-
+extension MoyaGistsAutorsEndPoints: AuthorizedTargetType {
+    
     public var baseURL: URL {
         return URL(string: "https://api.github.com")!
     }
@@ -49,6 +49,16 @@ extension MoyaGistsAutorsEndPoints: TargetType {
     }
     
     public var headers: [String: String]? {
-        return nil
+        return [
+            "Content-Type": "application/json"
+        ]
+    }
+    
+    public var needsAuth: Bool {
+        print("needsAuth")
+        switch self {
+        case .getPublicEvents:
+            return false
+        }
     }
 }

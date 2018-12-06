@@ -29,7 +29,7 @@ class GistsAutorsViewModel {
         } else {
             moyaRequest = MultiTarget(MoyaPrivateFilesEndPoint.getPrivateEvents)
         }
-    
+        
         provider.rx.request(moyaRequest)
             .map([Event].self)
             .asObservable()

@@ -32,4 +32,13 @@ class ShowControllers {
             viewController.navigationController?.show(fileVC, sender: viewController)
         }
     }
+    
+    static func showCreateNewGist(from viewController: UIViewController) {
+        
+        let identifier = CreateNewGistViewController.identifier
+        if let newGistVC = viewController.storyboard?
+            .instantiateViewController(withIdentifier: identifier) as? CreateNewGistViewController {
+            viewController.navigationController?.show(newGistVC, sender: viewController)
+        }
+    }
 }

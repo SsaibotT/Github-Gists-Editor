@@ -51,14 +51,15 @@ extension MoyaPrivateFilesEndPoint: AuthorizedTargetType {
     }
     
     public var headers: [String: String]? {
-        return nil
+        return [
+            "Content-Type": "application/json"
+        ]
     }
     
     public var needsAuth: Bool {
-        print("im out")
+        print("needsAuth")
         switch self {
         case .getPrivateEvents:
-            print("im in")
             return true
         }
     }
