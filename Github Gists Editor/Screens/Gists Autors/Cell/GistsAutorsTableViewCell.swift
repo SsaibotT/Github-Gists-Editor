@@ -15,6 +15,13 @@ class GistsAutorsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        avatarImage.layer.masksToBounds = false
+        avatarImage.layer.cornerRadius = 10
+        avatarImage.clipsToBounds = true
+    }
     func cellConfiguration(events: Event) {
         let image = URL(string: events.owner.avatarURL)
         

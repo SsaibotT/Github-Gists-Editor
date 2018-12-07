@@ -13,12 +13,7 @@ import Moya
 
 class GistsAutorsTableViewController: UITableViewController {
     
-    static let source = TokenSource()
-    let moyaProvider = MoyaProvider<MultiTarget>(
-        plugins: [
-            AuthPlugin(tokenClosure: { return "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ==" })
-        ]
-    )
+    let moyaProvider = APIProvider.provider()
 
     private var gistsViewModel: GistsAutorsViewModel!
     private var disposeBag = DisposeBag()
@@ -45,7 +40,7 @@ class GistsAutorsTableViewController: UITableViewController {
         let navItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                       target: self,
                                       action: #selector(GistsAutorsTableViewController.addNewGist))
-        tabBarController!.navigationItem.rightBarButtonItem = navItem
+        navigationItem.rightBarButtonItem = navItem
     }
     
     @objc func addNewGist() {
@@ -53,11 +48,10 @@ class GistsAutorsTableViewController: UITableViewController {
     }
     
     func choosingTableViewController() {
-//        if tabBarController?.selectedIndex == 9223372036854775807 {
         if tabBarController?.selectedIndex == 0 {
-            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: false)
-        } else {
             gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: true)
+        } else {
+            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: false)
         }
     }
     

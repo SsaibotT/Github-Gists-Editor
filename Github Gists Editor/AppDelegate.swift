@@ -16,6 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let tabController = UITabBarController()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabController
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let firstGistAutors  = storyBoard
+            .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
+        
+        let secondGistAutors = storyBoard
+            .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
+        
+        let firstViewController  = firstGistAutors
+        let secondViewController = secondGistAutors
+        
+        firstViewController.tabBarItem  = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)
+        
+        let tabBarList = [firstViewController, secondViewController]
+        tabController.viewControllers = tabBarList.map { return UINavigationController(rootViewController: $0) }
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {}

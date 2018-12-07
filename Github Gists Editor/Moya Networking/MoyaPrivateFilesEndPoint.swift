@@ -16,7 +16,7 @@ enum MoyaPrivateFilesEndPoint {
     case getPrivateEvents
 }
 
-extension MoyaPrivateFilesEndPoint: AuthorizedTargetType {
+extension MoyaPrivateFilesEndPoint: TargetType {
     
     public var baseURL: URL {
         return URL(string: "https://api.github.com")!
@@ -54,13 +54,5 @@ extension MoyaPrivateFilesEndPoint: AuthorizedTargetType {
         return [
             "Content-Type": "application/json"
         ]
-    }
-    
-    public var needsAuth: Bool {
-        print("needsAuth")
-        switch self {
-        case .getPrivateEvents:
-            return true
-        }
     }
 }
