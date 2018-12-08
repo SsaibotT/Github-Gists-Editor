@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
+		C560C3F721BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
 		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
@@ -40,6 +41,7 @@
 		041C66C7F5AFF2E1EFAA8443 /* Pods-Github Gists Editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.debug.xcconfig"; sourceTree = "<group>"; };
 		1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Gists_Editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
+		C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCreateGistEndPoint.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
 		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
 				C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */,
+				C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */,
 				C5AFC9BC21B42F5400E9524F /* APIProvider.swift */,
 			);
 			path = "Moya Networking";
@@ -403,6 +406,7 @@
 				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
 				C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */,
 				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
+				C560C3F721BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,

@@ -69,6 +69,7 @@ class GistsAutorsTableViewController: UITableViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] in
                 self.goToChooseFileVC(index: $0.row)
+                self.tableView.deselectRow(at: $0, animated: false)
             })
             .disposed(by: disposeBag)
     }
