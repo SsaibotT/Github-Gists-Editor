@@ -16,47 +16,74 @@ class CreateNewGistViewController: UIViewController {
 
     @IBOutlet weak var fileNameTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var pickTypeOfText: UITextField!
     
     let moyaProvider = APIProvider.provider()
-    var typeText: String!
+    
+    var createNewGistViewModel: CreateNewGistViewModel!
+    let disposeBag = DisposeBag()
+    var selectedType: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createNewGistViewModel = CreateNewGistViewModel()
         
-        typeText = ".txt"
         contentTextView.layer.borderWidth = 1
         contentTextView.layer.borderColor = UIColor.black.cgColor
+        
+        creatingPickerView()
+        createToolbar()
+    }
+    
+    func creatingPickerView() {
+        let typePicker = UIPickerView()
+        
+        createNewGistViewModel.types.bind(to: typePicker.rx.itemTitles) { (_, element) in
+            return element
+            }
+            .disposed(by: disposeBag)
+        
+        typePicker.rx.itemSelected
+            .subscribe (onNext: { [unowned self] (row, _) in
+                self.selectedType = self.createNewGistViewModel.types.value[row]
+                self.pickTypeOfText.text = self.selectedType
+            })
+            .disposed(by: disposeBag)
+        
+        pickTypeOfText.inputView = typePicker
+    }
+    
+    func createToolbar() {
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        toolBar.barTintColor = .black
+        toolBar.tintColor = .white
+        
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(CreateNewGistViewController.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        pickTypeOfText.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func creatingGistButton(_ sender: UIButton) {
-
-        MoyaCreateGistEndPoint.description = fileNameTextField.text!
-        MoyaCreateGistEndPoint.fileName += typeText
-        MoyaCreateGistEndPoint.content  = contentTextView.text
-        
-        moyaProvider.request(MultiTarget.target(MoyaCreateGistEndPoint.createUser)) { response in
-            switch response {
-            case .success(let result):
-                print(result.data)
-            default:
-                print("some")
-            }
-        }
-    }
-    
-    @IBAction func chooseFileTypeSegmentedController(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            typeText = ".txt"
-        } else {
-            typeText = ".html"
-        }
+        createNewGistViewModel.getRequest(provider: moyaProvider,
+                                          fileName: fileNameTextField.text!,
+                                          selectedType: selectedType,
+                                          content: contentTextView.text)
     }
     
     @IBAction func isPublic(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            MoyaCreateGistEndPoint.isPublic = true
-        } else {
-            MoyaCreateGistEndPoint.isPublic = false
-        }
+        createNewGistViewModel.isPublic(segmentedControl: sender)
     }
 }

@@ -10,14 +10,8 @@ import Foundation
 import Moya
 
 enum MoyaCreateGistEndPoint {
-    
-    static var description = ""
-    static var isPublic = true
-    static var fileName = "file"
-    static var content  = ""
-    private static var example = "{'description': '\(description)','public': \(isPublic), 'files': {'\(fileName)': {'content': '\(content)'}}}".data(using: .utf8)!
-    
-    case createUser
+
+    case createUser(GistCreationInfo)
 }
 
 extension MoyaCreateGistEndPoint: TargetType {
@@ -27,31 +21,31 @@ extension MoyaCreateGistEndPoint: TargetType {
     
     var path: String {
         switch self {
-        case .createUser:
+        case .createUser(_):
             return "/gists"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .createUser:
+        case .createUser(_):
             return .post
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .createUser:
-            return MoyaCreateGistEndPoint.example
+        case .createUser(let gistInfo):
+            return "{'description': '\(gistInfo.description)','public': \(gistInfo.isPublic), 'files': {'\(gistInfo.fileName)': {'content': '\(gistInfo.content)'}}}".data(using: .utf8)!
         }
     }
     
     var task: Task {
         switch self {
-        case .createUser:
-            return .requestParameters(parameters: ["description": "\(MoyaCreateGistEndPoint.description)",
-                                                   "public": MoyaCreateGistEndPoint.isPublic,
-                                                   "files": ["\(MoyaCreateGistEndPoint.fileName)": ["content": "\(MoyaCreateGistEndPoint.content)"]]],
+        case .createUser(let creationInfo):
+            return .requestParameters(parameters: ["description": "\(creationInfo.description)",
+                                                   "public": creationInfo.isPublic,
+                                                   "files": ["\(creationInfo.fileName)": ["content": "\(creationInfo.content)"]]],
                                       encoding: JSONEncoding.default)
         }
     }
