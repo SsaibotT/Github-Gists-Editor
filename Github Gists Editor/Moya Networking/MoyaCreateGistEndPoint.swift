@@ -21,14 +21,14 @@ extension MoyaCreateGistEndPoint: TargetType {
     
     var path: String {
         switch self {
-        case .createUser(_):
+        case .createUser:
             return "/gists"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .createUser(_):
+        case .createUser:
             return .post
         }
     }
@@ -43,9 +43,9 @@ extension MoyaCreateGistEndPoint: TargetType {
     var task: Task {
         switch self {
         case .createUser(let creationInfo):
-            return .requestParameters(parameters: ["description": "\(creationInfo.description)",
+            return .requestParameters(parameters: ["description": creationInfo.description,
                                                    "public": creationInfo.isPublic,
-                                                   "files": ["\(creationInfo.fileName)": ["content": "\(creationInfo.content)"]]],
+                                                   "files": [creationInfo.fileName: ["content": creationInfo.content]]],
                                       encoding: JSONEncoding.default)
         }
     }

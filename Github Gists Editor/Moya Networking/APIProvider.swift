@@ -9,7 +9,18 @@
 import Foundation
 import Moya
 
+private func JSONResponseDataFormatter(_ data: Data) -> Data {
+    do {
+        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
+        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
+        return prettyData
+    } catch {
+        return data // fallback to original data if it can't be serialized.
+    }
+}
+
 struct APIProvider {
+    
     static func provider() -> MoyaProvider<MultiTarget> {
         let endpointClosure = { (target: MultiTarget) -> Endpoint in
             let url = target.baseURL.appendingPathComponent(target.path).absoluteString
@@ -31,6 +42,9 @@ struct APIProvider {
             return endpoint
         }
         
-        return MoyaProvider<MultiTarget>(endpointClosure: endpointClosure)
+        let networkLoggerPlugin = NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
+        let plugins: [PluginType] = [networkLoggerPlugin]
+        
+        return MoyaProvider<MultiTarget>(endpointClosure: endpointClosure, plugins: plugins)
     }
 }

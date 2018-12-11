@@ -136,9 +136,6 @@
                                 <rect key="frame" x="240" y="448" width="119" height="73"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="creatingGistButton:" destination="jUJ-ve-5Fe" eventType="touchUpInside" id="qdq-gq-F9d"/>
-                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7E-i5-VVq">
                                 <rect key="frame" x="16" y="175" width="343" height="265"/>
@@ -173,9 +170,6 @@
                                     <segment title="Public"/>
                                     <segment title="Private"/>
                                 </segments>
-                                <connections>
-                                    <action selector="isPublic:" destination="jUJ-ve-5Fe" eventType="valueChanged" id="u54-WQ-JmV"/>
-                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-oy-rhF">
                                 <rect key="frame" x="16" y="448" width="95" height="28"/>
@@ -236,7 +230,9 @@
                     <connections>
                         <outlet property="contentTextView" destination="i7E-i5-VVq" id="Cng-Eg-o5o"/>
                         <outlet property="fileNameTextField" destination="N1i-sk-daq" id="jRq-dz-QGw"/>
+                        <outlet property="isPublicSegmentedControl" destination="Hds-8T-aUd" id="ZTt-v5-lmh"/>
                         <outlet property="pickTypeOfText" destination="fKP-9G-WRQ" id="s2z-Nz-Tnt"/>
+                        <outlet property="uploadButton" destination="AqI-Rl-cmo" id="X0J-UB-32d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXc-2q-wJY" userLabel="First Responder" sceneMemberID="firstResponder"/>

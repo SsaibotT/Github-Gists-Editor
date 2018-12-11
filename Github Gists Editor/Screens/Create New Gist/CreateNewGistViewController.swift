@@ -17,12 +17,14 @@ class CreateNewGistViewController: UIViewController {
     @IBOutlet weak var fileNameTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var pickTypeOfText: UITextField!
+    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var isPublicSegmentedControl: UISegmentedControl!
     
-    let moyaProvider = APIProvider.provider()
+    private let moyaProvider = APIProvider.provider()
     
-    var createNewGistViewModel: CreateNewGistViewModel!
+    private var createNewGistViewModel: CreateNewGistViewModel!
     let disposeBag = DisposeBag()
-    var selectedType: String!
+    private var selectedType: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +35,55 @@ class CreateNewGistViewController: UIViewController {
         
         creatingPickerView()
         createToolbar()
+        setupBindings()
     }
     
-    func creatingPickerView() {
+    private func setupBindings() {
+        fileNameTextField.rx.text
+            .orEmpty
+            .bind(to: createNewGistViewModel.fileName)
+            .disposed(by: disposeBag)
+        
+        contentTextView.rx.text
+            .orEmpty
+            .bind(to: createNewGistViewModel.content)
+            .disposed(by: disposeBag)
+        
+        pickTypeOfText.rx.text
+            .orEmpty
+            .bind(to: createNewGistViewModel.selectedType)
+            .disposed(by: disposeBag)
+        
+//        createNewGistViewModel.isValid
+//            .bind(to: uploadButton.rx.isEnabled)
+//            .disposed(by: disposeBag)
+        
+        uploadButton.rx.tap
+            .subscribe({ [unowned self] (_) in
+                if self.createNewGistViewModel.testValid {
+                    self.createNewGistViewModel.getRequest(provider: self.moyaProvider)
+                } else {
+                    print("false")
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        isPublicSegmentedControl.rx.value
+            .asObservable()
+            .subscribe(onNext: { [unowned self] index in
+                self.createNewGistViewModel.isPublic(index: index)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func creatingPickerView() {
         let typePicker = UIPickerView()
         
-        createNewGistViewModel.types.bind(to: typePicker.rx.itemTitles) { (_, element) in
+        createNewGistViewModel.types
+            .bind(to: typePicker.rx.itemTitles) { (_, element) in
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= typePicker.bounds.height / 2
+            }
             return element
             }
             .disposed(by: disposeBag)
@@ -53,7 +98,7 @@ class CreateNewGistViewController: UIViewController {
         pickTypeOfText.inputView = typePicker
     }
     
-    func createToolbar() {
+    private func createToolbar() {
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -72,18 +117,8 @@ class CreateNewGistViewController: UIViewController {
         pickTypeOfText.inputAccessoryView = toolBar
     }
     
-    @objc func dismissKeyboard() {
+    @objc private func dismissKeyboard() {
+        self.view.frame.origin.y += 108
         view.endEditing(true)
-    }
-    
-    @IBAction func creatingGistButton(_ sender: UIButton) {
-        createNewGistViewModel.getRequest(provider: moyaProvider,
-                                          fileName: fileNameTextField.text!,
-                                          selectedType: selectedType,
-                                          content: contentTextView.text)
-    }
-    
-    @IBAction func isPublic(_ sender: UISegmentedControl) {
-        createNewGistViewModel.isPublic(segmentedControl: sender)
     }
 }
