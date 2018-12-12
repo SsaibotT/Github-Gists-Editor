@@ -14,7 +14,7 @@ import Moya
 class GistsAutorsTableViewController: UITableViewController {
     
     let moyaProvider = APIProvider.provider()
-
+    
     private var gistsViewModel: GistsAutorsViewModel!
     private var disposeBag = DisposeBag()
     
@@ -26,9 +26,10 @@ class GistsAutorsTableViewController: UITableViewController {
         
         let nibName = UINib(nibName: "GistsAutorsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: GistsAutorsTableViewCell.identifier)
-
+        
         choosingTableViewController()
         setupBindings()
+        pullToRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,25 +37,23 @@ class GistsAutorsTableViewController: UITableViewController {
         navigationBar()
     }
     
-    func navigationBar() {
+    //MARK: Navigation
+    private func navigationBar() {
         let navItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                       target: self,
                                       action: #selector(GistsAutorsTableViewController.addNewGist))
         navigationItem.rightBarButtonItem = navItem
     }
     
-    @objc func addNewGist() {
+    @objc private func addNewGist() {
         gotoNewGistVC()
     }
     
-    func choosingTableViewController() {
-        if tabBarController?.selectedIndex == 0 {
-            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: true)
-        } else {
-            gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: false)
-        }
+    private func choosingTableViewController() {
+        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: publicBool())
     }
     
+    //MARK: rx
     private func setupBindings() {
         
         gistsViewModel.actors
@@ -74,6 +73,19 @@ class GistsAutorsTableViewController: UITableViewController {
             .disposed(by: disposeBag)
     }
     
+    
+    private func pullToRefresh() {
+        let refresher = UIRefreshControl()
+        tableView.refreshControl = refresher
+        
+        refresher.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [unowned self] in
+                self.gistsViewModel.getRequest(provider: self.moyaProvider, publicBool: self.publicBool())
+                refresher.endRefreshing()
+            }).disposed(by: disposeBag)
+    }
+    
+    //MARK: Jumping to new VC
     private func goToChooseFileVC(index: Int) {
         let data = gistsViewModel.actors.value[index]
         ShowControllers.showGistFilesOfAutors(from: self, data: data)
@@ -81,5 +93,17 @@ class GistsAutorsTableViewController: UITableViewController {
     
     private func gotoNewGistVC() {
         ShowControllers.showCreateNewGist(from: self)
+    }
+    
+    //MARK: Helper
+    private func publicBool() -> Bool {
+        var publicBool: Bool
+        if self.tabBarController?.selectedIndex == 0 {
+            publicBool = true
+        } else {
+            publicBool = false
+        }
+        
+        return publicBool
     }
 }
