@@ -33,11 +33,13 @@ class GistsAutorsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         tabBarController!.title = "Root View Controller"
         navigationBar()
     }
     
-    //MARK: Navigation
+    // MARK: Navigation
     private func navigationBar() {
         let navItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                       target: self,
@@ -53,7 +55,7 @@ class GistsAutorsTableViewController: UITableViewController {
         gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: publicBool())
     }
     
-    //MARK: rx
+    // MARK: rx
     private func setupBindings() {
         
         gistsViewModel.actors
@@ -73,7 +75,6 @@ class GistsAutorsTableViewController: UITableViewController {
             .disposed(by: disposeBag)
     }
     
-    
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
         tableView.refreshControl = refresher
@@ -85,7 +86,7 @@ class GistsAutorsTableViewController: UITableViewController {
             }).disposed(by: disposeBag)
     }
     
-    //MARK: Jumping to new VC
+    // MARK: Jumping to new VC
     private func goToChooseFileVC(index: Int) {
         let data = gistsViewModel.actors.value[index]
         ShowControllers.showGistFilesOfAutors(from: self, data: data)
@@ -95,7 +96,7 @@ class GistsAutorsTableViewController: UITableViewController {
         ShowControllers.showCreateNewGist(from: self)
     }
     
-    //MARK: Helper
+    // MARK: Helper
     private func publicBool() -> Bool {
         var publicBool: Bool
         if self.tabBarController?.selectedIndex == 0 {

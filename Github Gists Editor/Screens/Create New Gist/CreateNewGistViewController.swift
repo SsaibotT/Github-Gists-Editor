@@ -38,6 +38,42 @@ class CreateNewGistViewController: UIViewController {
         setupBindings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardFrameChangeNotification(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardFrameChangeNotification(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
+            let endFrameY = endFrame.origin.y
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
+                as? NSNumber)?.doubleValue ?? 0
+            
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+            
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                self.view.frame.origin.y = 0
+            } else {
+                self.view.frame.origin.y -= endFrameY / 4
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
+    }
+    
     private func setupBindings() {
         fileNameTextField.rx.text
             .orEmpty
@@ -62,8 +98,6 @@ class CreateNewGistViewController: UIViewController {
             .subscribe({ [unowned self] (_) in
                 if self.createNewGistViewModel.testValid {
                     self.createNewGistViewModel.getRequest(provider: self.moyaProvider)
-                } else {
-                    print("false")
                 }
             })
             .disposed(by: disposeBag)
@@ -81,9 +115,6 @@ class CreateNewGistViewController: UIViewController {
         
         createNewGistViewModel.types
             .bind(to: typePicker.rx.itemTitles) { (_, element) in
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= typePicker.bounds.height / 2
-            }
             return element
             }
             .disposed(by: disposeBag)
@@ -118,7 +149,6 @@ class CreateNewGistViewController: UIViewController {
     }
     
     @objc private func dismissKeyboard() {
-        self.view.frame.origin.y += 108
         view.endEditing(true)
     }
 }

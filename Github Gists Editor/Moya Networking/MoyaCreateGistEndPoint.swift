@@ -16,13 +16,13 @@ enum MoyaCreateGistEndPoint {
 
 extension MoyaCreateGistEndPoint: TargetType {
     var baseURL: URL {
-        return URL(string: "https://api.github.com")!
+        return URL(string: Constants.githubOriginalSite)!
     }
     
     var path: String {
         switch self {
         case .createUser:
-            return "/gists"
+            return Constants.userGists
         }
     }
     
@@ -34,10 +34,7 @@ extension MoyaCreateGistEndPoint: TargetType {
     }
     
     var sampleData: Data {
-        switch self {
-        case .createUser(let gistInfo):
-            return "{'description': '\(gistInfo.description)','public': \(gistInfo.isPublic), 'files': {'\(gistInfo.fileName)': {'content': '\(gistInfo.content)'}}}".data(using: .utf8)!
-        }
+        return Data()
     }
     
     var task: Task {

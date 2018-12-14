@@ -17,13 +17,13 @@ enum MoyaGistsAutorsEndPoints {
 extension MoyaGistsAutorsEndPoints: TargetType {
     
     public var baseURL: URL {
-        return URL(string: "https://api.github.com")!
+        return URL(string: Constants.githubOriginalSite)!
     }
     
     public var path: String {
         switch self {
         case .getPublicEvents:
-            return "/gists/public"
+            return Constants.githubPublic
         }
     }
     

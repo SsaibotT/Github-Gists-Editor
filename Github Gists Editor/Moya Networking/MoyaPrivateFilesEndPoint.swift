@@ -11,21 +11,19 @@ import Moya
 
 enum MoyaPrivateFilesEndPoint {
     
-    static var username = "SsaibotT"
-    
     case getPrivateEvents
 }
 
 extension MoyaPrivateFilesEndPoint: TargetType {
     
     public var baseURL: URL {
-        return URL(string: "https://api.github.com")!
+        return URL(string: Constants.githubOriginalSite)!
     }
     
     public var path: String {
         switch self {
         case .getPrivateEvents:
-            return "/users/\(MoyaPrivateFilesEndPoint.username)/gists"
+            return Constants.getGists(by: Constants.nickNameSsaibotT)
         }
     }
     
