@@ -19,6 +19,7 @@ class CreateNewGistViewController: UIViewController {
     @IBOutlet weak var pickTypeOfText: UITextField!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var isPublicSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var bottomSecretConstraint: NSLayoutConstraint!
     
     private let moyaProvider = APIProvider.provider()
     
@@ -32,6 +33,11 @@ class CreateNewGistViewController: UIViewController {
         
         contentTextView.layer.borderWidth = 1
         contentTextView.layer.borderColor = UIColor.black.cgColor
+        
+        uploadButton.layer.borderWidth = 1
+        uploadButton.layer.borderColor = UIColor.black.cgColor
+        uploadButton.layer.cornerRadius = 10
+        uploadButton.clipsToBounds = true
         
         creatingPickerView()
         createToolbar()
@@ -50,7 +56,7 @@ class CreateNewGistViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func keyboardFrameChangeNotification(notification: Notification) {
+    @objc private func keyboardFrameChangeNotification(notification: Notification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
             let endFrameY = endFrame.origin.y
@@ -62,9 +68,9 @@ class CreateNewGistViewController: UIViewController {
             let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             
             if endFrameY >= UIScreen.main.bounds.size.height {
-                self.view.frame.origin.y = 0
+                bottomSecretConstraint.constant -= 108 // Just a number constant, cause if ull type endFrameY it will show u just a huge number that is not equal when the pickerView hides!!!
             } else {
-                self.view.frame.origin.y -= endFrameY / 4
+                bottomSecretConstraint.constant += 108
             }
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
@@ -90,13 +96,14 @@ class CreateNewGistViewController: UIViewController {
             .bind(to: createNewGistViewModel.selectedType)
             .disposed(by: disposeBag)
         
+        // What to chose better, isValid rx function or just a check by bool in viewModel???
 //        createNewGistViewModel.isValid
 //            .bind(to: uploadButton.rx.isEnabled)
 //            .disposed(by: disposeBag)
         
         uploadButton.rx.tap
             .subscribe({ [unowned self] (_) in
-                if self.createNewGistViewModel.testValid {
+                if self.createNewGistViewModel.testValid { // Like so?
                     self.createNewGistViewModel.getRequest(provider: self.moyaProvider)
                 }
             })

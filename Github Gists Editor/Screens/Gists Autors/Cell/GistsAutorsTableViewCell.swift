@@ -18,7 +18,6 @@ class GistsAutorsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        avatarImage.layer.masksToBounds = false
         avatarImage.layer.cornerRadius = 10
         avatarImage.clipsToBounds = true
     }
