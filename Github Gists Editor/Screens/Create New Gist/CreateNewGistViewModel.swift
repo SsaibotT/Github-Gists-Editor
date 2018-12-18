@@ -20,39 +20,37 @@ class CreateNewGistViewModel {
     var fileName: BehaviorRelay<String> = BehaviorRelay(value: "")
     var content: BehaviorRelay<String>  = BehaviorRelay(value: "")
     var selectedType: BehaviorRelay<String> = BehaviorRelay(value: "")
-//    var isValid: Observable<Bool>
     
-    var testValid: Bool! {
+    var uploadButtonResult: Observable<Bool>!
+    
+    var isValid: Bool {
         return fileName.value.count > 0
             && content.value.count > 0
             && selectedType.value.count > 0
     }
     
-//    init() {
-//
-//        isValid = Observable.combineLatest(self.fileName.asObservable(),
-//                                           self.content.asObservable(),
-//                                           self.selectedType.asObservable()) { (fileName, content, selectedType) in
-//            return fileName.count > 0
-//                && content.count > 0
-//                && selectedType.count > 0
-//        }
-//    }
-    
-    func getRequest(provider: MoyaProvider<MultiTarget>) {
-        gistCreationInfo.description = fileName.value
-        gistCreationInfo.fileName    = "file" + selectedType.value
-        gistCreationInfo.content     = content.value
+    init(tapButton: Observable<Void>, provider: MoyaProvider<MultiTarget>) {
         
-        provider.request(MultiTarget.target(MoyaCreateGistEndPoint
-            .createUser(gistCreationInfo))) { response in
-            switch response {
-            case .success(let result):
-                print(result.data)
-            default:
-                break
-            }
-        }
+        let validation = Observable.combineLatest(fileName.asObservable(),
+                                                  content.asObservable(),
+                                                  selectedType.asObservable())
+        
+        uploadButtonResult = tapButton
+            .withLatestFrom(validation)
+            .flatMapLatest({ [unowned self] (fileName, content, selectedType) -> Observable<Bool> in
+                guard self.isValid else { return Observable.just(false)}
+                
+                self.gistCreationInfo.description = fileName
+                self.gistCreationInfo.fileName    = fileName + selectedType
+                self.gistCreationInfo.content     = content
+                
+                return provider.rx.request(MultiTarget.target(MoyaPrivateFilesEndPoint
+                    .createUser(self.gistCreationInfo)))
+                    .asObservable()
+                    .flatMapLatest({ (_) -> Observable<Bool> in
+                        return Observable.just(true)
+                    })
+        })
     }
     
     func isPublic(index: Int) {

@@ -12,6 +12,8 @@ import Moya
 enum MoyaPrivateFilesEndPoint {
     
     case getPrivateEvents
+    case createUser(GistCreationInfo)
+    case deleteUser(String)
 }
 
 extension MoyaPrivateFilesEndPoint: TargetType {
@@ -24,6 +26,10 @@ extension MoyaPrivateFilesEndPoint: TargetType {
         switch self {
         case .getPrivateEvents:
             return Constants.getGists(by: Constants.nickNameSsaibotT)
+        case .createUser:
+            return Constants.userGists
+        case .deleteUser(let id):
+            return "/gists/\(id)"
         }
     }
     
@@ -31,21 +37,27 @@ extension MoyaPrivateFilesEndPoint: TargetType {
         switch self {
         case .getPrivateEvents:
             return .get
+        case .createUser:
+            return .post
+        case .deleteUser:
+            return .delete
         }
     }
     
     public var task: Task {
         switch self {
-        case .getPrivateEvents:
+        case .getPrivateEvents, .deleteUser:
             return .requestPlain
+        case .createUser(let creationInfo):
+            return .requestParameters(parameters: ["description": creationInfo.description,
+                                                   "public": creationInfo.isPublic,
+                                                   "files": [creationInfo.fileName: ["content": creationInfo.content]]],
+                                      encoding: JSONEncoding.default)
         }
     }
     
     public var sampleData: Data {
-        switch self {
-        case .getPrivateEvents:
-            return Data()
-        }
+        return Data()        
     }
     
     public var headers: [String: String]? {

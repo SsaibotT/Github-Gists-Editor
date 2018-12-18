@@ -11,7 +11,6 @@
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
-		C560C3F721BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
 		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
@@ -47,7 +46,6 @@
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCreateGistEndPoint.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
 		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			children = (
 				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
 				C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */,
-				C560C3F621BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift */,
 				C5AFC9BC21B42F5400E9524F /* APIProvider.swift */,
 			);
 			path = "Moya Networking";
@@ -426,7 +423,6 @@
 				C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */,
 				C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */,
 				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
-				C560C3F721BBF69E00FA4F86 /* MoyaCreateGistEndPoint.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,

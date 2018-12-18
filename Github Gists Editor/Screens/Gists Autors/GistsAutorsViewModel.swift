@@ -36,4 +36,22 @@ class GistsAutorsViewModel {
             .bind(to: actors)
             .disposed(by: disposeBag)
     }
+    
+    func deleteRequest(provider: MoyaProvider<MultiTarget>, id: String) {
+        
+        let moyaRequest = MultiTarget(MoyaPrivateFilesEndPoint.deleteUser(id))
+        
+        provider.rx.request(moyaRequest)
+            .asObservable()
+            .subscribe(onNext: { (response) in
+                print(response)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func delete(index: Int) {
+        var array = actors.value
+        array.remove(at: index)
+        actors.accept(array)
+    }
 }

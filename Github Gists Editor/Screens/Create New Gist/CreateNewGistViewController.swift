@@ -29,8 +29,9 @@ class CreateNewGistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createNewGistViewModel = CreateNewGistViewModel()
-        
+        createNewGistViewModel = CreateNewGistViewModel(tapButton: uploadButton.rx.tap.asObservable(),
+                                                        provider: moyaProvider)
+                                                    
         contentTextView.layer.borderWidth = 1
         contentTextView.layer.borderColor = UIColor.black.cgColor
         
@@ -47,37 +48,54 @@ class CreateNewGistViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardFrameChangeNotification(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+                                               name: UIWindow.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: UIWindow.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
+        
+        let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
+            as? NSNumber)?.doubleValue ?? 0
+        
+        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+        let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+        
+        bottomSecretConstraint.constant = endFrame.height
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       options: animationCurve,
+                       animations: { self.view.layoutIfNeeded() },
+                       completion: nil)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
+            as? NSNumber)?.doubleValue ?? 0
+        
+        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+        let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+        
+        let startedBottomSecretConstraint: CGFloat = 146 // That is the normal size of constraint
+        bottomSecretConstraint.constant = startedBottomSecretConstraint
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       options: animationCurve,
+                       animations: { self.view.layoutIfNeeded() },
+                       completion: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc private func keyboardFrameChangeNotification(notification: Notification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
-            let endFrameY = endFrame.origin.y
-            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
-                as? NSNumber)?.doubleValue ?? 0
-            
-            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-            let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-            
-            if endFrameY >= UIScreen.main.bounds.size.height {
-                bottomSecretConstraint.constant -= 108 // Just a number constant, cause if ull type endFrameY it will show u just a huge number that is not equal when the pickerView hides!!!
-            } else {
-                bottomSecretConstraint.constant += 108
-            }
-            UIView.animate(withDuration: duration,
-                           delay: TimeInterval(0),
-                           options: animationCurve,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
-        }
     }
     
     private func setupBindings() {
@@ -96,16 +114,17 @@ class CreateNewGistViewController: UIViewController {
             .bind(to: createNewGistViewModel.selectedType)
             .disposed(by: disposeBag)
         
-        // What to chose better, isValid rx function or just a check by bool in viewModel???
-//        createNewGistViewModel.isValid
-//            .bind(to: uploadButton.rx.isEnabled)
-//            .disposed(by: disposeBag)
-        
-        uploadButton.rx.tap
-            .subscribe({ [unowned self] (_) in
-                if self.createNewGistViewModel.testValid { // Like so?
-                    self.createNewGistViewModel.getRequest(provider: self.moyaProvider)
-                }
+        createNewGistViewModel
+            .uploadButtonResult
+            .subscribe(onNext: { [unowned self] (success) in
+                guard !success else { return }
+                let alert = UIAlertController(title: "Error",
+                                              message: "Some fields are empty, you need to provide more information",
+                                              preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
             })
             .disposed(by: disposeBag)
         

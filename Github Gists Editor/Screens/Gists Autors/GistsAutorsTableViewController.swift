@@ -73,6 +73,16 @@ class GistsAutorsTableViewController: UITableViewController {
                 self.tableView.deselectRow(at: $0, animated: false)
             })
             .disposed(by: disposeBag)
+        
+        if self.tabBarController?.selectedIndex == 1 {
+            tableView.rx.itemDeleted
+                .subscribe(onNext: { [unowned self] (index) in
+                    let id = self.gistsViewModel.actors.value[index.row].id
+                    self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
+                    self.gistsViewModel.delete(index: index.row)
+                })
+                .disposed(by: disposeBag)
+        }
     }
     
     private func pullToRefresh() {
@@ -82,7 +92,9 @@ class GistsAutorsTableViewController: UITableViewController {
         refresher.rx.controlEvent(.valueChanged)
             .subscribe(onNext: { [unowned self] in
                 self.gistsViewModel.getRequest(provider: self.moyaProvider, publicBool: self.publicBool())
-                refresher.endRefreshing()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    refresher.endRefreshing()
+                }
             }).disposed(by: disposeBag)
     }
     

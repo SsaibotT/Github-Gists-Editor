@@ -32,7 +32,7 @@ struct APIProvider {
                                     httpHeaderFields: nil)
             
             switch target.target {
-            case is MoyaPrivateFilesEndPoint, is MoyaCreateGistEndPoint:
+            case is MoyaPrivateFilesEndPoint:
                 let authorization = ["Authorization": "Basic " + "MVNzYWlib3RUMUBnbWFpbC5jb206c2FpYm90MXJhbWJsZXJydQ=="]
                 endpoint = endpoint.adding(newHTTPHeaderFields: authorization)
             default:
