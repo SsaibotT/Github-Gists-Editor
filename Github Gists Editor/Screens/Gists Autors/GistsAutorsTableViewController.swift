@@ -89,13 +89,9 @@ class GistsAutorsTableViewController: UITableViewController {
         let refresher = UIRefreshControl()
         tableView.refreshControl = refresher
         
-        refresher.rx.controlEvent(.valueChanged)
-            .subscribe(onNext: { [unowned self] in
-                self.gistsViewModel.getRequest(provider: self.moyaProvider, publicBool: self.publicBool())
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    refresher.endRefreshing()
-                }
-            }).disposed(by: disposeBag)
+        gistsViewModel.pullToRefresh(refresher: refresher,
+                                     provider: moyaProvider,
+                                     publicBool: publicBool())
     }
     
     // MARK: Jumping to new VC

@@ -31,12 +31,12 @@ class CreateNewGistViewModel {
     
     init(tapButton: Observable<Void>, provider: MoyaProvider<MultiTarget>) {
         
-        let validation = Observable.combineLatest(fileName.asObservable(),
+        let userInfo = Observable.combineLatest(fileName.asObservable(),
                                                   content.asObservable(),
                                                   selectedType.asObservable())
         
         uploadButtonResult = tapButton
-            .withLatestFrom(validation)
+            .withLatestFrom(userInfo)
             .flatMapLatest({ [unowned self] (fileName, content, selectedType) -> Observable<Bool> in
                 guard self.isValid else { return Observable.just(false)}
                 

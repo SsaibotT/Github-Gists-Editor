@@ -26,6 +26,7 @@ class CreateNewGistViewController: UIViewController {
     private var createNewGistViewModel: CreateNewGistViewModel!
     let disposeBag = DisposeBag()
     private var selectedType: String!
+    private var normalSizeOfConstraint: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,54 +49,54 @@ class CreateNewGistViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
-                                               name: UIWindow.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-                                               name: UIWindow.keyboardWillHideNotification, object: nil)
+        normalSizeOfConstraint = bottomSecretConstraint.constant
+        keyboardRxNotifications()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
+    func keyboardRxNotifications() {
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] (notification) in
+                guard let userInfo = notification.userInfo else { return }
+                
+                let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
+                
+                let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
+                    as? NSNumber)?.doubleValue ?? 0
+                
+                let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+                let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+                let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+                
+                self.bottomSecretConstraint.constant = endFrame.height
+                UIView.animate(withDuration: duration,
+                               delay: 0,
+                               options: animationCurve,
+                               animations: { self.view.layoutIfNeeded() },
+                               completion: nil)
+            })
+            .disposed(by: disposeBag)
         
-        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
-        
-        let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
-            as? NSNumber)?.doubleValue ?? 0
-        
-        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-        let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-        
-        bottomSecretConstraint.constant = endFrame.height
-        UIView.animate(withDuration: duration,
-                       delay: 0,
-                       options: animationCurve,
-                       animations: { self.view.layoutIfNeeded() },
-                       completion: nil)
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-        
-        let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
-            as? NSNumber)?.doubleValue ?? 0
-        
-        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-        let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-        
-        let startedBottomSecretConstraint: CGFloat = 146 // That is the normal size of constraint
-        bottomSecretConstraint.constant = startedBottomSecretConstraint
-        UIView.animate(withDuration: duration,
-                       delay: 0,
-                       options: animationCurve,
-                       animations: { self.view.layoutIfNeeded() },
-                       completion: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] (notification) in
+                guard let userInfo = notification.userInfo else { return }
+                
+                let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
+                    as? NSNumber)?.doubleValue ?? 0
+                
+                let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+                let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+                let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+                
+                self.bottomSecretConstraint.constant = self.normalSizeOfConstraint
+                UIView.animate(withDuration: duration,
+                               delay: 0,
+                               options: animationCurve,
+                               animations: { self.view.layoutIfNeeded() },
+                               completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupBindings() {

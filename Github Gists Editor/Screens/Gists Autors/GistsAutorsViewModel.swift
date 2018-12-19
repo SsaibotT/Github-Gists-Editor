@@ -17,6 +17,7 @@ class GistsAutorsViewModel {
     private let disposeBag = DisposeBag()
     
     init(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
+        
         getRequest(provider: provider, publicBool: isPublic)
     }
     
@@ -45,6 +46,17 @@ class GistsAutorsViewModel {
             .asObservable()
             .subscribe(onNext: { (response) in
                 print(response)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func pullToRefresh(refresher: UIRefreshControl, provider: MoyaProvider<MultiTarget>, publicBool: Bool) {
+        refresher.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [unowned self] in
+                self.getRequest(provider: provider, publicBool: publicBool)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    refresher.endRefreshing()
+                }
             })
             .disposed(by: disposeBag)
     }
