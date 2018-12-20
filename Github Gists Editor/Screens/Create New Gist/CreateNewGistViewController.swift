@@ -68,7 +68,7 @@ class CreateNewGistViewController: UIViewController {
                 let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
                 let animationCurve: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
                 
-                self.bottomSecretConstraint.constant = endFrame.height
+                self.bottomSecretConstraint.constant = -endFrame.height / 1.5 //Cause without devide it is higher =)
                 UIView.animate(withDuration: duration,
                                delay: 0,
                                options: animationCurve,

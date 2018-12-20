@@ -22,19 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabController
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let firstGistAutors  = storyBoard
+        guard let firstGistAutors  = storyBoard
             .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
+            as? GistsAutorsTableViewController else { return true }
         
-        let secondGistAutors = storyBoard
+        guard let secondGistAutors = storyBoard
             .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
+            as? GistsAutorsTableViewController else { return true }
         
-        let firstViewController  = firstGistAutors
-        let secondViewController = secondGistAutors
+        firstGistAutors.tabBarItem  = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+        secondGistAutors.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)
         
-        firstViewController.tabBarItem  = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
-        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)
+        firstGistAutors.publicBool = true
+        secondGistAutors.publicBool = false
         
-        let tabBarList = [firstViewController, secondViewController]
+        let tabBarList = [firstGistAutors, secondGistAutors]
         tabController.viewControllers = tabBarList.map { return UINavigationController(rootViewController: $0) }
         return true
     }

@@ -23,12 +23,6 @@ class CreateNewGistViewModel {
     
     var uploadButtonResult: Observable<Bool>!
     
-    var isValid: Bool {
-        return fileName.value.count > 0
-            && content.value.count > 0
-            && selectedType.value.count > 0
-    }
-    
     init(tapButton: Observable<Void>, provider: MoyaProvider<MultiTarget>) {
         
         let userInfo = Observable.combineLatest(fileName.asObservable(),
@@ -38,7 +32,12 @@ class CreateNewGistViewModel {
         uploadButtonResult = tapButton
             .withLatestFrom(userInfo)
             .flatMapLatest({ [unowned self] (fileName, content, selectedType) -> Observable<Bool> in
-                guard self.isValid else { return Observable.just(false)}
+                
+                let isValid: Bool = fileName.count > 0
+                    && content.count > 0
+                    && selectedType.count > 0
+                
+                guard isValid else { return Observable.just(false)}
                 
                 self.gistCreationInfo.description = fileName
                 self.gistCreationInfo.fileName    = fileName + selectedType
@@ -54,10 +53,6 @@ class CreateNewGistViewModel {
     }
     
     func isPublic(index: Int) {
-        if index == 0 {
-            gistCreationInfo.isPublic = true
-        } else {
-            gistCreationInfo.isPublic = false
-        }
+        gistCreationInfo.isPublic = index == 0
     }
 }
