@@ -10,6 +10,11 @@
 		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
+		C52BDE2421DF8B7E00BFA86C /* EventRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */; };
+		C52BDE2621DF8CC400BFA86C /* OwnerRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */; };
+		C52BDE2821DF945700BFA86C /* FileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2721DF945700BFA86C /* FileRLM.swift */; };
+		C52BDE2A21DF9E5900BFA86C /* FilesDictionaryRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */; };
+		C536AC3E21DD01ED00B009AD /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536AC3D21DD01ED00B009AD /* Files.swift */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
@@ -28,12 +33,11 @@
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
 		C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26421A6E42600F58ED3 /* Assets.xcassets */; };
 		C5D8B26821A6E42600F58ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26621A6E42600F58ED3 /* LaunchScreen.storyboard */; };
+		C5D9ADA121D67E7500EF6675 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D9ADA021D67E7500EF6675 /* RealmService.swift */; };
 		C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */; };
 		C5E587CD21B0779C003DE4CF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CC21B0779C003DE4CF /* Event.swift */; };
 		C5E587CF21B0781C003DE4CF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CE21B0781C003DE4CF /* File.swift */; };
 		C5E587D121B07844003DE4CF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D021B07844003DE4CF /* Owner.swift */; };
-		C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D221B0786B003DE4CF /* TypeEnum.swift */; };
-		C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587D421B07898003DE4CF /* JSONNull.swift */; };
 		C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */; };
 		C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */; };
 		C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */; };
@@ -45,6 +49,11 @@
 		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
+		C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRLM.swift; sourceTree = "<group>"; };
+		C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerRLM.swift; sourceTree = "<group>"; };
+		C52BDE2721DF945700BFA86C /* FileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRLM.swift; sourceTree = "<group>"; };
+		C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesDictionaryRLM.swift; sourceTree = "<group>"; };
+		C536AC3D21DD01ED00B009AD /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
@@ -65,12 +74,11 @@
 		C5D8B26421A6E42600F58ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5D8B26721A6E42600F58ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5D8B26921A6E42600F58ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5D9ADA021D67E7500EF6675 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		C5E587CC21B0779C003DE4CF /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C5E587CE21B0781C003DE4CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C5E587D021B07844003DE4CF /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
-		C5E587D221B0786B003DE4CF /* TypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeEnum.swift; sourceTree = "<group>"; };
-		C5E587D421B07898003DE4CF /* JSONNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNull.swift; sourceTree = "<group>"; };
 		C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPrivateFilesEndPoint.swift; sourceTree = "<group>"; };
 		C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewController.swift; sourceTree = "<group>"; };
 		C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +124,17 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		C52BDE2221DF8B6500BFA86C /* Realm models */ = {
+			isa = PBXGroup;
+			children = (
+				C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */,
+				C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */,
+				C52BDE2721DF945700BFA86C /* FileRLM.swift */,
+				C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */,
+			);
+			path = "Realm models";
+			sourceTree = "<group>";
+		};
 		C54C23BC21C414E200A8D6FC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,13 +163,13 @@
 		C58C6F0521A9C35400FBDA3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C536AC3D21DD01ED00B009AD /* Files.swift */,
+				C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */,
 				C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */,
 				C5E587CC21B0779C003DE4CF /* Event.swift */,
 				C5E587CE21B0781C003DE4CF /* File.swift */,
 				C5E587D021B07844003DE4CF /* Owner.swift */,
-				C5E587D221B0786B003DE4CF /* TypeEnum.swift */,
-				C5E587D421B07898003DE4CF /* JSONNull.swift */,
-				C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */,
+				C52BDE2221DF8B6500BFA86C /* Realm models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +242,7 @@
 		C5D8B25C21A6E42400F58ED3 /* Github Gists Editor */ = {
 			isa = PBXGroup;
 			children = (
+				C5D9AD9F21D67CFD00EF6675 /* RealmDB */,
 				C54C23BC21C414E200A8D6FC /* Helper */,
 				C59DB3E321ADBFE00000F25B /* Extensions */,
 				C58C6F0521A9C35400FBDA3A /* Model */,
@@ -245,6 +265,14 @@
 				C5AFC9BC21B42F5400E9524F /* APIProvider.swift */,
 			);
 			path = "Moya Networking";
+			sourceTree = "<group>";
+		};
+		C5D9AD9F21D67CFD00EF6675 /* RealmDB */ = {
+			isa = PBXGroup;
+			children = (
+				C5D9ADA021D67E7500EF6675 /* RealmService.swift */,
+			);
+			path = RealmDB;
 			sourceTree = "<group>";
 		};
 		C5EA30EA21AEDE7E001A8589 /* AccountFiles */ = {
@@ -379,10 +407,13 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -392,10 +423,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,29 +445,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */,
-				C5E587D321B0786B003DE4CF /* TypeEnum.swift in Sources */,
 				C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */,
 				C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */,
 				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
+				C52BDE2A21DF9E5900BFA86C /* FilesDictionaryRLM.swift in Sources */,
 				C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */,
 				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
 				C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */,
 				C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */,
-				C5E587D521B07898003DE4CF /* JSONNull.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
+				C52BDE2421DF8B7E00BFA86C /* EventRLM.swift in Sources */,
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,
+				C52BDE2621DF8CC400BFA86C /* OwnerRLM.swift in Sources */,
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
+				C536AC3E21DD01ED00B009AD /* Files.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
+				C52BDE2821DF945700BFA86C /* FileRLM.swift in Sources */,
 				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
 				C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */,
 				C5E587CD21B0779C003DE4CF /* Event.swift in Sources */,
+				C5D9ADA121D67E7500EF6675 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

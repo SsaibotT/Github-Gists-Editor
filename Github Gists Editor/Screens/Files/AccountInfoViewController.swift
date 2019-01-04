@@ -63,13 +63,13 @@ class AccountInfo: UIViewController {
     
     func configurationVC(event: Event) {
         self.event = event
-        accountInfoViewModel.fileNames.accept(event.files.values.map {$0.filename})
+        accountInfoViewModel.fileNames.accept(event.files.values.map { $0.filename })
         nameAutor = event.owner.login
         avatarAutor = URL(string: event.owner.avatarURL)
     }
     
     private func goToChosenFileVC(index: Int) {
-        let textPath = event.files.values.map {$0.rawURL}
+        let textPath = event.files.values.map { $0.rawURL }
         ShowControllers.showChosenFile(from: self, textPath: textPath[index])
     }
 }

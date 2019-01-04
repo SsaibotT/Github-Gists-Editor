@@ -9,14 +9,11 @@
 import Foundation
 
 struct File: Codable {
-    let filename, type: String
-    let language: String?
+    let filename: String
     let rawURL: String
-    let size: Int
     
     enum CodingKeys: String, CodingKey {
-        case filename, type, language
+        case filename
         case rawURL = "raw_url"
-        case size
     }
 }

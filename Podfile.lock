@@ -9,10 +9,18 @@ PODS:
   - Moya/RxSwift (12.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - Result (4.0.0)
+  - Realm (3.13.0):
+    - Realm/Headers (= 3.13.0)
+  - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
+  - Result (4.1.0)
   - Reveal-SDK (20)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxRealm (0.7.6):
+    - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
@@ -21,8 +29,10 @@ DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - Moya (~> 12.0)
   - Moya/RxSwift (~> 12.0)
+  - RealmSwift
   - Reveal-SDK
   - RxCocoa (~> 4.0)
+  - RxRealm
   - RxSwift (~> 4.0)
 
 SPEC REPOS:
@@ -30,22 +40,28 @@ SPEC REPOS:
     - Alamofire
     - Kingfisher
     - Moya
+    - Realm
+    - RealmSwift
     - Result
     - Reveal-SDK
     - RxAtomic
     - RxCocoa
+    - RxRealm
     - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: b3d4886263e771aff98bbe9c52aa9587771f5aee
+PODFILE CHECKSUM: eb96229994b3caaaeb99c940f8433e03a38ef275
 
 COCOAPODS: 1.5.3
