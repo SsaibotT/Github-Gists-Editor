@@ -33,7 +33,6 @@
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
 		C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26421A6E42600F58ED3 /* Assets.xcassets */; };
 		C5D8B26821A6E42600F58ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26621A6E42600F58ED3 /* LaunchScreen.storyboard */; };
-		C5D9ADA121D67E7500EF6675 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D9ADA021D67E7500EF6675 /* RealmService.swift */; };
 		C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */; };
 		C5E587CD21B0779C003DE4CF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CC21B0779C003DE4CF /* Event.swift */; };
 		C5E587CF21B0781C003DE4CF /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E587CE21B0781C003DE4CF /* File.swift */; };
@@ -74,7 +73,6 @@
 		C5D8B26421A6E42600F58ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5D8B26721A6E42600F58ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5D8B26921A6E42600F58ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5D9ADA021D67E7500EF6675 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		C5E587CC21B0779C003DE4CF /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C5E587CE21B0781C003DE4CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 		C5D8B25C21A6E42400F58ED3 /* Github Gists Editor */ = {
 			isa = PBXGroup;
 			children = (
-				C5D9AD9F21D67CFD00EF6675 /* RealmDB */,
 				C54C23BC21C414E200A8D6FC /* Helper */,
 				C59DB3E321ADBFE00000F25B /* Extensions */,
 				C58C6F0521A9C35400FBDA3A /* Model */,
@@ -265,14 +262,6 @@
 				C5AFC9BC21B42F5400E9524F /* APIProvider.swift */,
 			);
 			path = "Moya Networking";
-			sourceTree = "<group>";
-		};
-		C5D9AD9F21D67CFD00EF6675 /* RealmDB */ = {
-			isa = PBXGroup;
-			children = (
-				C5D9ADA021D67E7500EF6675 /* RealmService.swift */,
-			);
-			path = RealmDB;
 			sourceTree = "<group>";
 		};
 		C5EA30EA21AEDE7E001A8589 /* AccountFiles */ = {
@@ -471,7 +460,6 @@
 				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
 				C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */,
 				C5E587CD21B0779C003DE4CF /* Event.swift in Sources */,
-				C5D9ADA121D67E7500EF6675 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,9 +20,9 @@ struct Event: Codable {
         
     }
     
-    init(id: String, owner: Owner) {
-        self.id = id
-        self.files = Dictionary()
+    init(id: String, files: [String: File], owner: Owner) {
+        self.id    = id
+        self.files = files
         self.owner = owner
     }
 }

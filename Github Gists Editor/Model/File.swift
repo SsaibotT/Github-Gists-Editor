@@ -16,4 +16,9 @@ struct File: Codable {
         case filename
         case rawURL = "raw_url"
     }
+    
+    init(filename: String, rawURL: String) {
+        self.filename = filename
+        self.rawURL   = rawURL
+    }
 }

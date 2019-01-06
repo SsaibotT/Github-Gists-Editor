@@ -47,17 +47,33 @@ class GistsAutorsViewModel {
             let realm = try! Realm()
             let result = realm.objects(EventRLM.self)
             
-//            try! realm.write {
-//                realm.deleteAll()
-//            }
-            
             provider.rx.request(moyaRequest)
                 .map([Event].self)
                 .asObservable()
                 .subscribe(onNext: { events in
                     
                     for event in events {
+                        let keyArray = Array(event.files.keys)
+                        let valueArray = Array(event.files.values)
+
+                        var filesDictionary = [FilesDictionaryRLM]()
+                        let fileDictionary  = FilesDictionaryRLM()
+                        let file = FileRLM()
+                        
+                        for key in keyArray {
+                            fileDictionary.name = key
+                        }
+
+                        for value in valueArray {
+                            file.filename = value.filename
+                            file.rawURL   = value.rawURL
+                            fileDictionary.file.append(file)
+                        }
+                        
+                        filesDictionary.append(fileDictionary)
+                        
                         let eventRLM = EventRLM(value: ["id": event.id,
+                                                        "files": filesDictionary,
                                                         "owner": ["login": event.owner.login,
                                                                   "avatarURL": event.owner.avatarURL]])
 
@@ -75,11 +91,20 @@ class GistsAutorsViewModel {
             
             Observable.collection(from: result)
                 .subscribe(onNext: { [unowned self] items in
-                    print("Query returned \(items.count) items")
                     var events = [Event]()
                     for item in items {
                         let owner = Owner(login: item.owner!.login, avatarURL: item.owner!.avatarURL)
-                        let event = Event(id: item.id, owner: owner)
+                        
+                        let filesDictionary = [String: File]()
+                        
+                        for filesDictionary in item.files {
+                            for file in filesDictionary.file {
+                                filesDictionary[filesDictionary.name] = File(filename: file.filename,
+                                                                             rawURL: file.rawURL)
+                            }
+                        }
+
+                        let event = Event(id: item.id, files: filesDictionary, owner: owner)
                         events.append(event)
                     }
                     
@@ -118,25 +143,3 @@ class GistsAutorsViewModel {
         actors.accept(array)
     }
 }
-
-//        provider.rx.request(moyaRequest)
-//            .map([Event].self)
-//            .asObservable()
-//            .bind(to: actors)
-//            .disposed(by: disposeBag)
-//
-//        if !publicBool {
-//            Observable.from(optional: actors.value)
-//                .subscribe(Realm.rx.add())
-//                .disposed(by: disposeBag)
-//
-//            let realm = RealmService.shared.realm
-//            let result = realm.objects(Event.self)
-//
-//            Observable.collection(from: result)
-//                .subscribe(onNext: { items in
-//                    print("Query returned \(items.count) items")
-//                    self.actors.accept(items.toArray())
-//                })
-//                .disposed(by: disposeBag)
-//        }

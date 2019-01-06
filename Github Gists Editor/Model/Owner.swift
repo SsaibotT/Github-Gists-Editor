@@ -18,7 +18,7 @@ struct Owner: Codable {
     }
     
     init(login: String, avatarURL: String) {
-        self.login = login
+        self.login     = login
         self.avatarURL = avatarURL
     }
 }
