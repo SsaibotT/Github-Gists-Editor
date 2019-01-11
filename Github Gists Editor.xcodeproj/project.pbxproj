@@ -10,10 +10,6 @@
 		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
-		C52BDE2421DF8B7E00BFA86C /* EventRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */; };
-		C52BDE2621DF8CC400BFA86C /* OwnerRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */; };
-		C52BDE2821DF945700BFA86C /* FileRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2721DF945700BFA86C /* FileRLM.swift */; };
-		C52BDE2A21DF9E5900BFA86C /* FilesDictionaryRLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */; };
 		C536AC3E21DD01ED00B009AD /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536AC3D21DD01ED00B009AD /* Files.swift */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
@@ -48,10 +44,6 @@
 		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
-		C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRLM.swift; sourceTree = "<group>"; };
-		C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerRLM.swift; sourceTree = "<group>"; };
-		C52BDE2721DF945700BFA86C /* FileRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRLM.swift; sourceTree = "<group>"; };
-		C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesDictionaryRLM.swift; sourceTree = "<group>"; };
 		C536AC3D21DD01ED00B009AD /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
@@ -122,17 +114,6 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		C52BDE2221DF8B6500BFA86C /* Realm models */ = {
-			isa = PBXGroup;
-			children = (
-				C52BDE2321DF8B7E00BFA86C /* EventRLM.swift */,
-				C52BDE2921DF9E5900BFA86C /* FilesDictionaryRLM.swift */,
-				C52BDE2721DF945700BFA86C /* FileRLM.swift */,
-				C52BDE2521DF8CC400BFA86C /* OwnerRLM.swift */,
-			);
-			path = "Realm models";
-			sourceTree = "<group>";
-		};
 		C54C23BC21C414E200A8D6FC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +148,6 @@
 				C5E587CC21B0779C003DE4CF /* Event.swift */,
 				C5E587CE21B0781C003DE4CF /* File.swift */,
 				C5E587D021B07844003DE4CF /* Owner.swift */,
-				C52BDE2221DF8B6500BFA86C /* Realm models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,23 +420,19 @@
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
-				C52BDE2A21DF9E5900BFA86C /* FilesDictionaryRLM.swift in Sources */,
 				C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */,
 				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
 				C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */,
 				C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
 				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
-				C52BDE2421DF8B7E00BFA86C /* EventRLM.swift in Sources */,
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,
-				C52BDE2621DF8CC400BFA86C /* OwnerRLM.swift in Sources */,
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
 				C536AC3E21DD01ED00B009AD /* Files.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
-				C52BDE2821DF945700BFA86C /* FileRLM.swift in Sources */,
 				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
 				C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */,
 				C5E587CD21B0779C003DE4CF /* Event.swift in Sources */,

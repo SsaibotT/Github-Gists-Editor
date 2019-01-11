@@ -3,6 +3,5 @@ disabled_rules:
   - identifier_name
   - todo
   - file_length
-  - force_try
 excluded:
   - Pods

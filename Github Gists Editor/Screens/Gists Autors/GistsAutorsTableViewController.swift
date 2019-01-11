@@ -17,7 +17,7 @@ class GistsAutorsTableViewController: UITableViewController {
     
     private var gistsViewModel: GistsAutorsViewModel!
     private var disposeBag = DisposeBag()
-    var publicBool: Bool!
+    var isPublic: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class GistsAutorsTableViewController: UITableViewController {
     }
     
     private func choosingTableViewController() {
-        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: publicBool)
+        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: isPublic)
     }
     
     // MARK: rx
@@ -92,7 +92,7 @@ class GistsAutorsTableViewController: UITableViewController {
         
         gistsViewModel.pullToRefresh(refresher: refresher,
                                      provider: moyaProvider,
-                                     publicBool: publicBool)
+                                     isPublic: isPublic)
     }
     
     // MARK: Jumping to new VC

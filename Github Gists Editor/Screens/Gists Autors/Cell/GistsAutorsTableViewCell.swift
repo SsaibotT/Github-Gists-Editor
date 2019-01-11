@@ -22,10 +22,10 @@ class GistsAutorsTableViewCell: UITableViewCell {
         avatarImage.clipsToBounds = true
     }
     func cellConfiguration(events: Event) {
-        let image = URL(string: events.owner.avatarURL)
+        let image = URL(string: events.owner!.avatarURL)
         
-        nameLabel.text = events.owner.login
+        nameLabel.text = events.owner!.login
         avatarImage.kf.setImage(with: image)
-        filesCountLabel.text = "\(events.files.values.count)"
+        filesCountLabel.text = "\(events.files.count)"
     }
 }

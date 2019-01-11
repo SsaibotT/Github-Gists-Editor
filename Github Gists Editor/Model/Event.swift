@@ -7,22 +7,51 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-struct Event: Codable {
-    let id: String
-    let files: [String: File]
-    let owner: Owner
+class Event: Object, Decodable {
+    @objc dynamic var id = ""
+    @objc dynamic var isPublic = false
+    let files = List<File>()
+    @objc dynamic var owner: Owner?
     
     enum CodingKeys: String, CodingKey {
         case id
+        case isPublic = "public"
         case files
         case owner
-        
     }
     
-    init(id: String, files: [String: File], owner: Owner) {
-        self.id    = id
-        self.files = files
-        self.owner = owner
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id       = try container.decode(String.self, forKey: .id)
+        isPublic = try container.decode(Bool.self, forKey: .isPublic)
+        owner    = try container.decode(Owner.self, forKey: .owner)
+        let filesDictionary = try container.decode([String: File].self, forKey: .files)
+        
+        let file = Array(filesDictionary.values)
+        for value in file {
+            files.append(value)
+        }
+        
+        super.init()
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
     }
 }
