@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import RxCocoa
 import RxSwift
+import PKHUD
 
 class CreateNewGistViewModel {
     
@@ -32,7 +33,7 @@ class CreateNewGistViewModel {
         uploadButtonResult = tapButton
             .withLatestFrom(userInfo)
             .flatMapLatest({ [unowned self] (fileName, content, selectedType) -> Observable<Bool> in
-                
+                HUD.show(.progress)
                 let isValid: Bool = fileName.count > 0
                     && content.count > 0
                     && selectedType.count > 0
@@ -47,6 +48,10 @@ class CreateNewGistViewModel {
                     .createUser(self.gistCreationInfo)))
                     .asObservable()
                     .flatMapLatest({ (_) -> Observable<Bool> in
+                        HUD.flash(.success, delay: 1.0)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            // Insert showing the private users screen in here
+                        }
                         return Observable.just(true)
                     })
         })
