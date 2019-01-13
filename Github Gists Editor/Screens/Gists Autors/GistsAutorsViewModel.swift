@@ -35,7 +35,7 @@ class GistsAutorsViewModel {
         
         guard let realm = try? Realm() else { return }
         let result = realm.objects(Event.self)
-        var ids  = [String]()
+        var ids = [String]()
         
         provider.rx.request(moyaRequest)
             .map([Event].self)
@@ -45,12 +45,16 @@ class GistsAutorsViewModel {
                 for event in events {
                     ids.append(event.id)
                 }
+
+                var objectToDelete: [Event] = []
                 
-                let resultArr: Results<Event> = result.filter("NOT id IN %@", ids)
-                
-                let objectToDelete = resultArr.toArray()
-                    .filter { $0.owner?.login != "SsaibotT" }
-                    .filter { $0.isPublic == isPublic }
+                if isPublic {
+                    let predicate = NSPredicate(format: "NOT id IN %@ AND isPublic == %d AND owner.login != %@", ids, isPublic, "SsaibotT")
+                    objectToDelete = result.filter(predicate).toArray()
+                } else {
+                    let predicate = NSPredicate(format: "NOT id IN %@ AND isPublic != %d AND owner.login == %@", ids, isPublic, "SsaibotT")
+                    objectToDelete = result.filter(predicate).toArray()
+                }
                 
                 do {
                     try realm.write {

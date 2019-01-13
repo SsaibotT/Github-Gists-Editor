@@ -35,10 +35,7 @@ class Event: Object, Decodable {
         owner    = try container.decode(Owner.self, forKey: .owner)
         let filesDictionary = try container.decode([String: File].self, forKey: .files)
         
-        let file = Array(filesDictionary.values)
-        for value in file {
-            files.append(value)
-        }
+        files.append(objectsIn: Array(filesDictionary.values))
         
         super.init()
     }
