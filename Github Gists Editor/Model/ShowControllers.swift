@@ -34,11 +34,22 @@ class ShowControllers {
     }
     
     static func showCreateNewGist(from viewController: UIViewController) {
+        
         let identifier = CreateNewGistViewController.identifier
         if let newGistVC = viewController.storyboard?
             .instantiateViewController(withIdentifier: identifier) as? CreateNewGistViewController {
             newGistVC.hidesBottomBarWhenPushed = true
             viewController.navigationController?.show(newGistVC, sender: viewController)
+        }
+    }
+    
+    static func showListOfPrivateGists(from viewController: UIViewController) {
+        
+        let identifier = GistsAutorsTableViewController.identifier
+        if let gistListVC = viewController.storyboard?
+            .instantiateViewController(withIdentifier: identifier) as? GistsAutorsTableViewController {
+            gistListVC.isPublic = false
+            viewController.navigationController?.show(gistListVC, sender: viewController)
         }
     }
 }

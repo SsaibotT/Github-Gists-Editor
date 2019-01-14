@@ -24,7 +24,7 @@ class CreateNewGistViewModel {
     
     var uploadButtonResult: Observable<Bool>!
     
-    init(tapButton: Observable<Void>, provider: MoyaProvider<MultiTarget>) {
+    init(tapButton: Observable<Void>, provider: MoyaProvider<MultiTarget>, viewController: UIViewController) {
         
         let userInfo = Observable.combineLatest(fileName.asObservable(),
                                                   content.asObservable(),
@@ -47,10 +47,15 @@ class CreateNewGistViewModel {
                 return provider.rx.request(MultiTarget.target(MoyaPrivateFilesEndPoint
                     .createUser(self.gistCreationInfo)))
                     .asObservable()
-                    .flatMapLatest({ (_) -> Observable<Bool> in
-                        HUD.flash(.success, delay: 1.0)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            // Insert showing the private users screen in here
+                    .flatMapLatest({ (some) -> Observable<Bool> in
+                        if 200..<300 ~= some.statusCode {
+                            HUD.flash(.success, delay: 1.0)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                ShowControllers.showListOfPrivateGists(from: viewController)
+                            }
+                        } else {
+                            HUD.show(.error)
+                            HUD.hide(afterDelay: 2.0)
                         }
                         return Observable.just(true)
                     })

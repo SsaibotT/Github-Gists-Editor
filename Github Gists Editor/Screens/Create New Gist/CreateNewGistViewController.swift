@@ -31,7 +31,8 @@ class CreateNewGistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewGistViewModel = CreateNewGistViewModel(tapButton: uploadButton.rx.tap.asObservable(),
-                                                        provider: moyaProvider)
+                                                        provider: moyaProvider,
+                                                        viewController: self)
                                                     
         contentTextView.layer.borderWidth = 1
         contentTextView.layer.borderColor = UIColor.black.cgColor
