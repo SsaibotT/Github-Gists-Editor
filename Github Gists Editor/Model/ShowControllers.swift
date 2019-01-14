@@ -49,6 +49,7 @@ class ShowControllers {
         if let gistListVC = viewController.storyboard?
             .instantiateViewController(withIdentifier: identifier) as? GistsAutorsTableViewController {
             gistListVC.isPublic = false
+            gistListVC.hidesBottomBarWhenPushed = false
             viewController.navigationController?.show(gistListVC, sender: viewController)
         }
     }

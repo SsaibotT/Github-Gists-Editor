@@ -142,8 +142,11 @@ class CreateNewGistViewController: UIViewController {
         let typePicker = UIPickerView()
         
         createNewGistViewModel.types
-            .bind(to: typePicker.rx.itemTitles) { (_, element) in
-            return element
+            .bind(to: typePicker.rx.itemTitles) { [unowned self] (_, element) in
+                if self.pickTypeOfText.text == "" {
+                    self.pickTypeOfText.text = ".txt"
+                }
+                return element
             }
             .disposed(by: disposeBag)
         

@@ -51,7 +51,8 @@ class CreateNewGistViewModel {
                         if 200..<300 ~= some.statusCode {
                             HUD.flash(.success, delay: 1.0)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                ShowControllers.showListOfPrivateGists(from: viewController)
+                                viewController.navigationController?.popViewController(animated: true)
+                                viewController.dismiss(animated: true)
                             }
                         } else {
                             HUD.show(.error)
