@@ -21,6 +21,7 @@ class CreateNewGistViewController: UIViewController {
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var isPublicSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bottomSecretConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dismissViewControllerButton: UIButton!
     
     private let moyaProvider = APIProvider.provider()
     
@@ -115,6 +116,13 @@ class CreateNewGistViewController: UIViewController {
         pickTypeOfText.rx.text
             .orEmpty
             .bind(to: createNewGistViewModel.selectedType)
+            .disposed(by: disposeBag)
+        
+        dismissViewControllerButton.rx.tap
+            .asObservable()
+            .subscribe({ [unowned self] (_) in
+                self.dismiss(animated: true)
+            })
             .disposed(by: disposeBag)
         
         createNewGistViewModel

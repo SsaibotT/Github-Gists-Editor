@@ -134,7 +134,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-mN-ErG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hI-uR-VOj">
+                                        <rect key="frame" x="8" y="28" width="70" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="hmT-XD-8On"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8hI-uR-VOj" firstAttribute="top" secondItem="KdQ-mN-ErG" secondAttribute="topMargin" id="J8B-mR-q2a"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8hI-uR-VOj" secondAttribute="trailing" constant="20" symbolic="YES" id="VG9-wt-OVO"/>
+                                    <constraint firstItem="8hI-uR-VOj" firstAttribute="leading" secondItem="KdQ-mN-ErG" secondAttribute="leadingMargin" id="apj-42-xuV"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya1-ef-cXQ">
                                 <rect key="frame" x="16" y="55" width="343" height="21"/>
@@ -244,6 +260,7 @@
                     <connections>
                         <outlet property="bottomSecretConstraint" destination="qkS-BL-4DT" id="h6N-hN-WOg"/>
                         <outlet property="contentTextView" destination="i7E-i5-VVq" id="Cng-Eg-o5o"/>
+                        <outlet property="dismissViewControllerButton" destination="8hI-uR-VOj" id="0Hf-3r-pV6"/>
                         <outlet property="fileNameTextField" destination="N1i-sk-daq" id="jRq-dz-QGw"/>
                         <outlet property="isPublicSegmentedControl" destination="Hds-8T-aUd" id="ZTt-v5-lmh"/>
                         <outlet property="pickTypeOfText" destination="fKP-9G-WRQ" id="s2z-Nz-Tnt"/>
