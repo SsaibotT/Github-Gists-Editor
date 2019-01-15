@@ -50,10 +50,6 @@ class CreateNewGistViewModel {
                     .flatMapLatest({ (some) -> Observable<Bool> in
                         if 200..<300 ~= some.statusCode {
                             HUD.flash(.success, delay: 1.0)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                viewController.navigationController?.popViewController(animated: true)
-                                viewController.dismiss(animated: true)
-                            }
                         } else {
                             HUD.show(.error)
                             HUD.hide(afterDelay: 2.0)

@@ -119,13 +119,20 @@ class CreateNewGistViewController: UIViewController {
         createNewGistViewModel
             .uploadButtonResult
             .subscribe(onNext: { [unowned self] (success) in
-                guard !success else { return }
-                let alert = UIAlertController(title: "Error",
-                                              message: "Some fields are empty, you need to provide more information",
-                                              preferredStyle: UIAlertController.Style.alert)
-                
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                if success {
+                    // 1.5 is for waiting when HUD.flash(success, delay:1) ends
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true)
+                    }
+                } else {
+                    let alert = UIAlertController(title: "Error",
+                                                  message: "Some fields are empty, you need to provide more information",
+                                                  preferredStyle: UIAlertController.Style.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
                 
             })
             .disposed(by: disposeBag)
