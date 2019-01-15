@@ -11,6 +11,7 @@ import Foundation
 import Moya
 import RxCocoa
 import RxSwift
+import PKHUD
 
 class CreateNewGistViewController: UIViewController {
 
@@ -126,6 +127,7 @@ class CreateNewGistViewController: UIViewController {
                         self.dismiss(animated: true)
                     }
                 } else {
+                    HUD.hide(afterDelay: 1.0)
                     let alert = UIAlertController(title: "Error",
                                                   message: "Some fields are empty, you need to provide more information",
                                                   preferredStyle: UIAlertController.Style.alert)

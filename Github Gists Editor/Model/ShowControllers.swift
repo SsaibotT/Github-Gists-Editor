@@ -39,7 +39,8 @@ class ShowControllers {
         if let newGistVC = viewController.storyboard?
             .instantiateViewController(withIdentifier: identifier) as? CreateNewGistViewController {
             newGistVC.hidesBottomBarWhenPushed = true
-            viewController.navigationController?.show(newGistVC, sender: viewController)
+            //viewController.navigationController?.show(newGistVC, sender: viewController)
+            viewController.present(newGistVC, animated: true)
         }
     }
     
