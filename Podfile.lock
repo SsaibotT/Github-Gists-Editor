@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
+  - Differentiator (3.1.0)
   - Kingfisher (4.10.1)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -20,6 +21,10 @@ PODS:
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxRealm (0.7.6):
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
@@ -34,12 +39,14 @@ DEPENDENCIES:
   - RealmSwift
   - Reveal-SDK
   - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0)
   - RxRealm
   - RxSwift (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Differentiator
     - Kingfisher
     - Moya
     - PKHUD
@@ -49,11 +56,13 @@ SPEC REPOS:
     - Reveal-SDK
     - RxAtomic
     - RxCocoa
+    - RxDataSources
     - RxRealm
     - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
@@ -63,9 +72,10 @@ SPEC CHECKSUMS:
   Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: 8785f2652332e6599a7bdf3af8d2d2dbd9d1439f
+PODFILE CHECKSUM: 85e71323543388e64997c635326cc6473a03c995
 
 COCOAPODS: 1.5.3

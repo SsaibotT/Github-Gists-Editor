@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 import Moya
 
 class GistsAutorsTableViewController: UITableViewController {
@@ -59,14 +60,46 @@ class GistsAutorsTableViewController: UITableViewController {
     // MARK: rx
     private func setupBindings() {
         
-        gistsViewModel.actors
-            .asObservable()
-            .bind(to: tableView.rx
-                .items(cellIdentifier: GistsAutorsTableViewCell.identifier,
-                       cellType: GistsAutorsTableViewCell.self)) {(_, event, cell) in
-                        cell.cellConfiguration(events: event)
-            }
-            .disposed(by: disposeBag)
+        gistsViewModel.datasource.configureCell = { (_, tableView, indexPath, item) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: GistsAutorsTableViewCell.identifier,
+                                                     for: indexPath) as? GistsAutorsTableViewCell
+            cell!.cellConfiguration(events: item)
+            return cell!
+        }
+        
+        gistsViewModel.datasource.canEditRowAtIndexPath = { (_, _) in
+            return true
+        }
+        
+        if let eventDataSource = gistsViewModel?.datasource {
+            gistsViewModel.actors
+                .asObservable()
+                .map({[SectionOfCustomData(header: "First Section", items: $0)]})
+                .bind(to: tableView.rx.items(dataSource: eventDataSource))
+                .disposed(by: disposeBag)
+        }
+//        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
+//            configureCell: { (_, tableView, indexPath, item) in
+//                let cell = tableView.dequeueReusableCell(withIdentifier: GistsAutorsTableViewCell.identifier,
+//                                                         for: indexPath) as? GistsAutorsTableViewCell
+//                cell!.cellConfiguration(events: item)
+//                return cell!
+//        })
+        
+//        let sections = [SectionOfCustomData(header: "First Section", items: gistsViewModel!.actors.value)]
+//
+//        Observable.just(sections)
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+        
+//        gistsViewModel.actors
+//            .asObservable()
+//            .bind(to: tableView.rx
+//                .items(cellIdentifier: GistsAutorsTableViewCell.identifier,
+//                       cellType: GistsAutorsTableViewCell.self)) {(_, event, cell) in
+//                        cell.cellConfiguration(events: event)
+//            }
+//            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] in
@@ -74,8 +107,8 @@ class GistsAutorsTableViewController: UITableViewController {
                 self.tableView.deselectRow(at: $0, animated: false)
             })
             .disposed(by: disposeBag)
-        
-        if self.tabBarController?.selectedIndex == 1 {
+
+        if !self.isPublic {
             tableView.rx.itemDeleted
                 .subscribe(onNext: { [unowned self] (index) in
                     let id = self.gistsViewModel.actors.value[index.row].id
@@ -88,6 +121,7 @@ class GistsAutorsTableViewController: UITableViewController {
     
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
+        refresher.tintColor = .white
         tableView.refreshControl = refresher
         
         gistsViewModel.pullToRefresh(refresher: refresher,

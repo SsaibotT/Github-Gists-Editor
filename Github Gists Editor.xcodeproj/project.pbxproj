@@ -12,6 +12,7 @@
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
+		C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CE6B21F22DC000652729 /* SectionOfEvent.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
 		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
 		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
+		C594CE6B21F22DC000652729 /* SectionOfEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfEvent.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
 		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
 		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				C5E587CC21B0779C003DE4CF /* Event.swift */,
 				C5E587CE21B0781C003DE4CF /* File.swift */,
 				C5E587D021B07844003DE4CF /* Owner.swift */,
+				C594CE6B21F22DC000652729 /* SectionOfEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
@@ -380,6 +384,7 @@
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -388,6 +393,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
@@ -397,6 +403,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -415,6 +422,7 @@
 				C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */,
 				C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */,
 				C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */,
+				C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */,
 				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,

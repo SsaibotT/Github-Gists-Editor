@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import RxDataSources
 import Realm
 
 class Event: Object, Decodable {
@@ -50,5 +51,13 @@ class Event: Object, Decodable {
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
+    }
+}
+
+extension Event: IdentifiableType {
+    typealias Identity = String
+
+    var identity: String {
+        return id
     }
 }

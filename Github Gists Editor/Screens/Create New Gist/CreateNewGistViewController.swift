@@ -27,7 +27,6 @@ class CreateNewGistViewController: UIViewController {
     
     private var createNewGistViewModel: CreateNewGistViewModel!
     let disposeBag = DisposeBag()
-    private var selectedType: String!
     private var normalSizeOfConstraint: CGFloat!
     
     override func viewDidLoad() {
@@ -136,8 +135,9 @@ class CreateNewGistViewController: UIViewController {
                     }
                 } else {
                     HUD.hide(afterDelay: 1.0)
+                    let message = "Some fields are empty, you need to provide more information"
                     let alert = UIAlertController(title: "Error",
-                                                  message: "Some fields are empty, you need to provide more information",
+                                                  message: message,
                                                   preferredStyle: UIAlertController.Style.alert)
                     
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
@@ -169,8 +169,7 @@ class CreateNewGistViewController: UIViewController {
         
         typePicker.rx.itemSelected
             .subscribe (onNext: { [unowned self] (row, _) in
-                self.selectedType = self.createNewGistViewModel.types.value[row]
-                self.pickTypeOfText.text = self.selectedType
+                self.pickTypeOfText.text = self.createNewGistViewModel.types.value[row]
             })
             .disposed(by: disposeBag)
         
