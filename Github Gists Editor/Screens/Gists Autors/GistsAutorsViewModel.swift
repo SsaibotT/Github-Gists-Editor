@@ -21,9 +21,36 @@ class GistsAutorsViewModel {
     var datasource = RxTableViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
         fatalError()})
     private let disposeBag = DisposeBag()
+    // swiftlint:disable:next force_try
+    let realm = try! Realm()
+    var filteredEvent = [Event]()
     
     init(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
         getRequest(provider: provider, isPublic: isPublic)
+        
+        let result = realm.objects(Event.self)
+        
+        Observable.collection(from: result)
+            .subscribe(onNext: { [unowned self] items in
+
+                var predicate = NSPredicate()
+                
+                if isPublic {
+                    predicate = NSPredicate(format: "owner.login != %@", "SsaibotT")
+                } else {
+                    predicate = NSPredicate(format: "owner.login == %@", "SsaibotT")
+                }
+
+                self.filteredEvent = items.filter(predicate).toArray()
+                
+                for event in self.filteredEvent {
+                    event.localID = event.id
+                }
+
+                self.actors.accept(self.filteredEvent)
+                
+            })
+            .disposed(by: disposeBag)
     }
     
     func getRequest(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
@@ -35,59 +62,39 @@ class GistsAutorsViewModel {
         } else {
             moyaRequest = MultiTarget(MoyaPrivateFilesEndPoint.getPrivateEvents)
         }
-        
-//        guard let realm = try? Realm() else { return }
-//        let result = realm.objects(Event.self)
+
         var ids = [String]()
+        let result = realm.objects(Event.self)
         
         provider.rx.request(moyaRequest)
             .map([Event].self)
             .asObservable()
             .subscribe(onNext: { events in
                 
-                for event in events {
-                    ids.append(event.id)
+                ids = events.map { $0.id }
+
+                var objectToDelete: [Event] = []
+
+                if isPublic {
+                    let predicateArgStr = "NOT id IN %@ AND isPublic == %d AND owner.login != %@"
+                    let predicate = NSPredicate(format: predicateArgStr, ids, true, "SsaibotT")
+                    objectToDelete = result.filter(predicate).toArray()
+                } else {
+                    let predicateArgStr = "NOT id IN %@ AND isPublic != %d AND owner.login == %@"
+                    let predicate = NSPredicate(format: predicateArgStr, ids, false, "SsaibotT")
+                    objectToDelete = result.filter(predicate).toArray()
                 }
                 
-                self.actors.accept(events)
-
-//                var objectToDelete: [Event] = []
-//
-//                if isPublic {
-//                    let predicateArgStr = "NOT id IN %@ AND isPublic == %d AND owner.login != %@"
-//                    let predicate = NSPredicate(format: predicateArgStr, ids, isPublic, "SsaibotT")
-//                    objectToDelete = result.filter(predicate).toArray()
-//                } else {
-//                    let predicateArgStr = "NOT id IN %@ AND isPublic != %d AND owner.login == %@"
-//                    let predicate = NSPredicate(format: predicateArgStr, ids, isPublic, "SsaibotT")
-//                    objectToDelete = result.filter(predicate).toArray()
-//                }
-//
-//                do {
-//                    try realm.write {
-//                        realm.add(events, update: true)
-//                        realm.delete(objectToDelete)
-//                    }
-//                } catch {
-//                    print(error)
-//                }
-            })
+                do {
+                    try self.realm.write {
+                        self.realm.add(events, update: true)
+                        self.realm.delete(objectToDelete)
+                    }
+                } catch {
+                    print(error)
+                }
+             })
             .disposed(by: disposeBag)
-        
-//        Observable.collection(from: result)
-//            .subscribe(onNext: { [unowned self] items in
-//                let filteredEvent: [Event]
-//
-//                if isPublic {
-//                    filteredEvent = items.toArray().filter {$0.owner?.login != "SsaibotT"}
-//                } else {
-//                    filteredEvent = items.toArray().filter {$0.owner?.login == "SsaibotT"}
-//                }
-//
-//                self.actors.accept(filteredEvent)
-//                ids.removeAll()
-//            })
-//            .disposed(by: disposeBag)
     }
     
     func deleteRequest(provider: MoyaProvider<MultiTarget>, id: String) {

@@ -12,6 +12,8 @@ import RxDataSources
 import Realm
 
 class Event: Object, Decodable {
+    
+    var localID: String!
     @objc dynamic var id = ""
     @objc dynamic var isPublic = false
     let files = List<File>()
@@ -57,7 +59,7 @@ class Event: Object, Decodable {
 extension Event: IdentifiableType {
     typealias Identity = String
 
-    var identity: String {
-        return id
+    var identity: Identity {
+        return localID
     }
 }

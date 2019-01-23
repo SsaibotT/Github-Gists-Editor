@@ -78,28 +78,6 @@ class GistsAutorsTableViewController: UITableViewController {
                 .bind(to: tableView.rx.items(dataSource: eventDataSource))
                 .disposed(by: disposeBag)
         }
-//        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
-//            configureCell: { (_, tableView, indexPath, item) in
-//                let cell = tableView.dequeueReusableCell(withIdentifier: GistsAutorsTableViewCell.identifier,
-//                                                         for: indexPath) as? GistsAutorsTableViewCell
-//                cell!.cellConfiguration(events: item)
-//                return cell!
-//        })
-        
-//        let sections = [SectionOfCustomData(header: "First Section", items: gistsViewModel!.actors.value)]
-//
-//        Observable.just(sections)
-//            .bind(to: tableView.rx.items(dataSource: dataSource))
-//            .disposed(by: disposeBag)
-        
-//        gistsViewModel.actors
-//            .asObservable()
-//            .bind(to: tableView.rx
-//                .items(cellIdentifier: GistsAutorsTableViewCell.identifier,
-//                       cellType: GistsAutorsTableViewCell.self)) {(_, event, cell) in
-//                        cell.cellConfiguration(events: event)
-//            }
-//            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] in
