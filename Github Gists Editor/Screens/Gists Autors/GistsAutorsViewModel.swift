@@ -23,33 +23,28 @@ class GistsAutorsViewModel {
     private let disposeBag = DisposeBag()
     // swiftlint:disable:next force_try
     let realm = try! Realm()
-    var filteredEvent = [Event]()
+    var realmItems: Results<Event>!
     
     init(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
         getRequest(provider: provider, isPublic: isPublic)
         
-        let result = realm.objects(Event.self)
+        var predicate = NSPredicate()
         
-        Observable.collection(from: result)
-            .subscribe(onNext: { [unowned self] items in
-
-                var predicate = NSPredicate()
-                
-                if isPublic {
-                    predicate = NSPredicate(format: "owner.login != %@", "SsaibotT")
-                } else {
-                    predicate = NSPredicate(format: "owner.login == %@", "SsaibotT")
-                }
-
-                self.filteredEvent = items.filter(predicate).toArray()
-                
-                for event in self.filteredEvent {
-                    event.localID = event.id
-                }
-
-                self.actors.accept(self.filteredEvent)
-                
+        if isPublic {
+            predicate = NSPredicate(format: "owner.login != %@", "SsaibotT")
+        } else {
+            predicate = NSPredicate(format: "owner.login == %@", "SsaibotT")
+        }
+        realmItems = realm.objects(Event.self).filter(predicate)
+        
+        Observable
+            .collection(from: realmItems)
+            .map({ $0.toArray() })
+            .map({ (events) -> [Event] in
+                events.forEach({ $0.localID = $0.id })
+                return events
             })
+            .bind(to: actors)
             .disposed(by: disposeBag)
     }
     
@@ -64,31 +59,36 @@ class GistsAutorsViewModel {
         }
 
         var ids = [String]()
-        let result = realm.objects(Event.self)
         
         provider.rx.request(moyaRequest)
             .map([Event].self)
             .asObservable()
-            .subscribe(onNext: { events in
+            .subscribe(onNext: { [weak self] events in
+                guard let sSelf = self else { return }
                 
                 ids = events.map { $0.id }
 
                 var objectToDelete: [Event] = []
 
                 if isPublic {
-                    let predicateArgStr = "NOT id IN %@ AND isPublic == %d AND owner.login != %@"
-                    let predicate = NSPredicate(format: predicateArgStr, ids, true, "SsaibotT")
-                    objectToDelete = result.filter(predicate).toArray()
+                    let predicateArgStr = "NOT id IN %@ AND isPublic == %d"
+                    let predicate = NSPredicate(format: predicateArgStr, ids, true)
+                    objectToDelete = sSelf.realmItems.filter(predicate).toArray()
                 } else {
-                    let predicateArgStr = "NOT id IN %@ AND isPublic != %d AND owner.login == %@"
-                    let predicate = NSPredicate(format: predicateArgStr, ids, false, "SsaibotT")
-                    objectToDelete = result.filter(predicate).toArray()
+                    let predicateArgStr = "NOT id IN %@ AND owner.login == %@"
+                    let predicate = NSPredicate(format: predicateArgStr, ids, "SsaibotT")
+                    objectToDelete = sSelf.realmItems.filter(predicate).toArray()
                 }
                 
+                let arr = events.sorted { $0.updatedAt < $1.updatedAt }
+                print(arr.map{$0.updatedAt})
+//                let arr2 = events.sorted { $0.convertedUpdateDate > $1.convertedUpdateDate }
+//                print(arr2.map{$0.updatedAt})
+                
                 do {
-                    try self.realm.write {
-                        self.realm.add(events, update: true)
-                        self.realm.delete(objectToDelete)
+                    try sSelf.realm.write {
+                        sSelf.realm.add(events, update: true)
+                        sSelf.realm.delete(objectToDelete)
                     }
                 } catch {
                     print(error)
@@ -129,12 +129,11 @@ class GistsAutorsViewModel {
     }
     
     func deletingPrivateGistFromRealmAt(index: Int) {
-        guard let realm = try? Realm() else { return }
         let result = realm.objects(Event.self)
         
         let filetredToPrivate = result.toArray().filter { $0.owner?.login == "SsaibotT" }
         let objectToDelete = filetredToPrivate[index]
-        
+
         do {
             try realm.write {
                 realm.delete(objectToDelete)

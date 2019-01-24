@@ -18,12 +18,16 @@ class Event: Object, Decodable {
     @objc dynamic var isPublic = false
     let files = List<File>()
     @objc dynamic var owner: Owner?
+    @objc dynamic var createdAt = Date()
+    @objc dynamic var updatedAt = Date()
     
     enum CodingKeys: String, CodingKey {
         case id
         case isPublic = "public"
         case files
         case owner
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
     
     override static func primaryKey() -> String? {
@@ -33,9 +37,11 @@ class Event: Object, Decodable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id       = try container.decode(String.self, forKey: .id)
-        isPublic = try container.decode(Bool.self, forKey: .isPublic)
-        owner    = try container.decode(Owner.self, forKey: .owner)
+        id        = try container.decode(String.self, forKey: .id)
+        isPublic  = try container.decode(Bool.self, forKey: .isPublic)
+        owner     = try container.decode(Owner.self, forKey: .owner)
+        createdAt = try container.decode(Date.self, forKey: .createdAt)
+        updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         let filesDictionary = try container.decode([String: File].self, forKey: .files)
         
         files.append(objectsIn: Array(filesDictionary.values))
@@ -62,4 +68,13 @@ extension Event: IdentifiableType {
     var identity: Identity {
         return localID
     }
+//    
+//    var convertedUpdateDate: Date {
+//        return dateFormatter.date(from: updatedAt) ?? Date()
+//    }
+//    private var dateFormatter: DateFormatter {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+//        return dateFormatter
+//    }
 }
