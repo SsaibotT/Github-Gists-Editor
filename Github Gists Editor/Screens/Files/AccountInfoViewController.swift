@@ -23,6 +23,7 @@ class AccountInfo: UIViewController {
     private var nameAutor: String!
     private var avatarAutor: URL!
     private var event: Event!
+    private var pictureIsAvaible: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,12 @@ class AccountInfo: UIViewController {
         filesTableView.register(nibName, forCellReuseIdentifier: AccountInfoCell.identifier)
         
         nameLabel.text = nameAutor
-        avatarImage.kf.setImage(with: avatarAutor)
+        
+        if pictureIsAvaible {
+            avatarImage.kf.setImage(with: avatarAutor)
+        } else {
+            avatarImage.image = Image(named: "questionMark")
+        }
         
         settingAvatarImage()
         setupBindings()
@@ -64,8 +70,18 @@ class AccountInfo: UIViewController {
     func configurationVC(event: Event) {
         self.event = event
         accountInfoViewModel.fileNames.accept(event.files.map { $0.filename })
-        nameAutor = event.owner!.login
-        avatarAutor = URL(string: event.owner!.avatarURL)
+        if let login = event.owner?.login {
+            nameAutor = login
+        } else {
+            nameAutor = "unknown"
+        }
+        
+        if let avatarURL = event.owner?.avatarURL {
+            avatarAutor = URL(string: avatarURL)
+            pictureIsAvaible = true
+        } else {
+            pictureIsAvaible = false
+        }
     }
 
     private func goToChosenFileVC(index: Int) {
