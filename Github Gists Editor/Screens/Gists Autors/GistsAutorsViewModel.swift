@@ -35,7 +35,8 @@ class GistsAutorsViewModel {
         } else {
             predicate = NSPredicate(format: "owner.login == %@", "SsaibotT")
         }
-        realmItems = realm.objects(Event.self).filter(predicate)
+        
+        realmItems = realm.objects(Event.self).filter(predicate).sorted(byKeyPath: "updatedAt", ascending: false)
         
         Observable
             .collection(from: realmItems)
@@ -60,8 +61,14 @@ class GistsAutorsViewModel {
 
         var ids = [String]()
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        let decode = JSONDecoder()
+        decode.dateDecodingStrategy = .formatted(dateFormatter)
+        
         provider.rx.request(moyaRequest)
-            .map([Event].self)
+            .map([Event].self, using: decode)
             .asObservable()
             .subscribe(onNext: { [weak self] events in
                 guard let sSelf = self else { return }
@@ -79,11 +86,6 @@ class GistsAutorsViewModel {
                     let predicate = NSPredicate(format: predicateArgStr, ids, "SsaibotT")
                     objectToDelete = sSelf.realmItems.filter(predicate).toArray()
                 }
-                
-                let arr = events.sorted { $0.updatedAt < $1.updatedAt }
-                print(arr.map{$0.updatedAt})
-//                let arr2 = events.sorted { $0.convertedUpdateDate > $1.convertedUpdateDate }
-//                print(arr2.map{$0.updatedAt})
                 
                 do {
                     try sSelf.realm.write {

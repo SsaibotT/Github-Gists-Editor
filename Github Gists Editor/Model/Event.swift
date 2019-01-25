@@ -42,6 +42,7 @@ class Event: Object, Decodable {
         owner     = try container.decode(Owner.self, forKey: .owner)
         createdAt = try container.decode(Date.self, forKey: .createdAt)
         updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+        
         let filesDictionary = try container.decode([String: File].self, forKey: .files)
         
         files.append(objectsIn: Array(filesDictionary.values))
@@ -68,13 +69,4 @@ extension Event: IdentifiableType {
     var identity: Identity {
         return localID
     }
-//    
-//    var convertedUpdateDate: Date {
-//        return dateFormatter.date(from: updatedAt) ?? Date()
-//    }
-//    private var dateFormatter: DateFormatter {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-//        return dateFormatter
-//    }
 }
