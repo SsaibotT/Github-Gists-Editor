@@ -70,11 +70,8 @@ class AccountInfo: UIViewController {
     func configurationVC(event: Event) {
         self.event = event
         accountInfoViewModel.fileNames.accept(event.files.map { $0.filename })
-        if let login = event.owner?.login {
-            nameAutor = login
-        } else {
-            nameAutor = "unknown"
-        }
+        
+        nameAutor = event.owner?.login ?? "unknown"
         
         if let avatarURL = event.owner?.avatarURL {
             avatarAutor = URL(string: avatarURL)

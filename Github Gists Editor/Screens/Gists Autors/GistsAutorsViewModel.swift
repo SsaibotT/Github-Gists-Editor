@@ -18,7 +18,7 @@ import RxDataSources
 class GistsAutorsViewModel {
     
     var actors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
-    var datasource = RxTableViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
+    var datasource = RxCollectionViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
         fatalError()})
     private let disposeBag = DisposeBag()
     // swiftlint:disable:next force_try

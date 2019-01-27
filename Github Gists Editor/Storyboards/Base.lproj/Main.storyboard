@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ag2-as-dXs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RvW-DY-yQe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Gists View Controller-->
+        <scene sceneID="FFj-U9-l6W">
+            <objects>
+                <viewController storyboardIdentifier="GistsViewController" id="RvW-DY-yQe" customClass="GistsViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="72d-9P-A2w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-gL-bbK">
+                                <rect key="frame" x="0.0" y="20" width="188" height="62"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="XoE-Uo-s6U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="List">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-2v-vjZ">
+                                <rect key="frame" x="187" y="20" width="188" height="62"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Grid">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-SP-p2S">
+                                <rect key="frame" x="0.0" y="83" width="375" height="584"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQp-Yj-cOb">
+                                    <size key="itemSize" width="165" height="165"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="yoh-oW-yxZ" secondAttribute="bottom" id="4B2-nL-z7A"/>
+                            <constraint firstItem="cAZ-2v-vjZ" firstAttribute="leading" secondItem="yoh-oW-yxZ" secondAttribute="leading" constant="187" id="8ku-iM-sul"/>
+                            <constraint firstItem="R2i-gL-bbK" firstAttribute="leading" secondItem="72d-9P-A2w" secondAttribute="leading" id="Doe-Xc-Nim"/>
+                            <constraint firstItem="R2i-gL-bbK" firstAttribute="top" secondItem="cAZ-2v-vjZ" secondAttribute="top" id="FKk-S1-YND"/>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="top" secondItem="R2i-gL-bbK" secondAttribute="bottom" constant="1" id="P0r-Q4-GIh"/>
+                            <constraint firstItem="cAZ-2v-vjZ" firstAttribute="trailing" secondItem="KBx-SP-p2S" secondAttribute="trailing" id="ZnS-jr-Oqi"/>
+                            <constraint firstItem="yoh-oW-yxZ" firstAttribute="trailing" secondItem="R2i-gL-bbK" secondAttribute="trailing" constant="187" id="b9f-3Z-gTZ"/>
+                            <constraint firstItem="R2i-gL-bbK" firstAttribute="leading" secondItem="KBx-SP-p2S" secondAttribute="leading" id="ds5-uv-SJ4"/>
+                            <constraint firstAttribute="trailing" secondItem="cAZ-2v-vjZ" secondAttribute="trailing" id="gid-76-hWh"/>
+                            <constraint firstItem="R2i-gL-bbK" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="ipj-rQ-dJX"/>
+                            <constraint firstItem="R2i-gL-bbK" firstAttribute="baseline" secondItem="cAZ-2v-vjZ" secondAttribute="firstBaseline" id="qoh-oz-PTS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yoh-oW-yxZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeToGridButton" destination="cAZ-2v-vjZ" id="M0O-EK-xcd"/>
+                        <outlet property="changeToListButton" destination="R2i-gL-bbK" id="zbe-yL-vOm"/>
+                        <outlet property="collectionView" destination="KBx-SP-p2S" id="LWl-Qw-bRt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFS-VW-8tP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456.8" y="122.78860569715144"/>
+        </scene>
         <!--Title-->
         <scene sceneID="yKh-f7-okx">
             <objects>
-                <tableViewController storyboardIdentifier="GistsAutorsTableViewController" id="Ag2-as-dXs" customClass="GistsAutorsTableViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GistsAutorsTableViewController" id="Ag2-as-dXs" customClass="GistsViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HdQ-gu-4Cq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJE-y8-V1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="123"/>
+            <point key="canvasLocation" x="2193" y="123"/>
         </scene>
         <!--Account Info-->
         <scene sceneID="8EW-JD-c5h">

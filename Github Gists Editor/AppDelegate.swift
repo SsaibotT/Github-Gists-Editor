@@ -23,14 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabController
         
+        print(GistsViewController.identifier)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let firstGistAutors  = storyBoard
-            .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
-            as? GistsAutorsTableViewController else { return true }
-        
+            .instantiateViewController(withIdentifier: GistsViewController.identifier)
+            as? GistsViewController else { return true }
         guard let secondGistAutors = storyBoard
-            .instantiateViewController(withIdentifier: GistsAutorsTableViewController.identifier)
-            as? GistsAutorsTableViewController else { return true }
+            .instantiateViewController(withIdentifier: GistsViewController.identifier)
+            as? GistsViewController else { return true }
         
         firstGistAutors.tabBarItem  = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
         secondGistAutors.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)

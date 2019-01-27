@@ -46,9 +46,9 @@ class ShowControllers {
     
     static func showListOfPrivateGists(from viewController: UIViewController) {
         
-        let identifier = GistsAutorsTableViewController.identifier
+        let identifier = GistsViewController.identifier
         if let gistListVC = viewController.storyboard?
-            .instantiateViewController(withIdentifier: identifier) as? GistsAutorsTableViewController {
+            .instantiateViewController(withIdentifier: identifier) as? GistsViewController {
             gistListVC.isPublic = false
             gistListVC.hidesBottomBarWhenPushed = false
             viewController.navigationController?.show(gistListVC, sender: viewController)

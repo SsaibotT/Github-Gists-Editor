@@ -13,7 +13,7 @@
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
 		C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CE6B21F22DC000652729 /* SectionOfEvent.swift */; };
-		C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */; };
+		C59DB3CF21ADAFDA0000F25B /* GistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */; };
 		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
 		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
 		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
@@ -24,6 +24,9 @@
 		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
 		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
 		C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AFC9BC21B42F5400E9524F /* APIProvider.swift */; };
+		C5B11BFA21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */; };
+		C5B11BFB21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */; };
+		C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BFC21FDE65300329FE7 /* UICollectionViewExtension.swift */; };
 		C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */; };
 		C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */; };
 		C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5D8B26121A6E42400F58ED3 /* Main.storyboard */; };
@@ -47,7 +50,7 @@
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
 		C594CE6B21F22DC000652729 /* SectionOfEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfEvent.swift; sourceTree = "<group>"; };
-		C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewController.swift; sourceTree = "<group>"; };
+		C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsViewController.swift; sourceTree = "<group>"; };
 		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
 		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
 		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
@@ -58,6 +61,9 @@
 		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		C5AFC9BC21B42F5400E9524F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsCollectionViewCell.xib; sourceTree = "<group>"; };
+		C5B11BFC21FDE65300329FE7 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		C5D8B25A21A6E42400F58ED3 /* Github Gists Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Gists Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,20 +161,21 @@
 		C59DB3D021ADAFE20000F25B /* Gists Autors */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3D321ADB0060000F25B /* Cell */,
+				C5B11BF721FDDF2A00329FE7 /* CollectionViewCell */,
+				C59DB3D321ADB0060000F25B /* TableViewCell */,
 				C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */,
-				C59DB3CE21ADAFDA0000F25B /* GistsAutorsTableViewController.swift */,
+				C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */,
 			);
 			path = "Gists Autors";
 			sourceTree = "<group>";
 		};
-		C59DB3D321ADB0060000F25B /* Cell */ = {
+		C59DB3D321ADB0060000F25B /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */,
 				C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */,
 			);
-			path = Cell;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		C59DB3DE21ADBF590000F25B /* Files */ = {
@@ -186,6 +193,7 @@
 			children = (
 				C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */,
 				C5E587CA21B0768E003DE4CF /* UITableViewCellExtension.swift */,
+				C5B11BFC21FDE65300329FE7 /* UICollectionViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,6 +205,15 @@
 				C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C5B11BF721FDDF2A00329FE7 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */,
+				C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		C5D8B25121A6E42400F58ED3 = {
@@ -319,6 +336,7 @@
 				C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */,
 				C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */,
 				C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */,
+				C5B11BFB21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +441,8 @@
 				C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */,
 				C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */,
 				C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */,
-				C59DB3CF21ADAFDA0000F25B /* GistsAutorsTableViewController.swift in Sources */,
+				C59DB3CF21ADAFDA0000F25B /* GistsViewController.swift in Sources */,
+				C5B11BFA21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift in Sources */,
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
@@ -437,6 +456,7 @@
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
+				C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
 				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
