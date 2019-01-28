@@ -16,7 +16,7 @@ class CreateNewGistViewModel {
     
     private var gistCreationInfo = GistCreationInfo(description: "", isPublic: true, fileName: "", content: "")
     let types: BehaviorRelay<[String]> = BehaviorRelay(value: [".txt", ".html"])
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     var fileName: BehaviorRelay<String> = BehaviorRelay(value: "")
     var content: BehaviorRelay<String>  = BehaviorRelay(value: "")

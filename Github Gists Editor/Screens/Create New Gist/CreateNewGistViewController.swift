@@ -26,7 +26,7 @@ class CreateNewGistViewController: UIViewController {
     private let moyaProvider = APIProvider.provider()
     
     private var createNewGistViewModel: CreateNewGistViewModel!
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     private var normalSizeOfConstraint: CGFloat!
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class CreateNewGistViewController: UIViewController {
         keyboardRxNotifications()
     }
     
-    func keyboardRxNotifications() {
+    private func keyboardRxNotifications() {
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             .asObservable()
             .subscribe(onNext: { [unowned self] (notification) in

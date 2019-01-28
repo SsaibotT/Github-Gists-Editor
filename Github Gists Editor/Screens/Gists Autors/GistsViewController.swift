@@ -44,7 +44,8 @@ class GistsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tabBarController!.title = "Root View Controller"
+        tabBarController?.title = "Root View Controller"
+
         navigationBar()
     }
     
@@ -67,29 +68,25 @@ class GistsViewController: UIViewController {
     // MARK: rx
     private func setupBindings() {
         
-        gistsViewModel.datasource.configureCell = { (_, tableView, indexPath, item) in
-            let cell = tableView.dequeueReusableCell(withReuseIdentifier: GistsAutorsCollectionViewCell.identifier,
-                                                     for: indexPath) as? GistsAutorsCollectionViewCell
+        gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
+            let cellIdentifier = GistsAutorsCollectionViewCell.identifier
+            guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
+                                                           for: indexPath) as? GistsAutorsCollectionViewCell else {
+                                                            return UICollectionViewCell()}
 
             if !self.isPublic {
-                cell!.deletionButton()
+                cell.deletionButton()
                 
-                cell!.passingDeletion = {
-                    guard let deletingIndexPath = self.collectionView.indexPath(for: cell!) else { return }
+                cell.passingDeletion = {
+                    guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                     
-                    //self.collectionView!.reloadData()
-                    //self.collectionView!.numberOfItems(inSection: 0)
-                    //addItemInDataSource()
-                    
-                    let id = self.gistsViewModel.actors.value[deletingIndexPath.row].id
+                    let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
                     self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
-                    self.gistsViewModel.delete(index: deletingIndexPath.row)
-                    
-                    self.collectionView.deleteItems(at: [deletingIndexPath])
+                    self.gistsViewModel.delete(id: id)
                 }
             }
-            cell!.cellConfiguration(events: item)
-            return cell!
+            cell.cellConfiguration(events: item)
+            return cell
         }
         
 //        gistsViewModel.datasource.canEditRowAtIndexPath = { (_, _) in
@@ -97,7 +94,7 @@ class GistsViewController: UIViewController {
 //        }
         
         if let eventDataSource = gistsViewModel?.datasource {
-            gistsViewModel.actors
+            gistsViewModel.autors
                 .asObservable()
                 .map({[SectionOfCustomData(header: "First Section", items: $0)]})
                 .bind(to: collectionView.rx.items(dataSource: eventDataSource))
@@ -111,7 +108,7 @@ class GistsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 //        if let eventDataSource = gistsViewModel?.datasource {
-//            gistsViewModel.actors
+//            gistsViewModel.autors
 //                .asObservable()
 //                .map({[SectionOfCustomData(header: "First Section", items: $0)]})
 //                .bind(to: tableView.rx.items(dataSource: eventDataSource))
@@ -128,7 +125,7 @@ class GistsViewController: UIViewController {
         if !self.isPublic {
 //            tableView.rx.itemDeleted
 //                .subscribe(onNext: { [unowned self] (index) in
-//                    let id = self.gistsViewModel.actors.value[index.row].id
+//                    let id = self.gistsViewModel.autors.value[index.row].id
 //                    self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
 //                    self.gistsViewModel.delete(index: index.row)
 //                })
@@ -170,7 +167,7 @@ class GistsViewController: UIViewController {
     
     // MARK: Jumping to new VC
     private func goToChooseFileVC(index: Int) {
-        let data = gistsViewModel.actors.value[index]
+        let data = gistsViewModel.autors.value[index]
         ShowControllers.showGistFilesOfAutors(from: self, data: data)
     }
     

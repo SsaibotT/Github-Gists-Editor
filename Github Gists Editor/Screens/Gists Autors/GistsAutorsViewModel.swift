@@ -17,13 +17,13 @@ import RxDataSources
 
 class GistsAutorsViewModel {
     
-    var actors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
+    var autors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
     var datasource = RxCollectionViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
         fatalError()})
     private let disposeBag = DisposeBag()
     // swiftlint:disable:next force_try
-    let realm = try! Realm()
-    var realmItems: Results<Event>!
+    private let realm = try! Realm()
+    private var realmItems: Results<Event>!
     
     init(provider: MoyaProvider<MultiTarget>, isPublic: Bool) {
         getRequest(provider: provider, isPublic: isPublic)
@@ -45,7 +45,7 @@ class GistsAutorsViewModel {
                 events.forEach({ $0.localID = $0.id })
                 return events
             })
-            .bind(to: actors)
+            .bind(to: autors)
             .disposed(by: disposeBag)
     }
     
@@ -122,23 +122,16 @@ class GistsAutorsViewModel {
             .disposed(by: disposeBag)
     }
     
-    func delete(index: Int) {
-        deletingPrivateGistFromRealmAt(index: index)
-        
-        var array = actors.value
-        array.remove(at: index)
-        actors.accept(array)
+    func delete(id: String) {
+        deletingPrivateGistFromRealmAt(id: id)
     }
     
-    func deletingPrivateGistFromRealmAt(index: Int) {
-        let result = realm.objects(Event.self)
-        
-        let filetredToPrivate = result.toArray().filter { $0.owner?.login == "SsaibotT" }
-        let objectToDelete = filetredToPrivate[index]
+    private func deletingPrivateGistFromRealmAt(id: String) {
+        guard let result = realm.objects(Event.self).first(where: { $0.id == id }) else { return }
 
         do {
             try realm.write {
-                realm.delete(objectToDelete)
+                realm.delete(result)
             }
         } catch {
             print(error)
