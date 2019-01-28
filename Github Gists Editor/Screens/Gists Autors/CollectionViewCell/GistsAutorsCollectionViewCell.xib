@@ -22,30 +22,31 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MDP-KW-kF9">
                         <rect key="frame" x="39" y="9" width="87" height="87"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7e-oZ-emu">
-                        <rect key="frame" x="61.5" y="135" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6F-7N-Wdv">
                         <rect key="frame" x="11" y="106" width="143" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7e-oZ-emu">
+                        <rect key="frame" x="58" y="135" width="49" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="S6F-7N-Wdv" firstAttribute="top" secondItem="MDP-KW-kF9" secondAttribute="bottom" constant="10" id="5ie-5g-B8S"/>
-                <constraint firstItem="x7e-oZ-emu" firstAttribute="top" secondItem="S6F-7N-Wdv" secondAttribute="bottom" constant="8" symbolic="YES" id="DxP-Ef-HbN"/>
-                <constraint firstAttribute="bottom" secondItem="x7e-oZ-emu" secondAttribute="bottom" constant="9" id="HC8-9k-uHp"/>
-                <constraint firstItem="MDP-KW-kF9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="9" id="JB1-eD-xcs"/>
-                <constraint firstItem="S6F-7N-Wdv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="11" id="MWu-8w-B7p"/>
-                <constraint firstItem="MDP-KW-kF9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="39" id="Ovd-0D-DCn"/>
-                <constraint firstItem="MDP-KW-kF9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aOM-dd-f8f"/>
-                <constraint firstItem="S6F-7N-Wdv" firstAttribute="centerX" secondItem="x7e-oZ-emu" secondAttribute="centerX" id="iCj-UU-Fav"/>
-                <constraint firstItem="MDP-KW-kF9" firstAttribute="centerX" secondItem="S6F-7N-Wdv" secondAttribute="centerX" id="jgQ-Ay-rDi"/>
+                <constraint firstItem="MDP-KW-kF9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="39" id="IU0-Fn-WOK"/>
+                <constraint firstItem="MDP-KW-kF9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="OId-Mv-jUb"/>
+                <constraint firstItem="S6F-7N-Wdv" firstAttribute="top" secondItem="MDP-KW-kF9" secondAttribute="bottom" constant="10" id="WW4-lF-5Yz"/>
+                <constraint firstItem="MDP-KW-kF9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="9" id="Xoz-xr-VgB"/>
+                <constraint firstItem="MDP-KW-kF9" firstAttribute="centerX" secondItem="S6F-7N-Wdv" secondAttribute="centerX" id="gLO-rv-jCE"/>
+                <constraint firstItem="x7e-oZ-emu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="58" id="hSW-rK-c2g"/>
+                <constraint firstItem="S6F-7N-Wdv" firstAttribute="centerX" secondItem="x7e-oZ-emu" secondAttribute="centerX" id="i3h-lK-0kC"/>
+                <constraint firstItem="x7e-oZ-emu" firstAttribute="top" secondItem="S6F-7N-Wdv" secondAttribute="bottom" constant="8" symbolic="YES" id="wXS-fM-gG4"/>
+                <constraint firstItem="S6F-7N-Wdv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="11" id="zQf-Qh-Izl"/>
+                <constraint firstAttribute="bottom" secondItem="x7e-oZ-emu" secondAttribute="bottom" constant="9" id="znz-4s-q4T"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
@@ -53,7 +54,7 @@
                 <outlet property="filesCountLabel" destination="x7e-oZ-emu" id="S2e-i8-Fgj"/>
                 <outlet property="nameLabel" destination="S6F-7N-Wdv" id="mAM-fS-PXB"/>
             </connections>
-            <point key="canvasLocation" x="52.799999999999997" y="48.575712143928037"/>
+            <point key="canvasLocation" x="52" y="48.125937031484263"/>
         </collectionViewCell>
     </objects>
 </document>

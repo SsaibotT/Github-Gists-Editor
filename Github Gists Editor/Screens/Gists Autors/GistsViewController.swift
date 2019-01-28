@@ -70,6 +70,24 @@ class GistsViewController: UIViewController {
         gistsViewModel.datasource.configureCell = { (_, tableView, indexPath, item) in
             let cell = tableView.dequeueReusableCell(withReuseIdentifier: GistsAutorsCollectionViewCell.identifier,
                                                      for: indexPath) as? GistsAutorsCollectionViewCell
+
+            if !self.isPublic {
+                cell!.deletionButton()
+                
+                cell!.passingDeletion = {
+                    guard let deletingIndexPath = self.collectionView.indexPath(for: cell!) else { return }
+                    
+                    self.collectionView!.reloadData()
+                    self.collectionView!.numberOfItems(inSection: 0)
+                    //addItemInDataSource()
+                    self.collectionView.deleteItems(at: [deletingIndexPath])
+                    
+                    let id = self.gistsViewModel.actors.value[deletingIndexPath.row].id
+                    self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
+                    self.gistsViewModel.delete(index: deletingIndexPath.row)
+                    
+                }
+            }
             cell!.cellConfiguration(events: item)
             return cell!
         }
@@ -124,16 +142,16 @@ class GistsViewController: UIViewController {
         changeToGridButton.rx.tap
             .asObservable()
             .subscribe({ [unowned self] (_) in
-                self.changeToGridButton.backgroundColor = UIColor.darkGray
-                self.changeToListButton.backgroundColor = UIColor.lightGray
+                self.changeToListButton.backgroundColor = UIColor.darkGray
+                self.changeToGridButton.backgroundColor = UIColor.lightGray
             })
             .disposed(by: disposeBag)
         
         changeToListButton.rx.tap
             .asObservable()
             .subscribe({ [unowned self] (_) in
-                self.changeToListButton.backgroundColor = UIColor.darkGray
-                self.changeToGridButton.backgroundColor = UIColor.lightGray
+                self.changeToGridButton.backgroundColor = UIColor.darkGray
+                self.changeToListButton.backgroundColor = UIColor.lightGray
             })
             .disposed(by: disposeBag)
         
