@@ -77,15 +77,15 @@ class GistsViewController: UIViewController {
                 cell!.passingDeletion = {
                     guard let deletingIndexPath = self.collectionView.indexPath(for: cell!) else { return }
                     
-                    self.collectionView!.reloadData()
-                    self.collectionView!.numberOfItems(inSection: 0)
+                    //self.collectionView!.reloadData()
+                    //self.collectionView!.numberOfItems(inSection: 0)
                     //addItemInDataSource()
-                    self.collectionView.deleteItems(at: [deletingIndexPath])
                     
                     let id = self.gistsViewModel.actors.value[deletingIndexPath.row].id
                     self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
                     self.gistsViewModel.delete(index: deletingIndexPath.row)
                     
+                    self.collectionView.deleteItems(at: [deletingIndexPath])
                 }
             }
             cell!.cellConfiguration(events: item)
