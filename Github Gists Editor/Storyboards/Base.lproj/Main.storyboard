@@ -18,28 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-gL-bbK">
-                                <rect key="frame" x="0.0" y="20" width="188" height="62"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="XoE-Uo-s6U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="List">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-2v-vjZ">
-                                <rect key="frame" x="187" y="20" width="188" height="62"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Grid">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-SP-p2S">
                                 <rect key="frame" x="0.0" y="83" width="375" height="584"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="584" id="zFP-2K-tzd"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQp-Yj-cOb">
                                     <size key="itemSize" width="165" height="165"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,26 +32,45 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nk3-Xu-w3u" customClass="CustomSegmentedControl" customModule="Github_Gists_Editor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="63"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="List, Grid"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changingTheStatementInListGridSC:" destination="RvW-DY-yQe" eventType="valueChanged" id="cnI-lS-zxi"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="yoh-oW-yxZ" secondAttribute="bottom" id="4B2-nL-z7A"/>
-                            <constraint firstItem="cAZ-2v-vjZ" firstAttribute="leading" secondItem="yoh-oW-yxZ" secondAttribute="leading" constant="187" id="8ku-iM-sul"/>
-                            <constraint firstItem="R2i-gL-bbK" firstAttribute="leading" secondItem="72d-9P-A2w" secondAttribute="leading" id="Doe-Xc-Nim"/>
-                            <constraint firstItem="R2i-gL-bbK" firstAttribute="top" secondItem="cAZ-2v-vjZ" secondAttribute="top" id="FKk-S1-YND"/>
-                            <constraint firstItem="KBx-SP-p2S" firstAttribute="top" secondItem="R2i-gL-bbK" secondAttribute="bottom" constant="1" id="P0r-Q4-GIh"/>
-                            <constraint firstItem="cAZ-2v-vjZ" firstAttribute="trailing" secondItem="KBx-SP-p2S" secondAttribute="trailing" id="ZnS-jr-Oqi"/>
-                            <constraint firstItem="yoh-oW-yxZ" firstAttribute="trailing" secondItem="R2i-gL-bbK" secondAttribute="trailing" constant="187" id="b9f-3Z-gTZ"/>
-                            <constraint firstItem="R2i-gL-bbK" firstAttribute="leading" secondItem="KBx-SP-p2S" secondAttribute="leading" id="ds5-uv-SJ4"/>
-                            <constraint firstAttribute="trailing" secondItem="cAZ-2v-vjZ" secondAttribute="trailing" id="gid-76-hWh"/>
-                            <constraint firstItem="R2i-gL-bbK" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="ipj-rQ-dJX"/>
-                            <constraint firstItem="R2i-gL-bbK" firstAttribute="baseline" secondItem="cAZ-2v-vjZ" secondAttribute="firstBaseline" id="qoh-oz-PTS"/>
+                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="172-JL-cqm"/>
+                            <constraint firstAttribute="trailing" secondItem="nk3-Xu-w3u" secondAttribute="trailing" id="2TM-fD-4Zw"/>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="yoh-oW-yxZ" secondAttribute="bottom" id="6d3-So-dWY"/>
+                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="KBx-SP-p2S" secondAttribute="leading" id="9hd-fc-ube"/>
+                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="trailing" secondItem="KBx-SP-p2S" secondAttribute="trailing" id="TyW-vf-52O"/>
+                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="72d-9P-A2w" secondAttribute="leading" id="kBm-Y5-CBx"/>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="top" secondItem="nk3-Xu-w3u" secondAttribute="bottom" id="tsT-Y0-Exh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yoh-oW-yxZ"/>
                     </view>
                     <connections>
-                        <outlet property="changeToGridButton" destination="cAZ-2v-vjZ" id="M0O-EK-xcd"/>
-                        <outlet property="changeToListButton" destination="R2i-gL-bbK" id="zbe-yL-vOm"/>
                         <outlet property="collectionView" destination="KBx-SP-p2S" id="LWl-Qw-bRt"/>
                     </connections>
                 </viewController>

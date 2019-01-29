@@ -16,8 +16,6 @@ class GistsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     //@IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var changeToListButton: UIButton!
-    @IBOutlet weak var changeToGridButton: UIButton!
     
     let moyaProvider = APIProvider.provider()
     
@@ -38,7 +36,18 @@ class GistsViewController: UIViewController {
         choosingTableViewController()
         setupBindings()
         pullToRefresh()
-        buttonsTapped()
+        
+        addingCollectionLayout()
+    }
+    
+    private func addingCollectionLayout() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: width / 2.04, height: width / 2.04)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        collectionView.collectionViewLayout = layout
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,26 +143,6 @@ class GistsViewController: UIViewController {
         }
     }
     
-    private func buttonsTapped() {
-        
-        changeToGridButton.rx.tap
-            .asObservable()
-            .subscribe({ [unowned self] (_) in
-                self.changeToListButton.backgroundColor = UIColor.darkGray
-                self.changeToGridButton.backgroundColor = UIColor.lightGray
-            })
-            .disposed(by: disposeBag)
-        
-        changeToListButton.rx.tap
-            .asObservable()
-            .subscribe({ [unowned self] (_) in
-                self.changeToGridButton.backgroundColor = UIColor.darkGray
-                self.changeToListButton.backgroundColor = UIColor.lightGray
-            })
-            .disposed(by: disposeBag)
-        
-    }
-    
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
         refresher.tintColor = .white
@@ -173,5 +162,11 @@ class GistsViewController: UIViewController {
     
     private func gotoNewGistVC() {
         ShowControllers.showCreateNewGist(from: self)
+    }
+    
+    // using custom segmented controll
+    
+    @IBAction func changingTheStatementInListGridSC(_ sender: CustomSegmentedControl) {
+        print(sender.selectedSegmentIndex)
     }
 }
