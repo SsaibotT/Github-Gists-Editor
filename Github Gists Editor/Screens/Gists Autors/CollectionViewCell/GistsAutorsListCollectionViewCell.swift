@@ -1,22 +1,21 @@
 //
-//  GistsAutorsCollectionViewCell.swift
+//  GistsAutorsListCollectionViewCell.swift
 //  Github Gists Editor
 //
-//  Created by Serhii on 1/27/19.
+//  Created by Serhii on 1/29/19.
 //  Copyright © 2019 Serhii. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 import RxSwift
-import RxCocoa
 
-class GistsAutorsCollectionViewCell: UICollectionViewCell {
+class GistsAutorsListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
-
+    
     var passingDeletion: (() -> Void)!
     private var disposeBag = DisposeBag()
     
@@ -42,7 +41,7 @@ class GistsAutorsCollectionViewCell: UICollectionViewCell {
     }
     
     func deletionButton() {
-        let deletingButtonRect = CGRect.init(x: 8, y: 8, width: 20, height: 20)
+        let deletingButtonRect = CGRect.init(x: 2, y: 2, width: 20, height: 20)
         let deleteButton = UIButton(frame: deletingButtonRect)
         deleteButton.setImage(UIImage.init(named: "icon-close-512"), for: .normal)
         self.addSubview(deleteButton)
@@ -58,4 +57,5 @@ class GistsAutorsCollectionViewCell: UICollectionViewCell {
                 self.passingDeletion()
             }).disposed(by: disposeBag)
     }
+
 }
