@@ -17,7 +17,7 @@ class GistsAutorsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
 
-    var passingDeletion: (() -> Void)!
+    var passingDeletion: (() -> Void)?
     private var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -55,7 +55,9 @@ class GistsAutorsCollectionViewCell: UICollectionViewCell {
         deleteButton.rx.tap
             .asObservable()
             .subscribe({ [unowned self] (_) in
-                self.passingDeletion()
+                if let callingDelete = self.passingDeletion {
+                    callingDelete()
+                }
             }).disposed(by: disposeBag)
     }
 }

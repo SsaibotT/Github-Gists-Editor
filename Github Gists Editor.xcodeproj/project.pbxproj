@@ -10,17 +10,18 @@
 		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
-		C52BD02C22009CE000F2CCA3 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02B22009CE000F2CCA3 /* CustomSegmentedControl.swift */; };
+		C52BD02C22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */; };
 		C52BD02F2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02D2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift */; };
 		C52BD0302200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52BD02E2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
+		C567BE9E22034DDE0045512B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567BE9D22034DDE0045512B /* State.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
 		C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CE6B21F22DC000652729 /* SectionOfEvent.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */; };
-		C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */; };
+		C59DB3D221ADB0010000F25B /* GistsAuthorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAuthorsViewModel.swift */; };
 		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
 		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
-		C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */; };
+		C59DB3D921ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift */; };
 		C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */; };
 		C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */; };
 		C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */; };
@@ -50,17 +51,18 @@
 		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
-		C52BD02B22009CE000F2CCA3 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingListOrGridStateSegmentedControl.swift; sourceTree = "<group>"; };
 		C52BD02D2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C52BD02E2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsListCollectionViewCell.xib; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C567BE9D22034DDE0045512B /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
 		C594CE6B21F22DC000652729 /* SectionOfEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfEvent.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsViewController.swift; sourceTree = "<group>"; };
-		C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsViewModel.swift; sourceTree = "<group>"; };
+		C59DB3D121ADB0010000F25B /* GistsAuthorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsViewModel.swift; sourceTree = "<group>"; };
 		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
 		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
-		C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAutorsEndPoints.swift; sourceTree = "<group>"; };
+		C59DB3D821ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAuthorsEndPoints.swift; sourceTree = "<group>"; };
 		C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowControllers.swift; sourceTree = "<group>"; };
 		C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -130,7 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				C54C23BD21C4150000A8D6FC /* Constants.swift */,
-				C52BD02B22009CE000F2CCA3 /* CustomSegmentedControl.swift */,
+				C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */,
+				C567BE9D22034DDE0045512B /* State.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -170,7 +173,7 @@
 			children = (
 				C5B11BF721FDDF2A00329FE7 /* CollectionViewCell */,
 				C59DB3D321ADB0060000F25B /* TableViewCell */,
-				C59DB3D121ADB0010000F25B /* GistsAutorsViewModel.swift */,
+				C59DB3D121ADB0010000F25B /* GistsAuthorsViewModel.swift */,
 				C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */,
 			);
 			path = "Gists Autors";
@@ -263,7 +266,7 @@
 		C5D8B26F21A6E8D100F58ED3 /* Moya Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3D821ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift */,
+				C59DB3D821ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift */,
 				C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */,
 				C5AFC9BC21B42F5400E9524F /* APIProvider.swift */,
 			);
@@ -458,18 +461,19 @@
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
 				C52BD02F2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift in Sources */,
 				C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */,
-				C59DB3D221ADB0010000F25B /* GistsAutorsViewModel.swift in Sources */,
+				C59DB3D221ADB0010000F25B /* GistsAuthorsViewModel.swift in Sources */,
 				C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */,
 				C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */,
 				C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */,
-				C59DB3D921ADB15C0000F25B /* MoyaGistsAutorsEndPoints.swift in Sources */,
+				C59DB3D921ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift in Sources */,
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
+				C567BE9E22034DDE0045512B /* State.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
 				C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
-				C52BD02C22009CE000F2CCA3 /* CustomSegmentedControl.swift in Sources */,
+				C52BD02C22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift in Sources */,
 				C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */,
 				C5E587D121B07844003DE4CF /* Owner.swift in Sources */,
 				C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */,

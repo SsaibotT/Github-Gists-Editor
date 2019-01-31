@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .instantiateViewController(withIdentifier: GistsViewController.identifier)
             as? GistsViewController else { return true }
         
-        firstGistAutors.tabBarItem  = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
-        secondGistAutors.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 1)
+        firstGistAutors.tabBarItem  = UITabBarItem(title: "public", image: UIImage(named: "public"), tag: 0)
+        secondGistAutors.tabBarItem = UITabBarItem(title: "private", image: UIImage(named: "private"), tag: 1)
         
         firstGistAutors.isPublic = true
         secondGistAutors.isPublic = false

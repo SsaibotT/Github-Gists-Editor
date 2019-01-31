@@ -18,7 +18,7 @@ class GistsViewController: UIViewController {
     
     let moyaProvider = APIProvider.provider()
     
-    private var gistsViewModel: GistsAutorsViewModel!
+    private var gistsViewModel: GistsAuthorsViewModel!
     private var disposeBag = DisposeBag()
     var isListFlowLayout = true
     var isPublic: Bool!
@@ -26,8 +26,10 @@ class GistsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collectionViewCellNibName     = UINib(nibName: "GistsAutorsCollectionViewCell", bundle: nil)
-        let collectionListViewCellNibName = UINib(nibName: "GistsAutorsListCollectionViewCell", bundle: nil)
+        let collectionViewCellNibName     = UINib(nibName: GistsAutorsCollectionViewCell.identifier,
+                                                  bundle: nil)
+        let collectionListViewCellNibName = UINib(nibName: GistsAutorsListCollectionViewCell.identifier,
+                                                  bundle: nil)
         
         collectionView.register(collectionViewCellNibName,
                                 forCellWithReuseIdentifier: GistsAutorsCollectionViewCell.identifier)
@@ -44,9 +46,9 @@ class GistsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tabBarController?.title = "Root View Controller"
 
+        navigationController?.navigationBar.topItem?.title = "Root View Controller"
+        
         navigationBar()
     }
     
@@ -63,7 +65,7 @@ class GistsViewController: UIViewController {
     }
     
     private func choosingTableViewController() {
-        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: isPublic)
+        gistsViewModel = GistsAuthorsViewModel(provider: moyaProvider, isPublic: isPublic)
     }
     
     // MARK: rx
@@ -151,16 +153,16 @@ class GistsViewController: UIViewController {
     }
     
     // using custom segmented controll
-    @IBAction func changingTheStatementInListGridSC(_ sender: CustomSegmentedControl) {
+    @IBAction func changingTheStatementInListGridSC(_ sender: SelectingListOrGridStateSegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0:
+        case State.List.indexValue:
             isListFlowLayout = true
             
             UIView.animate(withDuration: 0.5) { [unowned self] in
                 self.collectionView.collectionViewLayout.invalidateLayout()
                 self.collectionView.setCollectionViewLayout(self.addingListCollectionLayout(), animated: true)
             }
-        case 1:
+        case State.Grid.indexValue:
             isListFlowLayout = false
             
             UIView.animate(withDuration: 0.5) { [unowned self] in
@@ -170,10 +172,12 @@ class GistsViewController: UIViewController {
         default:
             print("none")
         }
+        
+        collectionView.reloadData()
     }
     
     private func addingGridCollectionLayout() -> UICollectionViewLayout {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: width / 2.04, height: width / 2.04)
@@ -183,7 +187,7 @@ class GistsViewController: UIViewController {
     }
     
     private func addingListCollectionLayout() -> UICollectionViewLayout {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: width, height: view.frame.height / 10)

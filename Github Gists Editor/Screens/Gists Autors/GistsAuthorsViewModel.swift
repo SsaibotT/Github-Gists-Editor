@@ -15,7 +15,7 @@ import Realm
 import Moya
 import RxDataSources
 
-class GistsAutorsViewModel {
+class GistsAuthorsViewModel {
     
     var autors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
     var datasource = RxCollectionViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
@@ -54,7 +54,7 @@ class GistsAutorsViewModel {
         var moyaRequest: MultiTarget
         
         if isPublic {
-            moyaRequest = MultiTarget(MoyaGistsAutorsEndPoints.getPublicEvents)
+            moyaRequest = MultiTarget(MoyaGistsAuthorsEndPoints.getPublicEvents)
         } else {
             moyaRequest = MultiTarget(MoyaPrivateFilesEndPoint.getPrivateEvents)
         }

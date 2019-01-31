@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class CustomSegmentedControl: UIControl {
+class SelectingListOrGridStateSegmentedControl: UIControl {
     
     var selectedSegmentIndex: Int = 0
     var buttons = [UIButton]()
