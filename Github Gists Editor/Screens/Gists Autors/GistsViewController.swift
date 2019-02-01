@@ -70,15 +70,16 @@ class GistsViewController: UIViewController {
     
     // MARK: rx
     private func setupBindings() {
-        
-        gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
 
+        gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
+            
             if self.isListFlowLayout {
+                
                 let cellIdentifier = GistsAutorsListCollectionViewCell.identifier
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                                for: indexPath) as? GistsAutorsListCollectionViewCell else {
                                                                 return UICollectionViewCell()}
-                
+
                 if !self.isPublic {
                     cell.deletionButton()
                     
@@ -158,22 +159,24 @@ class GistsViewController: UIViewController {
         case State.List.indexValue:
             isListFlowLayout = true
             
-            UIView.animate(withDuration: 0.5) { [unowned self] in
-                self.collectionView.collectionViewLayout.invalidateLayout()
-                self.collectionView.setCollectionViewLayout(self.addingListCollectionLayout(), animated: true)
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(addingListCollectionLayout(),
+                                                   animated: true) { [unowned self] (_) in
+                self.collectionView.reloadData()
             }
+            
         case State.Grid.indexValue:
             isListFlowLayout = false
             
-            UIView.animate(withDuration: 0.5) { [unowned self] in
-                self.collectionView.collectionViewLayout.invalidateLayout()
-                self.collectionView.setCollectionViewLayout(self.addingGridCollectionLayout(), animated: true)
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(addingGridCollectionLayout(),
+                                                   animated: true) { [unowned self] (_) in
+                self.collectionView.reloadData()
             }
+            
         default:
             print("none")
         }
-        
-        collectionView.reloadData()
     }
     
     private func addingGridCollectionLayout() -> UICollectionViewLayout {
