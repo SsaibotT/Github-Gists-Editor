@@ -44,13 +44,8 @@ class GistsAutorsCollectionViewCell: UICollectionViewCell {
     func deletionButton() {
         let deletingButtonRect = CGRect.init(x: 8, y: 8, width: 20, height: 20)
         let deleteButton = UIButton(frame: deletingButtonRect)
-        deleteButton.setImage(UIImage.init(named: "icon-close-512"), for: .normal)
+        deleteButton.setImage(UIImage.init(named: "closeIcon"), for: .normal)
         self.addSubview(deleteButton)
-        
-        let margins = self.layoutMarginsGuide
-        deleteButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 8).isActive = true
-        deleteButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8).isActive = true
-        deleteButton.heightAnchor.constraint(equalTo: margins.heightAnchor, constant: 20).isActive = true
         
         deleteButton.rx.tap
             .asObservable()

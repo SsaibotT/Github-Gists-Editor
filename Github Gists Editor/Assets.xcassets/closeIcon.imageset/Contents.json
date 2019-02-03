@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon-close-512.png",
+      "filename" : "closed.png",
       "scale" : "1x"
     },
     {

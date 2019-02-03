@@ -135,7 +135,7 @@ class GistsViewController: UIViewController {
     
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
-        refresher.tintColor = .white
+        refresher.tintColor = .black
         collectionView.refreshControl = refresher
         
         gistsViewModel.pullToRefresh(refresher: refresher,

@@ -13,30 +13,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GistsAutorsListCollectionViewCell" customModule="Github_Gists_Editor" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ON6-xL-dDt">
-                        <rect key="frame" x="20" y="5" width="70" height="40"/>
+                        <rect key="frame" x="20" y="10" width="70" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="klN-X1-4ij"/>
+                            <constraint firstAttribute="height" constant="70" id="7nV-Ef-C8g"/>
+                            <constraint firstAttribute="width" constant="70" id="ii3-p0-myu"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpw-HO-L4e">
-                        <rect key="frame" x="104" y="15" width="183" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="109" y="27.5" width="187" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="187" id="G0e-yg-lFa"/>
+                            <constraint firstAttribute="height" constant="35" id="Z1R-1o-pYJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ku-9w-meL">
-                        <rect key="frame" x="305" y="15" width="50" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="qeX-fW-dQE"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="307" y="33" width="48" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -44,22 +46,21 @@
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ON6-xL-dDt" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="9yG-Rt-fqy"/>
-                <constraint firstAttribute="trailing" secondItem="6Ku-9w-meL" secondAttribute="trailing" constant="20" id="Gbc-o9-Iqr"/>
-                <constraint firstItem="6Ku-9w-meL" firstAttribute="leading" secondItem="dpw-HO-L4e" secondAttribute="trailing" constant="18" id="Opp-hs-ILN"/>
-                <constraint firstItem="ON6-xL-dDt" firstAttribute="centerY" secondItem="dpw-HO-L4e" secondAttribute="centerY" id="Ufx-ON-vqX"/>
-                <constraint firstItem="ON6-xL-dDt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="W8I-ew-0DF"/>
-                <constraint firstItem="dpw-HO-L4e" firstAttribute="leading" secondItem="ON6-xL-dDt" secondAttribute="trailing" constant="14" id="lo3-rV-WbZ"/>
-                <constraint firstItem="ON6-xL-dDt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="oeN-4B-lG3"/>
-                <constraint firstItem="dpw-HO-L4e" firstAttribute="baseline" secondItem="6Ku-9w-meL" secondAttribute="baseline" id="pMJ-dh-PUw"/>
+                <constraint firstItem="dpw-HO-L4e" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="1C3-6h-FDS"/>
+                <constraint firstItem="6Ku-9w-meL" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="3fF-TD-8Eq"/>
+                <constraint firstItem="ON6-xL-dDt" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="MCs-r8-CPc"/>
+                <constraint firstAttribute="trailing" secondItem="6Ku-9w-meL" secondAttribute="trailing" constant="20" id="Sar-as-om2"/>
+                <constraint firstItem="dpw-HO-L4e" firstAttribute="leading" secondItem="ON6-xL-dDt" secondAttribute="trailing" constant="19" id="eO3-uI-leK"/>
+                <constraint firstItem="ON6-xL-dDt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="iyU-TD-mHl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="375" height="90"/>
             <connections>
                 <outlet property="avatarImage" destination="ON6-xL-dDt" id="l5D-5b-TDg"/>
                 <outlet property="filesCountLabel" destination="6Ku-9w-meL" id="gCd-vH-sOP"/>
                 <outlet property="nameLabel" destination="dpw-HO-L4e" id="Lv0-91-e6z"/>
             </connections>
-            <point key="canvasLocation" x="-18.399999999999999" y="191.6041979010495"/>
+            <point key="canvasLocation" x="-47.200000000000003" y="107.94602698650675"/>
         </collectionViewCell>
     </objects>
 </document>
