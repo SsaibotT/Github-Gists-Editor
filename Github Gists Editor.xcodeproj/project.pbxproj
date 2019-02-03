@@ -11,8 +11,8 @@
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
 		C52BD02C22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */; };
-		C52BD02F2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02D2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift */; };
-		C52BD0302200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52BD02E2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib */; };
+		C52BD02F2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02D2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.swift */; };
+		C52BD0302200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52BD02E2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib */; };
 		C54C23BE21C4150000A8D6FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54C23BD21C4150000A8D6FC /* Constants.swift */; };
 		C567BE9E22034DDE0045512B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C567BE9D22034DDE0045512B /* State.swift */; };
 		C57E54F021B9365600A64E0C /* CreateNewGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */; };
@@ -28,8 +28,8 @@
 		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
 		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
 		C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AFC9BC21B42F5400E9524F /* APIProvider.swift */; };
-		C5B11BFA21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */; };
-		C5B11BFB21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */; };
+		C5B11BFA21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BF821FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift */; };
+		C5B11BFB21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B11BF921FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib */; };
 		C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BFC21FDE65300329FE7 /* UICollectionViewExtension.swift */; };
 		C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */; };
 		C5D8B25E21A6E42400F58ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D8B25D21A6E42400F58ED3 /* AppDelegate.swift */; };
@@ -52,8 +52,8 @@
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
 		C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingListOrGridStateSegmentedControl.swift; sourceTree = "<group>"; };
-		C52BD02D2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsListCollectionViewCell.swift; sourceTree = "<group>"; };
-		C52BD02E2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsListCollectionViewCell.xib; sourceTree = "<group>"; };
+		C52BD02D2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		C52BD02E2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAuthorsListCollectionViewCell.xib; sourceTree = "<group>"; };
 		C54C23BD21C4150000A8D6FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C567BE9D22034DDE0045512B /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		C57E54EF21B9365600A64E0C /* CreateNewGistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
 		C5AFC9BC21B42F5400E9524F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
-		C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsCollectionViewCell.swift; sourceTree = "<group>"; };
-		C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsCollectionViewCell.xib; sourceTree = "<group>"; };
+		C5B11BF821FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5B11BF921FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAuthorsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C5B11BFC21FDE65300329FE7 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		C5D0FF4921B1AAE70062DD10 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		C5D8B25A21A6E42400F58ED3 /* Github Gists Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Gists Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,10 +220,10 @@
 		C5B11BF721FDDF2A00329FE7 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C5B11BF821FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift */,
-				C5B11BF921FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib */,
-				C52BD02D2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift */,
-				C52BD02E2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib */,
+				C5B11BF821FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift */,
+				C5B11BF921FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib */,
+				C52BD02D2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.swift */,
+				C52BD02E2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -348,8 +348,8 @@
 				C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */,
 				C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */,
 				C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */,
-				C52BD0302200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.xib in Resources */,
-				C5B11BFB21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.xib in Resources */,
+				C52BD0302200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib in Resources */,
+				C5B11BFB21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,11 +455,11 @@
 				C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */,
 				C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */,
 				C59DB3CF21ADAFDA0000F25B /* GistsViewController.swift in Sources */,
-				C5B11BFA21FDE03D00329FE7 /* GistsAutorsCollectionViewCell.swift in Sources */,
+				C5B11BFA21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift in Sources */,
 				C5D0FF4A21B1AAE70062DD10 /* AccountInfoViewModel.swift in Sources */,
 				C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */,
 				C5E587CB21B0768E003DE4CF /* UITableViewCellExtension.swift in Sources */,
-				C52BD02F2200E80700F2CCA3 /* GistsAutorsListCollectionViewCell.swift in Sources */,
+				C52BD02F2200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.swift in Sources */,
 				C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */,
 				C59DB3D221ADB0010000F25B /* GistsAuthorsViewModel.swift in Sources */,
 				C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */,

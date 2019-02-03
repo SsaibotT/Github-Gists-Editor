@@ -26,16 +26,16 @@ class GistsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collectionViewCellNibName     = UINib(nibName: GistsAutorsCollectionViewCell.identifier,
+        let collectionViewCellNibName     = UINib(nibName: GistsAuthorsCollectionViewCell.identifier,
                                                   bundle: nil)
-        let collectionListViewCellNibName = UINib(nibName: GistsAutorsListCollectionViewCell.identifier,
+        let collectionListViewCellNibName = UINib(nibName: GistsAuthorsListCollectionViewCell.identifier,
                                                   bundle: nil)
         
         collectionView.register(collectionViewCellNibName,
-                                forCellWithReuseIdentifier: GistsAutorsCollectionViewCell.identifier)
+                                forCellWithReuseIdentifier: GistsAuthorsCollectionViewCell.identifier)
         
         collectionView.register(collectionListViewCellNibName,
-                                forCellWithReuseIdentifier: GistsAutorsListCollectionViewCell.identifier)
+                                forCellWithReuseIdentifier: GistsAuthorsListCollectionViewCell.identifier)
         
         choosingTableViewController()
         setupBindings()
@@ -75,9 +75,9 @@ class GistsViewController: UIViewController {
             
             if self.isListFlowLayout {
                 
-                let cellIdentifier = GistsAutorsListCollectionViewCell.identifier
+                let cellIdentifier = GistsAuthorsListCollectionViewCell.identifier
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                               for: indexPath) as? GistsAutorsListCollectionViewCell else {
+                                                               for: indexPath) as? GistsAuthorsListCollectionViewCell else {
                                                                 return UICollectionViewCell()}
 
                 if !self.isPublic {
@@ -96,9 +96,9 @@ class GistsViewController: UIViewController {
                 
             } else {
                 
-                let cellIdentifier = GistsAutorsCollectionViewCell.identifier
+                let cellIdentifier = GistsAuthorsCollectionViewCell.identifier
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                               for: indexPath) as? GistsAutorsCollectionViewCell else {
+                                                               for: indexPath) as? GistsAuthorsCollectionViewCell else {
                                                                 return UICollectionViewCell()}
                 
                 if !self.isPublic {
@@ -182,8 +182,9 @@ class GistsViewController: UIViewController {
     private func addingGridCollectionLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
+        let gridValue: CGFloat = 2.04 // makes perfect grid state for two colons
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: width / 2.04, height: width / 2.04)
+        layout.itemSize = CGSize(width: width / gridValue, height: width / gridValue)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
         return layout
