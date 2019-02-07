@@ -17,7 +17,7 @@ import RxDataSources
 
 class GistsAuthorsViewModel {
     
-    var autors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
+    var authors: BehaviorRelay<[Event]> = BehaviorRelay(value: [])
     var datasource = RxCollectionViewSectionedAnimatedDataSource<SectionOfCustomData>(configureCell: { (_, _, _, _) in
         fatalError()})
     private let disposeBag = DisposeBag()
@@ -45,7 +45,7 @@ class GistsAuthorsViewModel {
                 events.forEach({ $0.localID = $0.id })
                 return events
             })
-            .bind(to: autors)
+            .bind(to: authors)
             .disposed(by: disposeBag)
     }
     

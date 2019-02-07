@@ -86,7 +86,7 @@ class GistsViewController: UIViewController {
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
-                        let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
+                        let id = self.gistsViewModel.authors.value[deletingIndexPath.row].id
                         self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
                         self.gistsViewModel.delete(id: id)
                     }
@@ -107,7 +107,7 @@ class GistsViewController: UIViewController {
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
-                        let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
+                        let id = self.gistsViewModel.authors.value[deletingIndexPath.row].id
                         self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
                         self.gistsViewModel.delete(id: id)
                     }
@@ -118,7 +118,7 @@ class GistsViewController: UIViewController {
         }
         
         if let eventDataSource = gistsViewModel?.datasource {
-            gistsViewModel.autors
+            gistsViewModel.authors
                 .asObservable()
                 .map({[SectionOfCustomData(header: "First Section", items: $0)]})
                 .bind(to: collectionView.rx.items(dataSource: eventDataSource))
@@ -145,8 +145,8 @@ class GistsViewController: UIViewController {
     
     // MARK: Jumping to new VC
     private func goToChooseFileVC(index: Int) {
-        let data = gistsViewModel.autors.value[index]
-        ShowControllers.showGistFilesOfAutors(from: self, data: data)
+        let data = gistsViewModel.authors.value[index]
+        ShowControllers.showGistFilesOfAuthors(from: self, data: data)
     }
     
     private func gotoNewGistVC() {
@@ -182,11 +182,15 @@ class GistsViewController: UIViewController {
     private func addingGridCollectionLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        let gridValue: CGFloat = 2.04 // makes perfect grid state for two colons
+        let colons: CGFloat = 2
+        let minimumInteritemSpacing: CGFloat = 4
+        let gridValue: CGFloat = ((width / colons) - minimumInteritemSpacing)
+        
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: width / gridValue, height: width / gridValue)
-        layout.minimumInteritemSpacing = 0
+        layout.itemSize = CGSize(width: gridValue, height: gridValue)
+        layout.minimumInteritemSpacing = minimumInteritemSpacing
         layout.minimumLineSpacing = 8
+        
         return layout
     }
     
