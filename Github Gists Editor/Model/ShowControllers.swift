@@ -11,7 +11,7 @@ import UIKit
 
 class ShowControllers {
     
-    static func showGistFilesOfAutors(from viewController: UIViewController, data: Event) {
+    static func showGistFilesOfAuthors(from viewController: UIViewController, data: Event) {
         
         let identifier = AccountInfo.identifier
         if let filesVC = viewController.storyboard?
