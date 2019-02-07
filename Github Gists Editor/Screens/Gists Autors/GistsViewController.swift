@@ -46,8 +46,6 @@ class GistsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        navigationController?.navigationBar.topItem?.title = "Root View Controller"
         
         navigationBar()
     }
@@ -58,6 +56,8 @@ class GistsViewController: UIViewController {
                                       target: self,
                                       action: #selector(GistsViewController.addNewGist))
         navigationItem.rightBarButtonItem = navItem
+        
+        navigationItem.title = "Gists"
     }
     
     @objc private func addNewGist() {
