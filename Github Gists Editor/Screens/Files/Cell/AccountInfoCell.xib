@@ -22,28 +22,40 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Bm-s7y">
                         <rect key="frame" x="16" y="11" width="329" height="83"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd6-8l-lif">
-                                <rect key="frame" x="24" y="32" width="259" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd6-8l-lif">
+                                <rect key="frame" x="24" y="31" width="229" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="229" id="I2d-JB-QB3"/>
+                                    <constraint firstAttribute="height" constant="21" id="reV-E8-FNa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="disc" translatesAutoresizingMaskIntoConstraints="NO" id="OKl-ET-U54">
-                                <rect key="frame" x="297" y="28" width="30" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disc" translatesAutoresizingMaskIntoConstraints="NO" id="OKl-ET-U54">
+                                <rect key="frame" x="297" y="27.5" width="30" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="mGr-FH-P0l"/>
+                                    <constraint firstAttribute="height" constant="28" id="oBD-Rh-ev9"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sd6-8l-lif" firstAttribute="leading" secondItem="kOt-Bm-s7y" secondAttribute="leading" constant="24" id="JtV-uI-PlK"/>
+                            <constraint firstItem="OKl-ET-U54" firstAttribute="centerY" secondItem="kOt-Bm-s7y" secondAttribute="centerY" id="NWr-hf-5Xu"/>
+                            <constraint firstAttribute="trailing" secondItem="OKl-ET-U54" secondAttribute="trailing" constant="2" id="RSQ-8n-Zo6"/>
+                            <constraint firstItem="Sd6-8l-lif" firstAttribute="centerY" secondItem="kOt-Bm-s7y" secondAttribute="centerY" id="eCi-A4-ipk"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8Ya-E5-9RI"/>
-                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="DE9-G4-bAv"/>
-                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="gRw-rw-leA"/>
-                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="tg0-d6-v1Z"/>
+                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="2rZ-tu-dtw"/>
+                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="FW8-Xd-cPb"/>
+                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="HEl-Ix-Hs7"/>
+                    <constraint firstItem="kOt-Bm-s7y" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="hOf-UC-YKi"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
