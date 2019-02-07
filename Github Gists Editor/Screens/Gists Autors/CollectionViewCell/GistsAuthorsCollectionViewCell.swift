@@ -50,9 +50,7 @@ class GistsAuthorsCollectionViewCell: UICollectionViewCell {
         deleteButton.rx.tap
             .asObservable()
             .subscribe({ [unowned self] (_) in
-                if let callingDelete = self.passingDeletion {
-                    callingDelete()
-                }
+                self.passingDeletion?()
             }).disposed(by: disposeBag)
     }
 }
