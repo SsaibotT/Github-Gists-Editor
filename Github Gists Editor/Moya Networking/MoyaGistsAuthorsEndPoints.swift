@@ -9,12 +9,12 @@
 import Foundation
 import Moya
 
-enum MoyaGistsAutorsEndPoints {
+enum MoyaGistsAuthorsEndPoints {
     
     case getPublicEvents
 }
 
-extension MoyaGistsAutorsEndPoints: TargetType {
+extension MoyaGistsAuthorsEndPoints: TargetType {
     
     public var baseURL: URL {
         return URL(string: Constants.githubOriginalSite)!

@@ -15,37 +15,40 @@ import Moya
 class GistsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    //@IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var changeToListButton: UIButton!
-    @IBOutlet weak var changeToGridButton: UIButton!
     
     let moyaProvider = APIProvider.provider()
     
-    private var gistsViewModel: GistsAutorsViewModel!
+    private var gistsViewModel: GistsAuthorsViewModel!
     private var disposeBag = DisposeBag()
+    var isListFlowLayout = true
     var isPublic: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let tableViewCellNibName = UINib(nibName: "GistsAutorsTableViewCell", bundle: nil)
-        let collectionViewCellNibName = UINib(nibName: "GistsAutorsCollectionViewCell", bundle: nil)
+        let collectionViewCellNibName     = UINib(nibName: GistsAuthorsCollectionViewCell.identifier,
+                                                  bundle: nil)
+        let collectionListViewCellNibName = UINib(nibName: GistsAuthorsListCollectionViewCell.identifier,
+                                                  bundle: nil)
         
-        //tableView.register(tableViewCellNibName, forCellReuseIdentifier: GistsAutorsTableViewCell.identifier)
         collectionView.register(collectionViewCellNibName,
-                                forCellWithReuseIdentifier: GistsAutorsCollectionViewCell.identifier)
+                                forCellWithReuseIdentifier: GistsAuthorsCollectionViewCell.identifier)
+        
+        collectionView.register(collectionListViewCellNibName,
+                                forCellWithReuseIdentifier: GistsAuthorsListCollectionViewCell.identifier)
         
         choosingTableViewController()
         setupBindings()
         pullToRefresh()
-        buttonsTapped()
+        
+        collectionView.collectionViewLayout = addingListCollectionLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tabBarController?.title = "Root View Controller"
 
+        navigationController?.navigationBar.topItem?.title = "Root View Controller"
+        
         navigationBar()
     }
     
@@ -62,36 +65,57 @@ class GistsViewController: UIViewController {
     }
     
     private func choosingTableViewController() {
-        gistsViewModel = GistsAutorsViewModel(provider: moyaProvider, isPublic: isPublic)
+        gistsViewModel = GistsAuthorsViewModel(provider: moyaProvider, isPublic: isPublic)
     }
     
     // MARK: rx
     private func setupBindings() {
-        
-        gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
-            let cellIdentifier = GistsAutorsCollectionViewCell.identifier
-            guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                           for: indexPath) as? GistsAutorsCollectionViewCell else {
-                                                            return UICollectionViewCell()}
 
-            if !self.isPublic {
-                cell.deletionButton()
+        gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
+            
+            if self.isListFlowLayout {
                 
-                cell.passingDeletion = {
-                    guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
+                let cellIdentifier = GistsAuthorsListCollectionViewCell.identifier
+                guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
+                                                               for: indexPath) as? GistsAuthorsListCollectionViewCell else {
+                                                                return UICollectionViewCell()}
+
+                if !self.isPublic {
+                    cell.deletionButton()
                     
-                    let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
-                    self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
-                    self.gistsViewModel.delete(id: id)
+                    cell.passingDeletion = {
+                        guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
+                        
+                        let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
+                        self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
+                        self.gistsViewModel.delete(id: id)
+                    }
                 }
+                cell.cellConfiguration(events: item)
+                return cell
+                
+            } else {
+                
+                let cellIdentifier = GistsAuthorsCollectionViewCell.identifier
+                guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
+                                                               for: indexPath) as? GistsAuthorsCollectionViewCell else {
+                                                                return UICollectionViewCell()}
+                
+                if !self.isPublic {
+                    cell.deletionButton()
+                    
+                    cell.passingDeletion = {
+                        guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
+                        
+                        let id = self.gistsViewModel.autors.value[deletingIndexPath.row].id
+                        self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
+                        self.gistsViewModel.delete(id: id)
+                    }
+                }
+                cell.cellConfiguration(events: item)
+                return cell
             }
-            cell.cellConfiguration(events: item)
-            return cell
         }
-        
-//        gistsViewModel.datasource.canEditRowAtIndexPath = { (_, _) in
-//            return true
-//        }
         
         if let eventDataSource = gistsViewModel?.datasource {
             gistsViewModel.autors
@@ -107,57 +131,11 @@ class GistsViewController: UIViewController {
                 self.collectionView.deselectItem(at: $0, animated: false)
             })
             .disposed(by: disposeBag)
-//        if let eventDataSource = gistsViewModel?.datasource {
-//            gistsViewModel.autors
-//                .asObservable()
-//                .map({[SectionOfCustomData(header: "First Section", items: $0)]})
-//                .bind(to: tableView.rx.items(dataSource: eventDataSource))
-//                .disposed(by: disposeBag)
-//        }
-        
-//        tableView.rx.itemSelected
-//            .subscribe(onNext: { [unowned self] in
-//                self.goToChooseFileVC(index: $0.row)
-//                self.tableView.deselectRow(at: $0, animated: false)
-//            })
-//            .disposed(by: disposeBag)
-
-        if !self.isPublic {
-//            tableView.rx.itemDeleted
-//                .subscribe(onNext: { [unowned self] (index) in
-//                    let id = self.gistsViewModel.autors.value[index.row].id
-//                    self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
-//                    self.gistsViewModel.delete(index: index.row)
-//                })
-//                .disposed(by: disposeBag)
-            
-        }
-    }
-    
-    private func buttonsTapped() {
-        
-        changeToGridButton.rx.tap
-            .asObservable()
-            .subscribe({ [unowned self] (_) in
-                self.changeToListButton.backgroundColor = UIColor.darkGray
-                self.changeToGridButton.backgroundColor = UIColor.lightGray
-            })
-            .disposed(by: disposeBag)
-        
-        changeToListButton.rx.tap
-            .asObservable()
-            .subscribe({ [unowned self] (_) in
-                self.changeToGridButton.backgroundColor = UIColor.darkGray
-                self.changeToListButton.backgroundColor = UIColor.lightGray
-            })
-            .disposed(by: disposeBag)
-        
     }
     
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
-        refresher.tintColor = .white
-        //tableView.refreshControl = refresher
+        refresher.tintColor = .black
         collectionView.refreshControl = refresher
         
         gistsViewModel.pullToRefresh(refresher: refresher,
@@ -173,5 +151,52 @@ class GistsViewController: UIViewController {
     
     private func gotoNewGistVC() {
         ShowControllers.showCreateNewGist(from: self)
+    }
+    
+    // using custom segmented controll
+    @IBAction func changingTheStatementInListGridSC(_ sender: SelectingListOrGridStateSegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case State.List.indexValue:
+            isListFlowLayout = true
+            
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(addingListCollectionLayout(),
+                                                   animated: true) { [unowned self] (_) in
+                self.collectionView.reloadData()
+            }
+            
+        case State.Grid.indexValue:
+            isListFlowLayout = false
+            
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(addingGridCollectionLayout(),
+                                                   animated: true) { [unowned self] (_) in
+                self.collectionView.reloadData()
+            }
+            
+        default:
+            print("none")
+        }
+    }
+    
+    private func addingGridCollectionLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        let gridValue: CGFloat = 2.04 // makes perfect grid state for two colons
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: width / gridValue, height: width / gridValue)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        return layout
+    }
+    
+    private func addingListCollectionLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: width, height: view.frame.height / 10)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        return layout
     }
 }
