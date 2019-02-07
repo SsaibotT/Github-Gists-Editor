@@ -25,20 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(GistsViewController.identifier)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let firstGistAutors  = storyBoard
+        guard let firstGistAuthors  = storyBoard
             .instantiateViewController(withIdentifier: GistsViewController.identifier)
             as? GistsViewController else { return true }
-        guard let secondGistAutors = storyBoard
+        guard let secondGistAuthors = storyBoard
             .instantiateViewController(withIdentifier: GistsViewController.identifier)
             as? GistsViewController else { return true }
         
-        firstGistAutors.tabBarItem  = UITabBarItem(title: "public", image: UIImage(named: "public"), tag: 0)
-        secondGistAutors.tabBarItem = UITabBarItem(title: "private", image: UIImage(named: "person"), tag: 1)
+        firstGistAuthors.tabBarItem  = UITabBarItem(title: "public", image: UIImage(named: "public"), tag: 0)
+        secondGistAuthors.tabBarItem = UITabBarItem(title: "private", image: UIImage(named: "person"), tag: 1)
         
-        firstGistAutors.isPublic = true
-        secondGistAutors.isPublic = false
+        firstGistAuthors.isPublic = true
+        secondGistAuthors.isPublic = false
         
-        let tabBarList = [firstGistAutors, secondGistAutors]
+        let tabBarList = [firstGistAuthors, secondGistAuthors]
         tabController.viewControllers = tabBarList.map { return UINavigationController(rootViewController: $0) }
         
         // Realm configuration if scheme changes

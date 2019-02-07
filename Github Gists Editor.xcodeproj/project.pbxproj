@@ -19,8 +19,8 @@
 		C594CE6C21F22DC000652729 /* SectionOfEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594CE6B21F22DC000652729 /* SectionOfEvent.swift */; };
 		C59DB3CF21ADAFDA0000F25B /* GistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */; };
 		C59DB3D221ADB0010000F25B /* GistsAuthorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D121ADB0010000F25B /* GistsAuthorsViewModel.swift */; };
-		C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */; };
-		C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */; };
+		C59DB3D621ADB02E0000F25B /* GistsAuthorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D421ADB02E0000F25B /* GistsAuthorsTableViewCell.swift */; };
+		C59DB3D721ADB02E0000F25B /* GistsAuthorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3D521ADB02E0000F25B /* GistsAuthorsTableViewCell.xib */; };
 		C59DB3D921ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3D821ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift */; };
 		C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */; };
 		C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */; };
@@ -60,8 +60,8 @@
 		C594CE6B21F22DC000652729 /* SectionOfEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfEvent.swift; sourceTree = "<group>"; };
 		C59DB3CE21ADAFDA0000F25B /* GistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsViewController.swift; sourceTree = "<group>"; };
 		C59DB3D121ADB0010000F25B /* GistsAuthorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsViewModel.swift; sourceTree = "<group>"; };
-		C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAutorsTableViewCell.swift; sourceTree = "<group>"; };
-		C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAutorsTableViewCell.xib; sourceTree = "<group>"; };
+		C59DB3D421ADB02E0000F25B /* GistsAuthorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsTableViewCell.swift; sourceTree = "<group>"; };
+		C59DB3D521ADB02E0000F25B /* GistsAuthorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAuthorsTableViewCell.xib; sourceTree = "<group>"; };
 		C59DB3D821ADB15C0000F25B /* MoyaGistsAuthorsEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaGistsAuthorsEndPoints.swift; sourceTree = "<group>"; };
 		C59DB3DC21ADBEA00000F25B /* ShowControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowControllers.swift; sourceTree = "<group>"; };
 		C59DB3E121ADBFB60000F25B /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 		C59DB3D321ADB0060000F25B /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C59DB3D421ADB02E0000F25B /* GistsAutorsTableViewCell.swift */,
-				C59DB3D521ADB02E0000F25B /* GistsAutorsTableViewCell.xib */,
+				C59DB3D421ADB02E0000F25B /* GistsAuthorsTableViewCell.swift */,
+				C59DB3D521ADB02E0000F25B /* GistsAuthorsTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				C5D8B26521A6E42600F58ED3 /* Assets.xcassets in Resources */,
 				C5D8B26321A6E42400F58ED3 /* Main.storyboard in Resources */,
 				C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */,
-				C59DB3D721ADB02E0000F25B /* GistsAutorsTableViewCell.xib in Resources */,
+				C59DB3D721ADB02E0000F25B /* GistsAuthorsTableViewCell.xib in Resources */,
 				C52BD0302200E80700F2CCA3 /* GistsAuthorsListCollectionViewCell.xib in Resources */,
 				C5B11BFB21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib in Resources */,
 			);
@@ -470,7 +470,7 @@
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
 				C567BE9E22034DDE0045512B /* State.swift in Sources */,
-				C59DB3D621ADB02E0000F25B /* GistsAutorsTableViewCell.swift in Sources */,
+				C59DB3D621ADB02E0000F25B /* GistsAuthorsTableViewCell.swift in Sources */,
 				C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */,
 				C59DB3DD21ADBEA00000F25B /* ShowControllers.swift in Sources */,
 				C52BD02C22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift in Sources */,
