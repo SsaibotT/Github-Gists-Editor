@@ -11,16 +11,18 @@ import UIKit
 
 class ShowControllers {
     
-    static func showGistFilesOfAuthors(from viewController: UIViewController, data: Event) {
-        
-        let identifier = AccountInfo.identifier
-        if let filesVC = viewController.storyboard?
-            .instantiateViewController(withIdentifier: identifier) as? AccountInfo {
-            filesVC.hidesBottomBarWhenPushed = true
-            filesVC.configurationVC(event: data)
-            viewController.navigationController?.show(filesVC, sender: viewController)
-        }
-    }
+//    static func showGistFilesOfAuthors(from viewController: UIViewController, data: Event) {
+//        
+//        let identifier = AccountInfo.identifier
+//        if let filesVC = viewController.storyboard?
+//            .instantiateViewController(withIdentifier: identifier) as? AccountInfo {
+//            filesVC.hidesBottomBarWhenPushed = true
+//            filesVC.configurationVC(event: data)
+//            //viewController.navigationController?.show(filesVC, sender: viewController)
+//            filesVC.transitioningDelegate = viewController.transitioningDelegate
+//            viewController.present(filesVC, animated: true)
+//        }
+//    }
     
     static func showChosenFile(from viewController: UIViewController, textPath: String) {
         
@@ -29,7 +31,8 @@ class ShowControllers {
             .instantiateViewController(withIdentifier: identifier) as? AccountFiles {
             fileVC.hidesBottomBarWhenPushed = true
             fileVC.configurationVC(textPath: textPath)
-            viewController.navigationController?.show(fileVC, sender: viewController)
+            //viewController.navigationController?.show(fileVC, sender: viewController)
+            viewController.present(fileVC, animated: true)
         }
     }
     

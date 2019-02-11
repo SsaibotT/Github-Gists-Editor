@@ -23,6 +23,8 @@ class GistsViewController: UIViewController {
     var isListFlowLayout = true
     var isPublic: Bool!
     
+    let animatedTransition = AnimationToGistAuthorsVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,6 +81,21 @@ class GistsViewController: UIViewController {
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                                for: indexPath) as? GistsAuthorsListCollectionViewCell else {
                                                                 return UICollectionViewCell()}
+//                let image = cell.avatarImage!
+//                image.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+//                self.collectionView.addSubview(image)
+//                
+//                self.animatedTransition.movingImage = {
+////                    self.collectionView.addSubview(image)
+//                    UIView.animate(withDuration: 0.1, animations: {
+//                        image.frame = CGRect(x: 112, y: -100, width: 151, height: 147)
+//                        image.layer.borderWidth = 1
+//                        image.layer.masksToBounds = false
+//                        image.layer.borderColor = UIColor.black.cgColor
+//                        image.layer.cornerRadius = image.frame.height/2
+//                        image.clipsToBounds = true
+//                    })
+//                }
 
                 if !self.isPublic {
                     cell.deletionButton()
@@ -146,7 +163,20 @@ class GistsViewController: UIViewController {
     // MARK: Jumping to new VC
     private func goToChooseFileVC(index: Int) {
         let data = gistsViewModel.authors.value[index]
-        ShowControllers.showGistFilesOfAuthors(from: self, data: data)
+        showGistFilesOfAuthors(from: self, data: data)
+    }
+    
+    func showGistFilesOfAuthors(from viewController: UIViewController, data: Event) {
+        
+        let identifier = AccountInfo.identifier
+        if let filesVC = viewController.storyboard?
+            .instantiateViewController(withIdentifier: identifier) as? AccountInfo {
+            filesVC.hidesBottomBarWhenPushed = true
+            filesVC.configurationVC(event: data)
+            //viewController.navigationController?.show(filesVC, sender: viewController)
+            filesVC.transitioningDelegate = self
+            viewController.present(filesVC, animated: true)
+        }
     }
     
     private func gotoNewGistVC() {
@@ -202,5 +232,18 @@ class GistsViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
         return layout
+    }
+}
+
+extension GistsViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animatedTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
     }
 }
