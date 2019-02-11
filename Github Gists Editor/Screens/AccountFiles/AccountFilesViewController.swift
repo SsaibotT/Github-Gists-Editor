@@ -14,6 +14,7 @@ import RxSwift
 class AccountFiles: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
+    @IBOutlet weak var closeButton: UIButton!
     
     private var accountFilesViewModel: AccountFilesViewModel!
     private var disposeBag = DisposeBag()
@@ -30,6 +31,15 @@ class AccountFiles: UIViewController {
         accountFilesViewModel.attributedText
             .asObservable()
             .bind(to: fileText.rx.attributedText)
+            .disposed(by: disposeBag)
+    }
+    
+    private func stupBindings() {
+        closeButton.rx.tap
+            .asObservable()
+            .subscribe { [unowned self] _ in
+                self.dismiss(animated: true)
+            }
             .disposed(by: disposeBag)
     }
     

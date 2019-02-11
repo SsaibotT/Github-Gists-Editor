@@ -17,6 +17,7 @@ class AccountInfo: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var filesTableView: UITableView!
+    @IBOutlet weak var closeButton: UIButton!
     
     private var accountInfoViewModel = AccountInfoViewModel()
     private var disposeBag = DisposeBag()
@@ -55,6 +56,13 @@ class AccountInfo: UIViewController {
                             guard let index = self.filesTableView.indexPath(for: cell)?.row else { return }
                             self.goToChosenFileVC(index: index)
                         }
+            }
+            .disposed(by: disposeBag)
+        
+        closeButton.rx.tap
+            .asObservable()
+            .subscribe { [unowned self] _ in
+                self.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
     }
