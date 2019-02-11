@@ -21,9 +21,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-SP-p2S">
                                 <rect key="frame" x="0.0" y="83" width="375" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="584" id="zFP-2K-tzd"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQp-Yj-cOb">
                                     <size key="itemSize" width="165" height="165"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,13 +60,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="172-JL-cqm"/>
+                            <constraint firstItem="nk3-Xu-w3u" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="1pr-ls-uke"/>
                             <constraint firstAttribute="trailing" secondItem="nk3-Xu-w3u" secondAttribute="trailing" id="2TM-fD-4Zw"/>
                             <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="yoh-oW-yxZ" secondAttribute="bottom" id="6d3-So-dWY"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="KBx-SP-p2S" secondAttribute="leading" id="9hd-fc-ube"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="trailing" secondItem="KBx-SP-p2S" secondAttribute="trailing" id="TyW-vf-52O"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="72d-9P-A2w" secondAttribute="leading" id="kBm-Y5-CBx"/>
-                            <constraint firstItem="KBx-SP-p2S" firstAttribute="top" secondItem="nk3-Xu-w3u" secondAttribute="bottom" id="tsT-Y0-Exh"/>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="top" secondItem="nk3-Xu-w3u" secondAttribute="bottom" id="oa9-4U-ZeH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yoh-oW-yxZ"/>
                     </view>

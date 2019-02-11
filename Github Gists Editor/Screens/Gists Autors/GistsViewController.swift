@@ -81,21 +81,6 @@ class GistsViewController: UIViewController {
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                                for: indexPath) as? GistsAuthorsListCollectionViewCell else {
                                                                 return UICollectionViewCell()}
-//                let image = cell.avatarImage!
-//                image.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//                self.collectionView.addSubview(image)
-//                
-//                self.animatedTransition.movingImage = {
-////                    self.collectionView.addSubview(image)
-//                    UIView.animate(withDuration: 0.1, animations: {
-//                        image.frame = CGRect(x: 112, y: -100, width: 151, height: 147)
-//                        image.layer.borderWidth = 1
-//                        image.layer.masksToBounds = false
-//                        image.layer.borderColor = UIColor.black.cgColor
-//                        image.layer.cornerRadius = image.frame.height/2
-//                        image.clipsToBounds = true
-//                    })
-//                }
 
                 if !self.isPublic {
                     cell.deletionButton()
@@ -144,7 +129,7 @@ class GistsViewController: UIViewController {
         
         collectionView.rx.itemSelected
             .subscribe(onNext: { [unowned self] in
-                self.goToChooseFileVC(index: $0.row)
+                self.goToChooseFileVC(indexPath: $0)
                 self.collectionView.deselectItem(at: $0, animated: false)
             })
             .disposed(by: disposeBag)
@@ -161,8 +146,11 @@ class GistsViewController: UIViewController {
     }
     
     // MARK: Jumping to new VC
-    private func goToChooseFileVC(index: Int) {
-        let data = gistsViewModel.authors.value[index]
+    private func goToChooseFileVC(indexPath: IndexPath) {
+        let data = gistsViewModel.authors.value[indexPath.row]
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GistsAuthorsListCollectionViewCell else { return }
+        let imageFrames = cell.convert(cell.avatarImage.bounds, to: self.view)
+        animatedTransition.startingFrame = imageFrames
         showGistFilesOfAuthors(from: self, data: data)
     }
     
