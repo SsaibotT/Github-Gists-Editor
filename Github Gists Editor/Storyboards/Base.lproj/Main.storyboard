@@ -97,7 +97,7 @@
         <!--Account Info View Controller-->
         <scene sceneID="8EW-JD-c5h">
             <objects>
-                <viewController storyboardIdentifier="AccountInfo" id="9Hf-VW-0Vb" customClass="AccountInfoViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountInfoViewController" id="9Hf-VW-0Vb" customClass="AccountInfoViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oyg-VH-WSf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,7 +170,7 @@
         <!--Account Files View Controller-->
         <scene sceneID="yGY-TL-g6T">
             <objects>
-                <viewController storyboardIdentifier="AccountFiles" id="ek8-LQ-t7M" customClass="AccountFilesViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountFilesViewController" id="ek8-LQ-t7M" customClass="AccountFilesViewController" customModule="Github_Gists_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqb-F0-GTC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
