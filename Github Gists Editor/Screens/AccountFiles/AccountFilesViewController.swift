@@ -11,7 +11,7 @@ import Alamofire
 import RxCocoa
 import RxSwift
 
-class AccountFiles: UIViewController {
+class AccountFilesViewController: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
     @IBOutlet weak var closeButton: UIButton!
@@ -25,6 +25,7 @@ class AccountFiles: UIViewController {
         
         accountFilesViewModel = AccountFilesViewModel(text: text)
         setupSubscribers()
+        setupBindings()
     }
     
     private func setupSubscribers() {
@@ -34,7 +35,7 @@ class AccountFiles: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func stupBindings() {
+    private func setupBindings() {
         closeButton.rx.tap
             .asObservable()
             .subscribe { [unowned self] _ in

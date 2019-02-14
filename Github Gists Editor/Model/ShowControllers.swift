@@ -26,9 +26,9 @@ class ShowControllers {
     
     static func showChosenFile(from viewController: UIViewController, textPath: String) {
         
-        let identifier = AccountFiles.identifier
+        let identifier = AccountFilesViewController.identifier
         if let fileVC = viewController.storyboard?
-            .instantiateViewController(withIdentifier: identifier) as? AccountFiles {
+            .instantiateViewController(withIdentifier: identifier) as? AccountFilesViewController {
             fileVC.hidesBottomBarWhenPushed = true
             fileVC.configurationVC(textPath: textPath)
             //viewController.navigationController?.show(fileVC, sender: viewController)

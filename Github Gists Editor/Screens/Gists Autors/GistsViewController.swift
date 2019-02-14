@@ -72,19 +72,19 @@ class GistsViewController: UIViewController {
     
     // MARK: rx
     private func setupBindings() {
-
+        
         gistsViewModel.datasource.configureCell = { [unowned self] (_, tableView, indexPath, item) in
             
             if self.isListFlowLayout {
-                
                 let cellIdentifier = GistsAuthorsListCollectionViewCell.identifier
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                               for: indexPath) as? GistsAuthorsListCollectionViewCell else {
-                                                                return UICollectionViewCell()}
+                                                               for: indexPath)
+                    as? GistsAuthorsListCollectionViewCell else {
+                        return UICollectionViewCell()}
 
                 if !self.isPublic {
-                    cell.deletionButton()
                     
+                    cell.deletionButton()
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
@@ -148,17 +148,28 @@ class GistsViewController: UIViewController {
     // MARK: Jumping to new VC
     private func goToChooseFileVC(indexPath: IndexPath) {
         let data = gistsViewModel.authors.value[indexPath.row]
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GistsAuthorsListCollectionViewCell else { return }
-        let imageFrames = cell.convert(cell.avatarImage.bounds, to: self.view)
+        var imageFrames = CGRect.zero
+        
+        if isListFlowLayout {
+            guard let cell = collectionView.cellForItem(at: indexPath)
+                as? GistsAuthorsListCollectionViewCell else { return }
+            
+            imageFrames = cell.convert(cell.avatarImage.bounds, to: self.view)
+        } else {
+            guard let cell = collectionView.cellForItem(at: indexPath)
+                as? GistsAuthorsCollectionViewCell else { return }
+            
+            imageFrames = cell.convert(cell.avatarImage.bounds, to: self.view)
+        }
         animatedTransition.startingFrame = imageFrames
         showGistFilesOfAuthors(from: self, data: data)
     }
     
     func showGistFilesOfAuthors(from viewController: UIViewController, data: Event) {
         
-        let identifier = AccountInfo.identifier
+        let identifier = AccountInfoViewController.identifier
         if let filesVC = viewController.storyboard?
-            .instantiateViewController(withIdentifier: identifier) as? AccountInfo {
+            .instantiateViewController(withIdentifier: identifier) as? AccountInfoViewController {
             filesVC.hidesBottomBarWhenPushed = true
             filesVC.configurationVC(event: data)
             //viewController.navigationController?.show(filesVC, sender: viewController)
@@ -180,7 +191,7 @@ class GistsViewController: UIViewController {
             collectionView.collectionViewLayout.invalidateLayout()
             collectionView.setCollectionViewLayout(addingListCollectionLayout(),
                                                    animated: true) { [unowned self] (_) in
-                self.collectionView.reloadData()
+                                                    self.collectionView.reloadData()
             }
             
         case State.Grid.indexValue:
@@ -189,7 +200,7 @@ class GistsViewController: UIViewController {
             collectionView.collectionViewLayout.invalidateLayout()
             collectionView.setCollectionViewLayout(addingGridCollectionLayout(),
                                                    animated: true) { [unowned self] (_) in
-                self.collectionView.reloadData()
+                                                    self.collectionView.reloadData()
             }
             
         default:
@@ -219,6 +230,7 @@ class GistsViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: view.frame.height / 10)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 8
+        
         return layout
     }
 }
@@ -228,10 +240,12 @@ extension GistsViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        animatedTransition.presenting = true
         return animatedTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        animatedTransition.presenting = false
+        return animatedTransition
     }
 }

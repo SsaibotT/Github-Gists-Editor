@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class AccountInfo: UIViewController {
+class AccountInfoViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!

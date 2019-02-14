@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabController
         
-        print(GistsViewController.identifier)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let firstGistAuthors  = storyBoard
             .instantiateViewController(withIdentifier: GistsViewController.identifier)
