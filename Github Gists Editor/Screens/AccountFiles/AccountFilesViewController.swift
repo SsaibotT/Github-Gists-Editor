@@ -11,9 +11,10 @@ import Alamofire
 import RxCocoa
 import RxSwift
 
-class AccountFiles: UIViewController {
+class AccountFilesViewController: UIViewController {
 
     @IBOutlet weak var fileText: UITextView!
+    @IBOutlet weak var closeButton: UIButton!
     
     private var accountFilesViewModel: AccountFilesViewModel!
     private var disposeBag = DisposeBag()
@@ -24,12 +25,22 @@ class AccountFiles: UIViewController {
         
         accountFilesViewModel = AccountFilesViewModel(text: text)
         setupSubscribers()
+        setupBindings()
     }
     
     private func setupSubscribers() {
         accountFilesViewModel.attributedText
             .asObservable()
             .bind(to: fileText.rx.attributedText)
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupBindings() {
+        closeButton.rx.tap
+            .asObservable()
+            .subscribe { [unowned self] _ in
+                self.dismiss(animated: true)
+            }
             .disposed(by: disposeBag)
     }
     

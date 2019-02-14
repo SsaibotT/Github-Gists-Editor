@@ -16,7 +16,7 @@ class GistsAuthorsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
-
+    
     var passingDeletion: (() -> Void)?
     private var disposeBag = DisposeBag()
     
@@ -44,7 +44,7 @@ class GistsAuthorsCollectionViewCell: UICollectionViewCell {
     func deletionButton() {
         let deletingButtonRect = CGRect.init(x: 8, y: 8, width: 20, height: 20)
         let deleteButton = UIButton(frame: deletingButtonRect)
-        deleteButton.setImage(UIImage.init(named: "closeIcon"), for: .normal)
+        deleteButton.setImage(UIImage.init(named: "close"), for: .normal)
         self.addSubview(deleteButton)
         
         deleteButton.rx.tap
