@@ -36,7 +36,7 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView.view)
         
         let endFrame = toView.avatarImage.frame
-        //toView.avatarImage.frame = startingFrame
+        toView.avatarImage.layer.resize(to: startingFrame.size)
         toView.avatarImage.layer.cornerRadius = 10
         toView.avatarImage.layer.add(addKeyFrameAnimation(startingFrame: startingFrame,
                                                           endFrame: endFrame,
@@ -45,7 +45,7 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
         toView.view.alpha = 0.0
         UIView.animate(withDuration: duration, animations: {
             toView.view.alpha = 1.0
-            //toView.avatarImage.frame = endFrame
+            toView.avatarImage.layer.resize(to: endFrame.size)
             toView.avatarImage.layer.borderWidth = 1
             toView.avatarImage.layer.masksToBounds = false
             toView.avatarImage.layer.borderColor = UIColor.black.cgColor
@@ -59,7 +59,9 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
     
     func dismissingAnimation(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        guard let fromView = transitionContext.viewController(forKey: .from) as? AccountInfoViewController else { return }
+        guard let fromView = transitionContext.viewController(forKey: .from)
+            as? AccountInfoViewController else { return }
+        
         containerView.addSubview(fromView.view)
         
         guard let toView = transitionContext.viewController(forKey: .to) as? UITabBarController else { return }
@@ -67,7 +69,7 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
         
         let startFrame = startingFrame
         let endFrame = fromView.avatarImage.frame
-        //toView.avatarImage.frame = startingFrame
+
         fromView.avatarImage.layer.add(addKeyFrameAnimation(startingFrame: startFrame,
                                                           endFrame: endFrame,
                                                           isBackwards: true), forKey: "animation")
@@ -75,6 +77,7 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
         toView.view.alpha = 0.0
         
         UIView.animate(withDuration: duration, animations: {
+            fromView.avatarImage.layer.resize(to: startFrame.size)
             toView.view.alpha = 1.0
             
             fromView.avatarImage.layer.cornerRadius = 10
@@ -104,5 +107,14 @@ extension AnimationToGistAuthorsVC: UIViewControllerAnimatedTransitioning {
         keyFrameAnimation.fillMode = CAMediaTimingFillMode.forwards
         keyFrameAnimation.isRemovedOnCompletion = false
         return keyFrameAnimation
+    }
+}
+
+extension CALayer {
+    func resize(to size: CGSize) {
+        let oldBounds = bounds
+        var newBounds = oldBounds
+        newBounds.size = size
+        self.bounds = newBounds
     }
 }
