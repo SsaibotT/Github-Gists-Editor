@@ -18,6 +18,8 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var authorInfoButton: UIButton!
     
+    
+    
     var passingDeletion: (() -> Void)?
     var passingAuthorInfo: (() -> Void)?
     private var disposeBag = DisposeBag()

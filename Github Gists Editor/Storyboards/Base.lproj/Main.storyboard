@@ -96,6 +96,7 @@
                         <outlet property="blurEffectView" destination="UUR-c0-nbs" id="jgR-pj-Ssc"/>
                         <outlet property="collectionView" destination="KBx-SP-p2S" id="LWl-Qw-bRt"/>
                         <outlet property="dismissPopUp" destination="QAp-CA-JXs" id="sv4-sI-SI0"/>
+                        <outlet property="fileNamesLabel" destination="xE5-9v-epk" id="Vs3-wP-W8U"/>
                         <outlet property="showInfoView" destination="QHJ-7A-CvF" id="Jtt-nh-3TY"/>
                     </connections>
                 </viewController>
@@ -104,20 +105,39 @@
                     <rect key="frame" x="0.0" y="0.0" width="274" height="154"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Im Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-Ym-zfX">
-                            <rect key="frame" x="107" y="20" width="60" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAp-CA-JXs">
+                            <rect key="frame" x="10" y="10" width="25" height="25"/>
+                            <state key="normal" image="close"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xE5-9v-epk">
+                            <rect key="frame" x="112" y="43" width="146" height="91"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="91" id="R2e-lJ-d4K"/>
+                                <constraint firstAttribute="width" constant="146" id="jCk-5u-wTe"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File names:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjX-Ur-g7J">
+                            <rect key="frame" x="16" y="66.5" width="87" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="aNl-An-KrD"/>
+                                <constraint firstAttribute="width" constant="87" id="nyv-BF-NE5"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAp-CA-JXs">
-                            <rect key="frame" x="119" y="104" width="37" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Done"/>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="wWz-l7-X8f" firstAttribute="bottom" secondItem="xE5-9v-epk" secondAttribute="bottom" constant="20" id="NBc-IP-7mW"/>
+                        <constraint firstItem="QAp-CA-JXs" firstAttribute="top" secondItem="wWz-l7-X8f" secondAttribute="top" constant="10" id="kAD-df-42d"/>
+                        <constraint firstItem="sjX-Ur-g7J" firstAttribute="leading" secondItem="wWz-l7-X8f" secondAttribute="leading" constant="16" id="nC5-ER-3AB"/>
+                        <constraint firstItem="sjX-Ur-g7J" firstAttribute="centerY" secondItem="wWz-l7-X8f" secondAttribute="centerY" id="oWm-QO-65q"/>
+                        <constraint firstItem="wWz-l7-X8f" firstAttribute="trailing" secondItem="xE5-9v-epk" secondAttribute="trailing" constant="16" id="qsj-xu-LlQ"/>
+                        <constraint firstItem="QAp-CA-JXs" firstAttribute="leading" secondItem="wWz-l7-X8f" secondAttribute="leading" constant="10" id="ykr-GN-vR6"/>
+                    </constraints>
                     <viewLayoutGuide key="safeArea" id="wWz-l7-X8f"/>
                 </view>
             </objects>

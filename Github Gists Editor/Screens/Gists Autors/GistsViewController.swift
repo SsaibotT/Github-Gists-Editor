@@ -18,6 +18,8 @@ class GistsViewController: UIViewController {
     @IBOutlet var showInfoView: UIView!
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var dismissPopUp: UIButton!
+
+    @IBOutlet weak var fileNamesLabel: UILabel!
     
     let moyaProvider = APIProvider.provider()
     
@@ -93,6 +95,11 @@ class GistsViewController: UIViewController {
                         return UICollectionViewCell()}
                 
                 cell.passingAuthorInfo = {
+                    
+                    guard let infoIndexPath = self.collectionView.indexPath(for: cell) else { return }
+                    for file in self.gistsViewModel.authors.value[infoIndexPath.row].files.toArray() {
+                        self.fileNamesLabel.text?.append("\(file.filename) \n")
+                    }
                     
                     guard let window = UIApplication.shared.keyWindow else { return }
                     self.view.insertSubview(self.blurEffectView, at: self.view.subviews.count)
@@ -177,6 +184,7 @@ class GistsViewController: UIViewController {
                 }, completion: { (_) in
                     self.showInfoView.removeFromSuperview()
                     self.view.insertSubview(self.blurEffectView, at: 0)
+                    self.fileNamesLabel.text = ""
                 })
             })
             .disposed(by: disposeBag)
@@ -184,7 +192,7 @@ class GistsViewController: UIViewController {
     
     private func pullToRefresh() {
         let refresher = UIRefreshControl()
-        refresher.tintColor = .black
+        refresher.tintColor = .white
         collectionView.refreshControl = refresher
         
         gistsViewModel.pullToRefresh(refresher: refresher,
