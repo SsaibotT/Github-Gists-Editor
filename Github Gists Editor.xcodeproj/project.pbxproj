@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */; };
 		C5141DE421BE6A6900301449 /* CreateNewGistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */; };
 		C5141DE621BE6C9A00301449 /* GistCreationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */; };
 		C52BD02C22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */; };
@@ -27,6 +26,7 @@
 		C59DB3E521ADBFF40000F25B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */; };
 		C59DB3E921ADEB780000F25B /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */; };
 		C59DB3EA21ADEB780000F25B /* AccountInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */; };
+		C5AD1827220F3AC000F1A340 /* AnimationToGistAuthorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD1826220F3AC000F1A340 /* AnimationToGistAuthorsVC.swift */; };
 		C5AFC9BD21B42F5400E9524F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AFC9BC21B42F5400E9524F /* APIProvider.swift */; };
 		C5B11BFA21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B11BF821FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift */; };
 		C5B11BFB21FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B11BF921FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib */; };
@@ -43,12 +43,12 @@
 		C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */; };
 		C5EA30EC21AEDEA3001A8589 /* AccountFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */; };
 		C5EB27C821B33E330058C7F0 /* AccountFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */; };
+		F04F3520532A3A5B44AB0234 /* Pods_Github_Gists_Editor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F73AE47A2A7897F1D961A48 /* Pods_Github_Gists_Editor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		041C66C7F5AFF2E1EFAA8443 /* Pods-Github Gists Editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.debug.xcconfig"; sourceTree = "<group>"; };
-		1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Gists_Editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
+		9F73AE47A2A7897F1D961A48 /* Pods_Github_Gists_Editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Gists_Editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEE1EA9E71D7EABDF8C3D992 /* Pods-Github Gists Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.release.xcconfig"; sourceTree = "<group>"; };
 		C5141DE321BE6A6900301449 /* CreateNewGistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGistViewModel.swift; sourceTree = "<group>"; };
 		C5141DE521BE6C9A00301449 /* GistCreationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreationInfo.swift; sourceTree = "<group>"; };
 		C52BD02B22009CE000F2CCA3 /* SelectingListOrGridStateSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingListOrGridStateSegmentedControl.swift; sourceTree = "<group>"; };
@@ -68,6 +68,7 @@
 		C59DB3E421ADBFF40000F25B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C59DB3E721ADEB780000F25B /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		C59DB3E821ADEB780000F25B /* AccountInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoCell.xib; sourceTree = "<group>"; };
+		C5AD1826220F3AC000F1A340 /* AnimationToGistAuthorsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationToGistAuthorsVC.swift; sourceTree = "<group>"; };
 		C5AFC9BC21B42F5400E9524F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		C5B11BF821FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistsAuthorsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5B11BF921FDE03D00329FE7 /* GistsAuthorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistsAuthorsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		C5E7E92A21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPrivateFilesEndPoint.swift; sourceTree = "<group>"; };
 		C5EA30EB21AEDEA3001A8589 /* AccountFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewController.swift; sourceTree = "<group>"; };
 		C5EB27C721B33E330058C7F0 /* AccountFilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFilesViewModel.swift; sourceTree = "<group>"; };
+		EA463168453498017A8A9C93 /* Pods-Github Gists Editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Gists Editor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,26 +95,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF71F6A15D45AA03944AE41 /* Pods_Github_Gists_Editor.framework in Frameworks */,
+				F04F3520532A3A5B44AB0234 /* Pods_Github_Gists_Editor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4AC0540B100B081D8D86F6AE /* Frameworks */ = {
+		278002CACE55F30F1BE7A796 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C0DC31352301095AF756817 /* Pods_Github_Gists_Editor.framework */,
+				9F73AE47A2A7897F1D961A48 /* Pods_Github_Gists_Editor.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B9B94D1C4B1C3F23F26CA4AA /* Pods */ = {
+		3412D56E28CDAC7ADA29E12A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				041C66C7F5AFF2E1EFAA8443 /* Pods-Github Gists Editor.debug.xcconfig */,
-				7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */,
+				EA463168453498017A8A9C93 /* Pods-Github Gists Editor.debug.xcconfig */,
+				AEE1EA9E71D7EABDF8C3D992 /* Pods-Github Gists Editor.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,6 +219,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C5AD1825220F3A7B00F1A340 /* Animated transition */ = {
+			isa = PBXGroup;
+			children = (
+				C5AD1826220F3AC000F1A340 /* AnimationToGistAuthorsVC.swift */,
+			);
+			path = "Animated transition";
+			sourceTree = "<group>";
+		};
 		C5B11BF721FDDF2A00329FE7 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,8 +243,8 @@
 			children = (
 				C5D8B25C21A6E42400F58ED3 /* Github Gists Editor */,
 				C5D8B25B21A6E42400F58ED3 /* Products */,
-				B9B94D1C4B1C3F23F26CA4AA /* Pods */,
-				4AC0540B100B081D8D86F6AE /* Frameworks */,
+				3412D56E28CDAC7ADA29E12A /* Pods */,
+				278002CACE55F30F1BE7A796 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +259,7 @@
 		C5D8B25C21A6E42400F58ED3 /* Github Gists Editor */ = {
 			isa = PBXGroup;
 			children = (
+				C5AD1825220F3A7B00F1A340 /* Animated transition */,
 				C54C23BC21C414E200A8D6FC /* Helper */,
 				C59DB3E321ADBFE00000F25B /* Extensions */,
 				C58C6F0521A9C35400FBDA3A /* Model */,
@@ -289,12 +300,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5D8B26C21A6E42600F58ED3 /* Build configuration list for PBXNativeTarget "Github Gists Editor" */;
 			buildPhases = (
-				05303B352E651B5CC073AD1F /* [CP] Check Pods Manifest.lock */,
+				C6B5AB0C0515F7F1922E4658 /* [CP] Check Pods Manifest.lock */,
 				C5D8B25621A6E42400F58ED3 /* Sources */,
 				C5D8B25721A6E42400F58ED3 /* Frameworks */,
 				C5D8B25821A6E42400F58ED3 /* Resources */,
-				E516083744E4A551AFA90D34 /* [CP] Embed Pods Frameworks */,
 				C562B36B21AB28AD0074F1B6 /* ShellScript */,
+				994A2059FED990D0F264C749 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,46 +367,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05303B352E651B5CC073AD1F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Github Gists Editor-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C562B36B21AB28AD0074F1B6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		E516083744E4A551AFA90D34 /* [CP] Embed Pods Frameworks */ = {
+		994A2059FED990D0F264C749 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -443,6 +415,45 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Github Gists Editor/Pods-Github Gists Editor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C562B36B21AB28AD0074F1B6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C6B5AB0C0515F7F1922E4658 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Github Gists Editor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,6 +480,7 @@
 				C59DB3E221ADBFB60000F25B /* AccountInfoViewController.swift in Sources */,
 				C5E587CF21B0781C003DE4CF /* File.swift in Sources */,
 				C5E7E92B21B804FD00EA6AB2 /* MoyaPrivateFilesEndPoint.swift in Sources */,
+				C5AD1827220F3AC000F1A340 /* AnimationToGistAuthorsVC.swift in Sources */,
 				C567BE9E22034DDE0045512B /* State.swift in Sources */,
 				C59DB3D621ADB02E0000F25B /* GistsAuthorsTableViewCell.swift in Sources */,
 				C5B11BFD21FDE65300329FE7 /* UICollectionViewExtension.swift in Sources */,
@@ -621,7 +633,7 @@
 		};
 		C5D8B26D21A6E42600F58ED3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 041C66C7F5AFF2E1EFAA8443 /* Pods-Github Gists Editor.debug.xcconfig */;
+			baseConfigurationReference = EA463168453498017A8A9C93 /* Pods-Github Gists Editor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -639,7 +651,7 @@
 		};
 		C5D8B26E21A6E42600F58ED3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C05498FF4AEE721CD959686 /* Pods-Github Gists Editor.release.xcconfig */;
+			baseConfigurationReference = AEE1EA9E71D7EABDF8C3D992 /* Pods-Github Gists Editor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

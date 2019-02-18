@@ -16,14 +16,22 @@ class GistsAuthorsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
-
+    
     var passingDeletion: (() -> Void)?
     private var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        avatarImage.layer.cornerRadius = 10
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor,
+                                UIColor.black.withAlphaComponent(1.0).cgColor]
+        //gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = avatarImage.frame
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        avatarImage.layer.insertSublayer(gradientLayer, at: 0)
+        //avatarImage.layer.cornerRadius = 10
         avatarImage.clipsToBounds = true
         
     }
@@ -44,7 +52,7 @@ class GistsAuthorsCollectionViewCell: UICollectionViewCell {
     func deletionButton() {
         let deletingButtonRect = CGRect.init(x: 8, y: 8, width: 20, height: 20)
         let deleteButton = UIButton(frame: deletingButtonRect)
-        deleteButton.setImage(UIImage.init(named: "closeIcon"), for: .normal)
+        deleteButton.setImage(UIImage.init(named: "close"), for: .normal)
         self.addSubview(deleteButton)
         
         deleteButton.rx.tap
