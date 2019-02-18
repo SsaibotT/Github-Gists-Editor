@@ -15,13 +15,18 @@ import Moya
 class GistsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var showInfoView: UIView!
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
+    @IBOutlet weak var dismissPopUp: UIButton!
     
     let moyaProvider = APIProvider.provider()
     
     private var gistsViewModel: GistsAuthorsViewModel!
     private var disposeBag = DisposeBag()
     var isListFlowLayout = true
+    var effect: UIVisualEffect!
     var isPublic: Bool!
+    var ids = [String]()
     
     let animatedTransition = AnimationToGistAuthorsVC()
     
@@ -42,8 +47,13 @@ class GistsViewController: UIViewController {
         choosingTableViewController()
         setupBindings()
         pullToRefresh()
+        dismissPopView()
         
         collectionView.collectionViewLayout = addingListCollectionLayout()
+        
+        effect = blurEffectView.effect
+        blurEffectView.effect = nil
+        showInfoView.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,10 +91,31 @@ class GistsViewController: UIViewController {
                                                                for: indexPath)
                     as? GistsAuthorsListCollectionViewCell else {
                         return UICollectionViewCell()}
-
-                if !self.isPublic {
+                
+                cell.passingAuthorInfo = {
                     
-                    cell.deletionButton()
+                    guard let window = UIApplication.shared.keyWindow else { return }
+                    self.view.insertSubview(self.blurEffectView, at: self.view.subviews.count)
+                    self.view.addSubview(self.showInfoView)
+                    let myCenter = CGPoint(x: window.bounds.midX, y: window.bounds.midY)
+                    self.showInfoView.center = myCenter
+                    
+                    self.showInfoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                    self.showInfoView.alpha = 0
+                    
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.blurEffectView.effect = self.effect
+                        self.showInfoView.alpha = 1.0
+                        self.showInfoView.transform = CGAffineTransform.identity
+                    })
+                }
+                
+                if !self.isPublic {
+                    if !self.ids.contains(item.id) {
+                        cell.deletionButton()
+                        self.ids.append(item.id)                    
+                    }
+
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
@@ -97,7 +128,6 @@ class GistsViewController: UIViewController {
                 return cell
                 
             } else {
-                
                 let cellIdentifier = GistsAuthorsCollectionViewCell.identifier
                 guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                                for: indexPath) as? GistsAuthorsCollectionViewCell else {
@@ -131,6 +161,23 @@ class GistsViewController: UIViewController {
             .subscribe(onNext: { [unowned self] in
                 self.goToChooseFileVC(indexPath: $0)
                 self.collectionView.deselectItem(at: $0, animated: false)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func dismissPopView() {
+        dismissPopUp.rx.tap
+            .asObservable()
+            .subscribe({ [unowned self] (_) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.showInfoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                    self.showInfoView.alpha = 0
+                    
+                    self.blurEffectView.effect = nil
+                }, completion: { (_) in
+                    self.showInfoView.removeFromSuperview()
+                    self.view.insertSubview(self.blurEffectView, at: 0)
+                })
             })
             .disposed(by: disposeBag)
     }
@@ -172,7 +219,6 @@ class GistsViewController: UIViewController {
             .instantiateViewController(withIdentifier: identifier) as? AccountInfoViewController {
             filesVC.hidesBottomBarWhenPushed = true
             filesVC.configurationVC(event: data)
-            //viewController.navigationController?.show(filesVC, sender: viewController)
             filesVC.transitioningDelegate = self
             viewController.present(filesVC, animated: true)
         }

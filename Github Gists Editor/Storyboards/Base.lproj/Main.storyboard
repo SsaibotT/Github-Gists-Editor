@@ -18,9 +18,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-c0-nbs">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="aKc-ZP-vdm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miX-9L-whR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="0Wz-Mr-Q72">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-SP-p2S">
                                 <rect key="frame" x="0.0" y="83" width="375" height="584"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQp-Yj-cOb">
                                     <size key="itemSize" width="165" height="165"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -62,7 +84,7 @@
                         <constraints>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="top" secondItem="yoh-oW-yxZ" secondAttribute="top" id="1pr-ls-uke"/>
                             <constraint firstAttribute="trailing" secondItem="nk3-Xu-w3u" secondAttribute="trailing" id="2TM-fD-4Zw"/>
-                            <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="yoh-oW-yxZ" secondAttribute="bottom" id="6d3-So-dWY"/>
+                            <constraint firstItem="KBx-SP-p2S" firstAttribute="bottom" secondItem="72d-9P-A2w" secondAttribute="bottom" id="6d3-So-dWY"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="KBx-SP-p2S" secondAttribute="leading" id="9hd-fc-ube"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="trailing" secondItem="KBx-SP-p2S" secondAttribute="trailing" id="TyW-vf-52O"/>
                             <constraint firstItem="nk3-Xu-w3u" firstAttribute="leading" secondItem="72d-9P-A2w" secondAttribute="leading" id="kBm-Y5-CBx"/>
@@ -71,10 +93,33 @@
                         <viewLayoutGuide key="safeArea" id="yoh-oW-yxZ"/>
                     </view>
                     <connections>
+                        <outlet property="blurEffectView" destination="UUR-c0-nbs" id="jgR-pj-Ssc"/>
                         <outlet property="collectionView" destination="KBx-SP-p2S" id="LWl-Qw-bRt"/>
+                        <outlet property="dismissPopUp" destination="QAp-CA-JXs" id="sv4-sI-SI0"/>
+                        <outlet property="showInfoView" destination="QHJ-7A-CvF" id="Jtt-nh-3TY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFS-VW-8tP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="QHJ-7A-CvF">
+                    <rect key="frame" x="0.0" y="0.0" width="274" height="154"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Im Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-Ym-zfX">
+                            <rect key="frame" x="107" y="20" width="60" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAp-CA-JXs">
+                            <rect key="frame" x="119" y="104" width="37" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Done"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="wWz-l7-X8f"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1456.8" y="122.78860569715144"/>
         </scene>
