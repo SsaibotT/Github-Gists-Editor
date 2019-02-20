@@ -18,8 +18,6 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var authorInfoButton: UIButton!
     
-    
-    
     var passingDeletion: (() -> Void)?
     var passingAuthorInfo: (() -> Void)?
     private var disposeBag = DisposeBag()
@@ -55,8 +53,8 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
     }
     
     func deletionButton() {
-        let deletingButtonRect = CGRect.init(x: mainView.frame.width - 60,
-                                             y: mainView.frame.height / 2.5,
+        let deletingButtonRect = CGRect.init(x: self.contentView.frame.width - 50,
+                                             y: self.contentView.frame.height / 2.5,
                                              width: 50,
                                              height: 50)
         
