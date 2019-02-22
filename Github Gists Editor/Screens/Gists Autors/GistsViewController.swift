@@ -121,11 +121,6 @@ class GistsViewController: UIViewController {
                 }
                 
                 if !self.isPublic {
-                    if !self.ids.contains(item.id) {
-                        cell.deletionButton()
-                        self.ids.append(item.id)                    
-                    }
-
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
@@ -133,7 +128,10 @@ class GistsViewController: UIViewController {
                         self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
                         self.gistsViewModel.delete(id: id)
                     }
+                } else {
+                    cell.deletionButton.isHidden = true
                 }
+                
                 cell.cellConfiguration(events: item)
                 return cell
                 
