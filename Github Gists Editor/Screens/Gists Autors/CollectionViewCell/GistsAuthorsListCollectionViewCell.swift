@@ -15,10 +15,8 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var filesCountLabel: UILabel!
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var authorInfoButton: UIButton!
-    
-    
+    @IBOutlet weak var deletionButton: UIButton!
     
     var passingDeletion: (() -> Void)?
     var passingAuthorInfo: (() -> Void)?
@@ -30,6 +28,7 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
         avatarImage.layer.cornerRadius = 10
         avatarImage.clipsToBounds = true
         authorInfoButtonTapped()
+        deleteButtonTapped()
     }
     
     func cellConfiguration(events: Event) {
@@ -54,21 +53,12 @@ class GistsAuthorsListCollectionViewCell: UICollectionViewCell {
             .disposed(by: disposeBag)
     }
     
-    func deletionButton() {
-        let deletingButtonRect = CGRect.init(x: mainView.frame.width - 60,
-                                             y: mainView.frame.height / 2.5,
-                                             width: 50,
-                                             height: 50)
-        
-        let deleteButton = UIButton(frame: deletingButtonRect)
-        deleteButton.setImage(UIImage(named: "trash"), for: .normal)
-        self.contentView.addSubview(deleteButton)
-        
-        deleteButton.rx.tap
+    func deleteButtonTapped() {
+        deletionButton.rx.tap
             .asObservable()
-            .subscribe({ [unowned self] (_) in
+            .subscribe ({ [unowned self] (_) in
                 self.passingDeletion?()
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
-
 }

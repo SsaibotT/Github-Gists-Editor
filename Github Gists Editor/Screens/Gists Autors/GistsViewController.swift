@@ -94,16 +94,19 @@ class GistsViewController: UIViewController {
                     as? GistsAuthorsListCollectionViewCell else {
                         return UICollectionViewCell()}
                 
-                cell.passingAuthorInfo = {
+                cell.passingAuthorInfo = { [unowned self] in
                     
                     guard let infoIndexPath = self.collectionView.indexPath(for: cell) else { return }
-                    for file in self.gistsViewModel.authors.value[infoIndexPath.row].files.toArray() {
-                        self.fileNamesLabel.text?.append("\(file.filename) \n")
+
+                    let files = self.gistsViewModel.authors.value[infoIndexPath.row].files.toArray()
+                    let enumeratedNames = files.enumerated().map { (index, element) in
+                        return "\(index + 1): \(element.filename)"
                     }
+                    self.fileNamesLabel.text = enumeratedNames.joined(separator: " \n")
                     
                     guard let window = UIApplication.shared.keyWindow else { return }
                     self.view.insertSubview(self.blurEffectView, at: self.view.subviews.count)
-                    self.view.addSubview(self.showInfoView)
+                    self.view.insertSubview(self.showInfoView, at: self.view.subviews.count)
                     let myCenter = CGPoint(x: window.bounds.midX, y: window.bounds.midY)
                     self.showInfoView.center = myCenter
                     
@@ -118,11 +121,6 @@ class GistsViewController: UIViewController {
                 }
                 
                 if !self.isPublic {
-                    if !self.ids.contains(item.id) {
-                        cell.deletionButton()
-                        self.ids.append(item.id)                    
-                    }
-
                     cell.passingDeletion = {
                         guard let deletingIndexPath = self.collectionView.indexPath(for: cell) else { return }
                         
@@ -130,7 +128,10 @@ class GistsViewController: UIViewController {
                         self.gistsViewModel.deleteRequest(provider: self.moyaProvider, id: id)
                         self.gistsViewModel.delete(id: id)
                     }
+                } else {
+                    cell.deletionButton.isHidden = true
                 }
+                
                 cell.cellConfiguration(events: item)
                 return cell
                 
@@ -182,7 +183,7 @@ class GistsViewController: UIViewController {
                     
                     self.blurEffectView.effect = nil
                 }, completion: { (_) in
-                    self.showInfoView.removeFromSuperview()
+                    self.view.insertSubview(self.showInfoView, at: 0)
                     self.view.insertSubview(self.blurEffectView, at: 0)
                     self.fileNamesLabel.text = ""
                 })
